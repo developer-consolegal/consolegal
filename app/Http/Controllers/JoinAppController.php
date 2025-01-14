@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\JoinApp;
+use App\Http\Traits\SmsTrait;
 
 class JoinAppController extends Controller
 {
@@ -19,10 +20,9 @@ class JoinAppController extends Controller
         if (!$data) {
             return response()->json(["msg" => "Failed to enroll with this number."]);
         }
-
+        SmsTrait::appDownload($req->phone);
         return response()->json(["msg" => "Thank you for showing interest."]);
     }
-
 
     public function index()
     {

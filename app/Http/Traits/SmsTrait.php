@@ -115,4 +115,17 @@ trait SmsTrait
          return ["status" => "issue with phone"];
       }
    }
+   
+   static function appDownload($phone, $name = null)
+   {
+      $link = "https://consolegal.com";
+      try {
+         $response = Http::get("http://nimbusit.info/api/pushsms.php?user=105331&key=010jBy10g4Xk7oeexNEj&sender=CONSLE&mobile={$phone}&text=Download ConsoLegal Beta Version App Now! Access legal help, Consultancy & Compliance on the go! {$link}&entityid=1701163635722697581&templateid=1707173675152629035");
+
+         return $response;
+      } catch (\Throwable $th) {
+         // throw $th;
+         return ["status" => "issue with phone"];
+      }
+   }
 }
