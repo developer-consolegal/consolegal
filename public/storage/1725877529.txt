@@ -1,0 +1,101 @@
+1.  keyboard scrollview hide city, pincode. -----------------
+2.  signup city gradient background hidden. -----------
+3.  order cancel procedure in admin too.
+4.  pencil icon on avatar. ------------
+5.  6 avatars from vibhor adjust on single screen. --------------
+6.  feature of remove notification and reorder in desc sort, font size 2x. -----------
+7.  UI correction notifications      ---------------------
+8.  videos not found text correction. ------------------
+9.  rent history back button to surveillance screen. ------------
+10. duration dropdown size low. ------------
+11. instruction prefilled on recharge again. -> add package ---- proceed. -----------------
+12. payment gateway redirect on purchase package there after instruction page. ------------
+13. instruction is optional. ------------------------
+14. repeat recharge amount prefilled and payment gateway. -----------------
+15. instruction line break while typing. word limit restriction. feedback ----------------
+16. edit service button grey if service has updated twice in a month. ----------
+17. admin panel monthly package routine update notification. -> view-> old and new routine -> acknowledge button -> notification to customer that his routine changed.
+18. time duration round off to higher if 1 min is greater than time selected ---------------
+19. start time to end time ---------------
+20. every button should have touchable opacity. -----------
+21. shrink main highlight so technical highlight visible in first screen. -----------------
+22. font weight and size of product card product name. ---------------
+23. lag issue of count in cart and item found in case from 6 to 5.
+24. pay secure border alignment with gradient. ------------
+25. delivered circle should be filled.  
+26. order detail back to home instead order history. back issue. ---------------
+27. input box cutting horizontally border or shadow. ------------
+28. order id in purchase history card. -----------
+29. unique phone number in emergency contact. ---------------
+30. cursor between Rs and 0. --------------------
+31. twice of the month -> twice a month. -------------
+32. razorpay cancel on add money screen. ---------------
+
+-----------------------------26 june -----------------------------
+
+1. zero accepts before razorpay redirect. --------------
+2. date convert routine error anti-clock ---------------
+3. monthly plan calculation number of hours * no. of days * rate. ---------------
+4. package detail basic details values should be right aligned.  ----------------
+5. special instruction on stop surveillance detail page should be which entered by customer. ------------
+6. close button should be disabled if ticket is solved.  -------------
+7. emergency contact placeholder change to brother, neighbour, friend other ------------------
+8. other button click and scroll to bottom so, focus on text input. ----------
+9. set duration -> schedule end time in stop surv screen. --------------
+10. show start date and time instant after surv purchased on stop surv screen. 
+11. not specified if time is not available stop surv. -------------
+12. grey camera on service page disable all but enable only daily routine & special inst. if edit checkbox checked. -------------
+13. please pick one plan remove. -----------------
+14. shift spec. inst. below and insert plan ending ans left duration to user.-------------
+15. add pack. to proceed -> promp dialogue box edit package. ------------
+16. app icon. ----------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------10 august--------------------------------
+
+1. cart page header and screen background color diff. --------------   ios
+
+2. corelens product cart add diff and outcome diff testing.  -------------------  ios
+
+3. monthly package address not taking default user needed to choose first. ---------------- ios
+
+4. monthly address choose wording change to choose new like current surv. ---------------   ios
+
+5. view all button in product section touchable opacity. -------------------  ios
+
+6. products same page add to cart. ------------------ ios
+
+7. bottom tab navigation cart with count of cart qty. -------------- ios
+
+8. product details screen short description below product name. ----------------  ios
+
+9. proceed checkout gradient same color twice in order it should be diff like home screen. --------------- ios
+
+10. monthly service scroll to address if not choosen and try to start validate.  -------------  ios
+
+11. cancel button is not changes to grey if cancelled once. -------------------  ios
+
+12. schedule end time is not updating. and touchable opacity in schedule end time button.  ---------------- {update time left}
+
+13. notification clear all button.         --------------------------  ios
+
+14. profile edit screen only name and email changable. ------------------ ios
+
+
+
+IOS fixes
+
+1. otp screen keyboard avoidable -------------- ios
+2. help tickets dark shadow --------------- ios

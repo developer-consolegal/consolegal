@@ -1,0 +1,8 @@
+node_modules/
+vendor/
+public/**/*.zip
+public/**/*.pdf
+public/**/*.mp4
+public/storage/**/*.png
+.ovi-knowns/
+Consolegal-master.zip

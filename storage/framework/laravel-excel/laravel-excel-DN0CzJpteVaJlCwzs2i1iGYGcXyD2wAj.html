@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>all orders page</title>
+
+
+   <!-- CSS FILES -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-2/css/all.min.css" integrity="sha512-61a6zi50gYXGgd/n9+ZT2/RKnXr6lkRoWlS88AjFdoUHaIDnyBAcoE0Vs/QDU3lK3nCcUowNDqmQ8WaV0yT4qw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <link rel="stylesheet" href="http://localhost:8000/css/bootstrap.min.css">
+   <link rel="stylesheet" href="http://localhost:8000/css/style.css">
+   <link rel="stylesheet" href="http://localhost:8000/css/style2.css">
+   <link rel="stylesheet" type="text/css" href="http://localhost:8000/css/font-awesome.min.css">
+   <link rel="stylesheet" type="text/css" href="http://localhost:8000/css/fonts.css" />
+
+
+
+
+   <!-- CSS FILES -->
+   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="http://localhost:8000/css/bootstrap.min.css">
+   <link rel="stylesheet" href="http://localhost:8000/css/style.css">
+   <link rel="stylesheet" type="text/css" href="http://localhost:8000/css/font-awesome.min.css">
+   <link rel="stylesheet" type="text/css" href="http://localhost:8000/css/fonts.css" />
+
+
+
+   <link rel="stylesheet" type="text/css" href="http://localhost:8000/css/font-awesome.min.css">
+   <link rel="stylesheet" type="text/css" href="http://localhost:8000/css/fonts.css" />
+   <link rel="stylesheet" type="text/css" href="http://localhost:8000/css/datetimepicker.css" />
+
+
+   <!-- for text editor -->
+   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+   <script src="http://localhost:8000/js/jquery.min.js"></script>
+
+   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+   <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+
+</head>
+
+<body>
+
+   <!--  BEGIN NAVBAR  -->
+<!--  BEGIN NAVBAR  -->
+<div class="header-container fixed-top">
+   <header class="header navbar navbar-expand-sm">
+
+      <ul class="navbar-item theme-brand flex-row  text-center">
+         <li class="nav-item theme-logo">
+            <a href="#">
+               <img src="http://localhost:8000/image/c-logo.jpg">
+            </a>
+         </li>
+         <!-- <li class="nav-item theme-text"> -->
+         <!-- <a href="index.html" class="nav-link"> LOGO </a> -->
+         <!-- </li> -->
+      </ul>
+
+      <!-- <ul class="navbar-item flex-row ml-md-0 ml-auto"> -->
+      <!-- <li class="nav-item align-self-center search-animated"> -->
+      <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search toggle-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> -->
+      <!-- <form class="form-inline search-full form-inline search" role="search"> -->
+      <!-- <div class="search-bar"> -->
+      <!-- <input type="text" class="form-control search-form-control  ml-lg-auto" placeholder="Search..."> -->
+      <!-- </div> -->
+      <!-- </form> -->
+      <!-- </li> -->
+      <!-- </ul> -->
+
+      <ul class="navbar-item flex-row ml-md-auto">
+
+         <li class="nav-item dropdown language-dropdown">
+
+            <!-- <div class="dropdown-menu position-absolute" aria-labelledby="language-dropdown">
+               <a class="dropdown-item d-flex" href="javascript:void(0);"><img src="assets/image/de.png" class="flag-width" alt="flag"> <span class="align-self-center">&nbsp;German</span></a>
+               <a class="dropdown-item d-flex" href="javascript:void(0);"><img src="assets/image/jp.png" class="flag-width" alt="flag"> <span class="align-self-center">&nbsp;Japanese</span></a>
+               <a class="dropdown-item d-flex" href="javascript:void(0);"><img src="assets/image/fr.png" class="flag-width" alt="flag"> <span class="align-self-center">&nbsp;French</span></a>
+               <a class="dropdown-item d-flex" href="javascript:void(0);"><img src="assets/image/ca.png" class="flag-width" alt="flag"> <span class="align-self-center">&nbsp;English</span></a>
+            </div> -->
+         </li>
+
+         <li class="nav-item message-dropdown">
+            <a href="#" class="nav-link">
+               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+               </svg>
+            </a>
+
+         </li>
+
+
+
+         <li class="nav-item dropdown user-profile-dropdown">
+            <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+               <img src="http://localhost:8000/image/user.png" alt="avatar">
+            </a>
+            <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
+               <div class="">
+                  <div class="dropdown-item">
+                     <a class="" href="/admin/signout">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out">
+                           <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                           <polyline points="16 17 21 12 16 7"></polyline>
+                           <line x1="21" y1="12" x2="9" y2="12"></line>
+                        </svg> Sign Out</a>
+                  </div>
+               </div>
+            </div>
+
+         </li>
+
+      </ul>
+   </header>
+</div>
+<!--  END NAVBAR  -->
+
+<!--  BEGIN NAVBAR  -->
+<div class="sub-header-container">
+   <header class="header navbar navbar-expand-sm">
+      <a href="javascript:void(0);" class="sidebarCollapse" data-placement="bottom"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+         </svg></a>
+
+      <ul class="navbar-nav flex-row">
+         <li>
+            <div class="page-header">
+
+               <nav class="breadcrumb-one" aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                     <li class="breadcrumb-item"><a href="javascript:void(0);">Dashboard</a></li>
+                     <!-- <li class="breadcrumb-item active" aria-current="page"><span>Sales</span></li> -->
+                  </ol>
+               </nav>
+
+            </div>
+         </li>
+      </ul>
+      <!-- <ul class="navbar-nav flex-row ml-auto "> -->
+      <!-- <li class="nav-item more-dropdown"> -->
+      <!-- <div class="dropdown  custom-dropdown-icon"> -->
+      <!-- <a class="dropdown-toggle btn" href="#" role="button" id="customDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Settings</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></a> -->
+
+      <!-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="customDropdown"> -->
+      <!-- <a class="dropdown-item" data-value="Settings" href="javascript:void(0);">Settings</a> -->
+      <!-- <a class="dropdown-item" data-value="Mail" href="javascript:void(0);">Mail</a> -->
+      <!-- <a class="dropdown-item" data-value="Print" href="javascript:void(0);">Print</a> -->
+      <!-- <a class="dropdown-item" data-value="Download" href="javascript:void(0);">Download</a> -->
+      <!-- <a class="dropdown-item" data-value="Share" href="javascript:void(0);">Share</a> -->
+      <!-- </div> -->
+      <!-- </div> -->
+      <!-- </li> -->
+      <!-- </ul> -->
+   </header>
+</div>
+<!--  END NAVBAR  --><!--  END NAVBAR  -->
+
+<!--  BEGIN NAVBAR  -->
+<div class="sub-header-container">
+   <header class="header navbar navbar-expand-sm">
+      <a href="javascript:void(0);" class="sidebarCollapse" data-placement="bottom"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+         </svg></a>
+
+      <ul class="navbar-nav flex-row">
+         <li>
+            <div class="page-header">
+
+               <nav class="breadcrumb-one" aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                     <li class="breadcrumb-item"><a href="javascript:void(0);">Dashboard</a></li>
+                  </ol>
+               </nav>
+
+            </div>
+         </li>
+      </ul>
+   </header>
+</div>
+<!--  END NAVBAR  -->
+
+<!--  BEGIN MAIN CONTAINER  -->
+<div class="main-container" id="container">
+
+   <!--  BEGIN SIDEBAR  -->
+   <!--  BEGIN SIDEBAR  -->
+    <div class="sidebar-wrapper sidebar-theme">
+
+       <nav id="sidebar">
+          <ul class="list-unstyled menu-categories ps ps--active-y" id="accordionExample">
+
+
+             <li class="menu">
+                <a href="#leads" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                   <div class="">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
+                         <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                         <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                      </svg>
+                      <span>Lead Manager</span>
+                   </div>
+                   <div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                         <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
+                   </div>
+                </a>
+                <ul class="collapse submenu list-unstyled" id="leads" data-parent="#accordionExample">
+                   <li>
+                      <a href="/admin/dashboard">All Leads</a>
+                   </li>
+                   <li>
+                      <a href="/leads">Add Leads </a>
+                   </li>
+                </ul>
+             </li>
+
+
+             <li class="menu">
+                <a href="#users" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                   <div class="">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users">
+                         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                         <circle cx="9" cy="7" r="4"></circle>
+                         <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                         <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                      </svg>
+                      <span>Forms Creation</span>
+                   </div>
+                   <div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                         <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
+                   </div>
+                </a>
+                <ul class="collapse submenu list-unstyled" id="users" data-parent="#accordionExample">
+                   <li>
+                      <a href="/admin/services/forms/all"> View All Forms </a>
+                   </li>
+                   <li>
+                      <a href="/admin/services/forms/add">Add Forms </a>
+                   </li>
+                   <li>
+                      <a href="/admin/assigned">Assigned Forms </a>
+                   </li>
+                </ul>
+             </li>
+
+
+
+             <li class="menu">
+                <a href="#elements" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                   <div class="">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pie-chart">
+                         <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                         <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+                      </svg>
+                      <span>Orders</span>
+                   </div>
+                   <div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                         <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
+                   </div>
+                </a>
+                <ul class="collapse submenu list-unstyled" id="elements" data-parent="#accordionExample">
+
+                   <li>
+                      <a href="/admin/orders">All Orders </a>
+                   </li>
+
+                   <li>
+                      <a href="/admin/orders/add">Add order </a>
+                   </li>
+
+                   <li>
+                      <a href="/admin/coupons">Manage Coupons</a>
+                   </li>
+
+                </ul>
+             </li>
+
+             <li class="menu">
+                <a href="#services" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                   <div class="">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users">
+                         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                         <circle cx="9" cy="7" r="4"></circle>
+                         <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                         <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                      </svg>
+                      <span>Services</span>
+                   </div>
+                   <div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                         <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
+                   </div>
+                </a>
+                <ul class="collapse submenu list-unstyled" id="services" data-parent="#accordionExample">
+                   <li>
+                      <a href="/admin/services">Add Service/list </a>
+                   </li>
+                   <li>
+                      <a href="/admin/service/manage">Manage service</a>
+                   </li>
+                </ul>
+             </li>
+             
+             <li class="menu">
+                <a href="#career" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                   <div class="">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users">
+                         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                         <circle cx="9" cy="7" r="4"></circle>
+                         <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                         <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                      </svg>
+                      <span>Careers</span>
+                   </div>
+                   <div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                         <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
+                   </div>
+                </a>
+                <ul class="collapse submenu list-unstyled" id="career" data-parent="#accordionExample">
+                   <li>
+                      <a href="http://localhost:8000/admin/career-category">Career Categories</a>
+                   </li>
+                   <li>
+                      <a href="http://localhost:8000/admin/career-category/create">Add Career Category</a>
+                   </li>
+                   <li>
+                      <a href="http://localhost:8000/admin/careers">Careers</a>
+                   </li>
+                </ul>
+             </li>
+
+             <li class="menu">
+                <a href="#authentication" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                   <div class="">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users">
+                         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                         <circle cx="9" cy="7" r="4"></circle>
+                         <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                         <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                      </svg>
+                      <span>User</span>
+                   </div>
+                   <div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                         <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
+                   </div>
+                </a>
+                <ul class="collapse submenu list-unstyled" id="authentication" data-parent="#accordionExample">
+                   <li>
+                      <a href="/admin/users/all"> All User </a>
+                   </li>
+                   <li>
+                      <a href="/admin/franchise/create"> Add Franchise </a>
+                   </li>
+                   <li>
+                      <a href="/admin/franchise/all"> All Franchise </a>
+                   </li>
+                   <li>
+                      <a href="/admin/agents/create"> Add Agent </a>
+                   </li>
+                   <li>
+                      <a href="/admin/agents/all"> All Agent </a>
+                   </li>
+                </ul>
+             </li>
+
+             <li class="menu">
+                <a href="#starter-kit" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                   <div class="">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard">
+                         <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                         <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                      </svg>
+                      <span>Wallet</span>
+                   </div>
+                   <div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                         <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
+                   </div>
+                </a>
+                <ul class="submenu list-unstyled collapse" id="starter-kit" data-parent="#accordionExample" style="">
+                   <li>
+                      <a href="/admin/wallet"> Wallet </a>
+                   </li>
+                </ul>
+             </li>
+
+
+
+             <li class="menu">
+                <a href="#pages" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                   <div class="">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+                         <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                         <polyline points="13 2 13 9 20 9"></polyline>
+                      </svg>
+                      <span>Blog</span>
+                   </div>
+                   <div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                         <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
+                   </div>
+                </a>
+                <ul class="submenu list-unstyled collapse" id="pages" data-parent="#accordionExample" style="">
+                   <li>
+                      <a href="/blogs/add">Add Blog</a>
+                   </li>
+                   <li>
+                      <a href="/blogs">View Blog</a>
+                   </li>
+
+
+                </ul>
+             </li>
+
+
+
+             <!-- <li class="menu">
+                <a href="#authentication1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                   <div class="">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users">
+                         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                         <circle cx="9" cy="7" r="4"></circle>
+                         <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                         <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                      </svg>
+                      <span>Franchise</span>
+                   </div>
+                   <div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                         <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
+                   </div>
+                </a>
+                <ul class="collapse submenu list-unstyled" id="authentication1" data-parent="#accordionExample">
+                   <li>
+                      <a href="/admin/fran/add" target="_blank">Add Franchise </a>
+                   </li>
+                   <li>
+                      <a href="/admin/fran/all" target="_blank">All Franchise </a>
+                   </li>
+
+                </ul>
+             </li> -->
+
+          </ul>
+
+       </nav>
+
+    </div>
+    <!--  END SIDEBAR  -->   <!--  END SIDEBAR  -->
+
+   <!--  BEGIN CONTENT AREA  -->
+   <div id="content" class="main-content">
+
+      <div class="contentl pt-4">
+         <h2 class="titl">All Orders</h2>
+
+<div class="row">
+   <div class="col-6">
+      <a class="btn btn-info btn-xs" href="/admin/orders/add">
+         <span class="glyphicon glyphicon-edit"></span>Add New Order<i class="fa fa-plus pl-3" aria-hidden="true"></i></a>
+   </div>
+   <div class="col-6">
+      <div class="text-right">
+         <a href="http://localhost:8000/admin/orders/export" title="export to excel" class="btn btn-info"><i class="fas fa-file-excel"></i></a>
+      </div>
+   </div>
+
+
+</div>
+      </div>
+
+      <div class="allform-page allorder pt-4">
+
+         <div class="row flex-wrap">
+            <div class="col-md-2 col-6">
+               <div class="dropdown form">
+                  <button onclick="myFunction()" class="dropbtn">Filters</button>
+               </div>
+            </div>
+
+
+            <div class="col-md-6 col-6">
+               <div class="datefrom">
+                  <form action="/action_page.php">
+                     <label for="from">From</label><br>
+                     <input type="datetime-local" id="birthdaytime" name="birthdaytime">
+
+                  </form>
+               </div>
+
+               <div class="dateto">
+                     <form action="/action_page.php">
+                        <label for="to">To</label><br>
+                        <input type="datetime-local" id="birthdaytime" name="birthdaytime">
+
+                     </form>
+               </div>
+
+            </div>
+
+
+            <div class="col-md-3 col-6">
+               <form class="form-inline search-full form-inline search" role="search">
+                  <label>Search</label><br>
+                  <div class="search-bar">
+                     <i class="fa fa-search" aria-hidden="true"></i><input type="text" class="form-control search-form-control  ml-lg-auto" placeholder="Search...">
+                  </div>
+               </form>
+            </div>
+
+
+
+         </div>
+
+
+         <table class="table table-striped custab">
+            <thead>
+               <tr>
+                  <th>Order Id</th>
+                  <th>Client Name</th>
+                  <th>Ordered Products Name</th>
+                  <th>Date & Time</th>
+                  <th>Select Form</th>
+                  <th>Assigned Form</th>
+                  <th class="text-center"> Form Assign</th>
+               </tr>
+            </thead>
+
+                        <tr>
+               <td>93</td>
+               <td>
+                                                                                                                                                                                                                                                                                                                                                                                          <a href="/admin/users/profile?id=18">abhishek</a>
+                                                                                                                                                                                                                                                                                                                                 </td>
+               <td>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <a href="/admin/orders/view/93">New Service</a>
+                                                   </td>
+               <td>2022-08-22 16:35:47</td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="form_id" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </select>
+                  </div>
+               </td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="assigned_forms" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <!-- if not available  -->
+
+
+                     </select>
+                  </div>
+               </td>
+
+               <td class="text-center"><a class="btn btn-info btn-xs assign-btn" data-user-id="18" data-fran-id="" data-order-id=" 93">
+                     <span class="glyphicon glyphicon-edit"></span>Assign</a>
+               </td>
+
+            </tr>
+                        <tr>
+               <td>92</td>
+               <td>
+                                                                                                                                                                                                                                                                                                                                                                                          <a href="/admin/users/profile?id=18">abhishek</a>
+                                                                                                                                                                                                                                                                                                                                 </td>
+               <td>
+                                                      <a href="/admin/orders/view/92">FSSAI Registration</a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </td>
+               <td>2022-08-22 16:19:07</td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="form_id" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                        <option value="21">fixed</option>
+                                                                                                                                                                                                                                                                                                                                                <option value="28">fssai</option>
+                                                                                                                     </select>
+                  </div>
+               </td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="assigned_forms" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <option value="">fixed</option>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <option value="">fixed</option>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <!-- if not available  -->
+
+
+                     </select>
+                  </div>
+               </td>
+
+               <td class="text-center"><a class="btn btn-info btn-xs assign-btn" data-user-id="18" data-fran-id="" data-order-id=" 92">
+                     <span class="glyphicon glyphicon-edit"></span>Assign</a>
+               </td>
+
+            </tr>
+                        <tr>
+               <td>91</td>
+               <td>
+                                                                                                                                                                                                                                                                                                                                                                                                                              <a href="/admin/users/profile?id=19">Abhishek</a>
+                                                                                                                                                                                                                                                                                             </td>
+               <td>
+                                                      <a href="/admin/orders/view/91">FSSAI Registration</a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </td>
+               <td>2022-08-22 16:12:19</td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="form_id" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                        <option value="21">fixed</option>
+                                                                                                                                                                                                                                                                                                                                                <option value="28">fssai</option>
+                                                                                                                     </select>
+                  </div>
+               </td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="assigned_forms" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <option value="">fixed</option>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <!-- if not available  -->
+
+
+                     </select>
+                  </div>
+               </td>
+
+               <td class="text-center"><a class="btn btn-info btn-xs assign-btn" data-user-id="19" data-fran-id="null" data-order-id=" 91">
+                     <span class="glyphicon glyphicon-edit"></span>Assign</a>
+               </td>
+
+            </tr>
+                        <tr>
+               <td>90</td>
+               <td>
+                                                                                                                                                                                                                                                                              <a href="/admin/users/profile?id=15">ankit jha</a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                             </td>
+               <td>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <a href="/admin/orders/view/90">Income Tax Return</a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </td>
+               <td>2022-04-19 22:56:17</td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="form_id" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </select>
+                  </div>
+               </td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="assigned_forms" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <!-- if not available  -->
+
+
+                     </select>
+                  </div>
+               </td>
+
+               <td class="text-center"><a class="btn btn-info btn-xs assign-btn" data-user-id="15" data-fran-id="" data-order-id=" 90">
+                     <span class="glyphicon glyphicon-edit"></span>Assign</a>
+               </td>
+
+            </tr>
+                        <tr>
+               <td>89</td>
+               <td>
+                                                                                                                                                                                                                                                                                                                  <a href="/admin/users/profile?id=16">abhishek</a>
+                                                                                                                                                                                                                                                                                                                                                                                                         </td>
+               <td>
+                                                      <a href="/admin/orders/view/89">FSSAI Registration</a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </td>
+               <td>2022-04-19 22:52:40</td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="form_id" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                        <option value="21">fixed</option>
+                                                                                                                                                                                                                                                                                                                                                <option value="28">fssai</option>
+                                                                                                                     </select>
+                  </div>
+               </td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="assigned_forms" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <!-- if not available  -->
+
+
+                     </select>
+                  </div>
+               </td>
+
+               <td class="text-center"><a class="btn btn-info btn-xs assign-btn" data-user-id="16" data-fran-id="" data-order-id=" 89">
+                     <span class="glyphicon glyphicon-edit"></span>Assign</a>
+               </td>
+
+            </tr>
+                        <tr>
+               <td>88</td>
+               <td>
+                                                      <a href="/admin/users/profile?id=4">First user</a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </td>
+               <td>
+                                                      <a href="/admin/orders/view/88">FSSAI Registration</a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </td>
+               <td>2022-03-26 22:09:00</td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="form_id" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                        <option value="21">fixed</option>
+                                                                                                                                                                                                                                                                                                                                                <option value="28">fssai</option>
+                                                                                                                     </select>
+                  </div>
+               </td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="assigned_forms" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <!-- if not available  -->
+
+
+                     </select>
+                  </div>
+               </td>
+
+               <td class="text-center"><a class="btn btn-info btn-xs assign-btn" data-user-id="4" data-fran-id="" data-order-id=" 88">
+                     <span class="glyphicon glyphicon-edit"></span>Assign</a>
+               </td>
+
+            </tr>
+                        <tr>
+               <td>87</td>
+               <td>
+                                                      <a href="/admin/users/profile?id=4">First user</a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </td>
+               <td>
+                                                      <a href="/admin/orders/view/87">FSSAI Registration</a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </td>
+               <td>2022-01-31 14:08:11</td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="form_id" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                        <option value="21">fixed</option>
+                                                                                                                                                                                                                                                                                                                                                <option value="28">fssai</option>
+                                                                                                                     </select>
+                  </div>
+               </td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="assigned_forms" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <option value="">fixed</option>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <option value="">fixed</option>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <option value="">fssai</option>
+                                                                                                                                                                                                                                                                                                                        <!-- if not available  -->
+
+
+                     </select>
+                  </div>
+               </td>
+
+               <td class="text-center"><a class="btn btn-info btn-xs assign-btn" data-user-id="4" data-fran-id="" data-order-id=" 87">
+                     <span class="glyphicon glyphicon-edit"></span>Assign</a>
+               </td>
+
+            </tr>
+                        <tr>
+               <td>86</td>
+               <td>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </td>
+               <td>
+                                                      <a href="/admin/orders/view/86">FSSAI Registration</a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </td>
+               <td>2022-01-08 14:41:09</td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="form_id" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                        <option value="21">fixed</option>
+                                                                                                                                                                                                                                                                                                                                                <option value="28">fssai</option>
+                                                                                                                     </select>
+                  </div>
+               </td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="assigned_forms" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <option value="">fixed</option>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <!-- if not available  -->
+
+
+                     </select>
+                  </div>
+               </td>
+
+               <td class="text-center"><a class="btn btn-info btn-xs assign-btn" data-user-id="13" data-fran-id="" data-order-id=" 86">
+                     <span class="glyphicon glyphicon-edit"></span>Assign</a>
+               </td>
+
+            </tr>
+                        <tr>
+               <td>85</td>
+               <td>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </td>
+               <td>
+                                                      <a href="/admin/orders/view/85">FSSAI Registration</a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </td>
+               <td>2021-12-29 14:13:41</td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="form_id" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                        <option value="21">fixed</option>
+                                                                                                                                                                                                                                                                                                                                                <option value="28">fssai</option>
+                                                                                                                     </select>
+                  </div>
+               </td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="assigned_forms" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <option value="">fixed</option>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <!-- if not available  -->
+
+
+                     </select>
+                  </div>
+               </td>
+
+               <td class="text-center"><a class="btn btn-info btn-xs assign-btn" data-user-id="13" data-fran-id="" data-order-id=" 85">
+                     <span class="glyphicon glyphicon-edit"></span>Assign</a>
+               </td>
+
+            </tr>
+                        <tr>
+               <td>84</td>
+               <td>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <a href="/admin/franchise/profile?id=4">abhishek kumar</a>
+                                                                                                                                                                                                   </td>
+               <td>
+                                                                                          <a href="/admin/orders/view/84">Shop &amp; Establishment Registration</a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </td>
+               <td>2021-12-27 13:45:32</td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="form_id" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </select>
+                  </div>
+               </td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="assigned_forms" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <!-- if not available  -->
+
+
+                     </select>
+                  </div>
+               </td>
+
+               <td class="text-center"><a class="btn btn-info btn-xs assign-btn" data-user-id="" data-fran-id="4" data-order-id=" 84">
+                     <span class="glyphicon glyphicon-edit"></span>Assign</a>
+               </td>
+
+            </tr>
+                        <tr>
+               <td>83</td>
+               <td>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <a href="/admin/franchise/profile?id=4">abhishek kumar</a>
+                                                                                                                                                                                                   </td>
+               <td>
+                                                                                          <a href="/admin/orders/view/83">Shop &amp; Establishment Registration</a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </td>
+               <td>2021-12-27 13:43:26</td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="form_id" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </select>
+                  </div>
+               </td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="assigned_forms" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <!-- if not available  -->
+
+
+                     </select>
+                  </div>
+               </td>
+
+               <td class="text-center"><a class="btn btn-info btn-xs assign-btn" data-user-id="" data-fran-id="4" data-order-id=" 83">
+                     <span class="glyphicon glyphicon-edit"></span>Assign</a>
+               </td>
+
+            </tr>
+                        <tr>
+               <td>82</td>
+               <td>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <a href="/admin/franchise/profile?id=4">abhishek kumar</a>
+                                                                                                                                                                                                   </td>
+               <td>
+                                                                                          <a href="/admin/orders/view/82">Shop &amp; Establishment Registration</a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </td>
+               <td>2021-12-27 13:42:50</td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="form_id" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </select>
+                  </div>
+               </td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="assigned_forms" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <!-- if not available  -->
+
+
+                     </select>
+                  </div>
+               </td>
+
+               <td class="text-center"><a class="btn btn-info btn-xs assign-btn" data-user-id="" data-fran-id="4" data-order-id=" 82">
+                     <span class="glyphicon glyphicon-edit"></span>Assign</a>
+               </td>
+
+            </tr>
+                        <tr>
+               <td>81</td>
+               <td>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <a href="/admin/franchise/profile?id=4">abhishek kumar</a>
+                                                                                                                                                                                                   </td>
+               <td>
+                                                                                          <a href="/admin/orders/view/81">Shop &amp; Establishment Registration</a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </td>
+               <td>2021-12-27 13:41:50</td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="form_id" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </select>
+                  </div>
+               </td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="assigned_forms" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <!-- if not available  -->
+
+
+                     </select>
+                  </div>
+               </td>
+
+               <td class="text-center"><a class="btn btn-info btn-xs assign-btn" data-user-id="" data-fran-id="4" data-order-id=" 81">
+                     <span class="glyphicon glyphicon-edit"></span>Assign</a>
+               </td>
+
+            </tr>
+                        <tr>
+               <td>80</td>
+               <td>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <a href="/admin/franchise/profile?id=4">abhishek kumar</a>
+                                                                                                                                                                                                   </td>
+               <td>
+                                                                                          <a href="/admin/orders/view/80">Shop &amp; Establishment Registration</a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </td>
+               <td>2021-12-27 13:41:03</td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="form_id" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </select>
+                  </div>
+               </td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="assigned_forms" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <!-- if not available  -->
+
+
+                     </select>
+                  </div>
+               </td>
+
+               <td class="text-center"><a class="btn btn-info btn-xs assign-btn" data-user-id="" data-fran-id="4" data-order-id=" 80">
+                     <span class="glyphicon glyphicon-edit"></span>Assign</a>
+               </td>
+
+            </tr>
+                        <tr>
+               <td>79</td>
+               <td>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <a href="/admin/franchise/profile?id=4">abhishek kumar</a>
+                                                                                                                                                                                                   </td>
+               <td>
+                                                                                          <a href="/admin/orders/view/79">Shop &amp; Establishment Registration</a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </td>
+               <td>2021-12-27 13:40:32</td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="form_id" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </select>
+                  </div>
+               </td>
+               <td class="text-center">
+                  <div class="form-group">
+                     <select class="form-control btn btn-info form-name-select" name="assigned_forms" id="exampleFormControlSelect1">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <!-- if not available  -->
+
+
+                     </select>
+                  </div>
+               </td>
+
+               <td class="text-center"><a class="btn btn-info btn-xs assign-btn" data-user-id="" data-fran-id="4" data-order-id=" 79">
+                     <span class="glyphicon glyphicon-edit"></span>Assign</a>
+               </td>
+
+            </tr>
+            
+         </table>
+         <nav role="navigation" aria-label="Pagination Navigation" class="flex justify-between">
+        
+                    <span class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 rounded-md">
+                &laquo; Previous
+            </span>
+        
+        
+                    <a href="http://localhost:8000/admin/orders/export?page=2" rel="next" class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
+                Next &raquo;
+            </a>
+            </nav>
+
+
+
+      </div>
+
+
+
+
+   </div>
+
+
+
+
+</div>
+<!--  END CONTENT AREA  -->
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js" integrity="sha512-LGXaggshOkD/at6PFNcp2V2unf9LzFq6LE+sChH7ceMTDP0g2kn6Vxwgg7wkPP7AAtX+lmPqPdxB47A0Nz0cMQ==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/datetimepicker.js"></script>
+
+<script type="text/javascript">
+   $(document).ready(function() {
+      $('#picker').dateTimePicker();
+      $('#picker-no-time').dateTimePicker({
+         showTime: false,
+         dateFormat: 'DD/MM/YYYY',
+         title: 'Select Date'
+      });
+   })
+</script>
+
+<script type="text/javascript">
+   $(document).ready(function() {
+      $('#picker1').dateTimePicker();
+      $('#picker-no-time').dateTimePicker({
+         showTime: false,
+         dateFormat: 'DD/MM/YYYY',
+         title: 'Select Date'
+      });
+   })
+</script>
+
+
+<script>
+   // $(document).on("click", ".assign-btn", function() {
+
+   //     let userId = $(this).attr("data-user-id");
+
+   //     // $.ajax({
+   //     //     url:"",
+   //     //     type:"post",
+   //     //     data:{id:userId},
+   //     //     success:function(data){
+   //     //         console.log("success");
+   //     //     }
+   //     // })
+
+
+   //     alert(userId);
+   // });
+
+   $(".assign-btn").click(function() {
+
+      let user_id = $(this).attr("data-user-id");
+      let fran_id = $(this).attr("data-fran-id");
+      let order_id = $(this).attr("data-order-id");
+
+      $(this).html("assigned").css("background", "orange");
+
+      let index = $(this).index();
+      
+      console.log('index', index, 'this',this);
+
+      let formName = $(".form-name-select").eq(index).val();
+
+      $.ajax({
+         url: "/admin/assign",
+         type: "post",
+         data: {
+            id: order_id,
+            user_id: user_id,
+            fran_id: fran_id,
+            form_id: formName
+
+         },
+         success: function(data) {
+            console.log("success");
+
+            $(this).removeClass("assign-btn");
+            $(this).html('Assigned');
+
+            location.reload();
+
+         }
+      })
+
+
+
+   })
+</script>
+
+
+
+   <!-- JS FILES -->
+   <script src="http://localhost:8000/js/summernote-bs4.js"></script>
+   <script src="http://localhost:8000/js/jquery.min.js"></script>
+   <script src="http://localhost:8000/js/bootstrap.min.js"></script>
+   <!-- <script src="http://localhost:8000/js/scripts1.js"></script> -->
+   <script src="http://localhost:8000/js/scripts.js"></script>
+
+
+
+   <!-- new add -->
+
+
+
+   <script src="http://localhost:8000/js/app.js"></script>
+
+   <script>
+      $(document).ready(function() {
+         App.init();
+      });
+   </script>
+
+   <script>
+      function openCity(evt, cityName) {
+         var i, tabcontent, tablinks;
+         tabcontent = document.getElementsByClassName("tabcontent");
+         for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+         }
+         tablinks = document.getElementsByClassName("tablinks");
+         for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+         }
+         document.getElementById(cityName).style.display = "block";
+         evt.currentTarget.className += " active";
+      }
+
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();
+   </script>
+
+   
+
+</body>
+
+</html>
