@@ -14,6 +14,7 @@ use App\Http\Controllers\agents;
 use App\Http\Controllers\CareerCategoryController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\webController;
+use App\Http\Controllers\SeoController;
 
 use App\Http\Controllers\PayController;
 use App\Http\Controllers\CareerController;
@@ -168,6 +169,21 @@ Route::group(['middleware' => 'admin_auth'], function () {
 
    Route::get("/admin/setting", [webController::class, 'setting'])->name('admin.setting.index');
    Route::post("/admin/setting", [webController::class, 'setting_set'])->name('admin.setting.set');
+   
+   
+   // Route::get("/admin/seo", [webController::class, 'seo'])->name('admin.seo.index');
+   // Route::get("/admin/seo/create", [webController::class, 'seo'])->name('admin.seo.create');
+   // Route::post("/admin/seo", [webController::class, 'seo_set'])->name('admin.seo.set');
+
+   Route::resource('/admin/seo', SeoController::class);
+
+
+
+   Route::get("/admin/marquee", [webController::class, 'marquee'])->name('admin.marquee.index');
+   Route::post("/admin/marquee/{id?}", [webController::class, 'marquee_set'])->name('admin.marquee.set');
+
+   Route::get("/admin/welcome-banner", [webController::class, 'welcome_banner'])->name('admin.welcome_banner.index');
+   Route::post("/admin/welcome-banner/{id?}", [webController::class, 'welcome_banner_set'])->name('admin.welcome_banner.set');
 
    Route::get("/admin/dashboard", [admin::class, 'dashboard'])->name('admin.dashboard.index');
 

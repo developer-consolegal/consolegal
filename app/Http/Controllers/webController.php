@@ -22,6 +22,8 @@ use App\Models\tabs_content;
 use App\Models\form_submit;
 use App\Models\service_done;
 use App\Models\email_subscribe;
+use App\Models\Marquee;
+use App\Models\WelcomeBanner;
 use App\Models\Frans;
 use App\Models\User;
 use App\Models\Order;
@@ -35,8 +37,9 @@ class webController extends Controller
     function index()
     {
         $data = Blogs::all();
+        $marquee = Marquee::where("active", 1)->get();
 
-        return view("web.index", ['blogs'  => $data]);
+        return view("web.index", ['blogs'  => $data, "marquee" => $marquee]);
     }
 
 
@@ -101,6 +104,54 @@ class webController extends Controller
         $data = json_decode($data);
         return view("settings", compact('data'));
     }
+   
+    function marquee()
+    {
+        $data = Marquee::first();
+
+        return view("marquee", compact('data'));
+    }
+    
+    function marquee_set(Request $req, $id)
+    {
+        $data = Marquee::first();
+
+        // return $req->all();
+        $validated = $req->validate([
+            'label' => 'required',
+            'active' => 'required'
+        ]);
+
+        if(isset($id)){
+            $data->update($validated);
+            return redirect()->route('admin.marquee.index')->with('success', "Marquee changes saved");
+        }
+        return redirect()->route('admin.marquee.index')->with('success', "Marquee changes saved");
+    }
+    
+    function welcome_banner()
+    {
+        $data = WelcomeBanner::first();
+
+        return view("WelcomeBanner", compact('data'));
+    }
+    
+    function welcome_banner_set(Request $req, $id)
+    {
+        $data = WelcomeBanner::first();
+
+        // return $req->all();
+        $validated = $req->validate([
+            'url' => 'required',
+            'active' => 'required'
+        ]);
+
+        if(isset($id)){
+            $data->update($validated);
+            return redirect()->route('admin.marquee.index')->with('success', "Marquee changes saved");
+        }
+        return redirect()->route('admin.marquee.index')->with('success', "Marquee changes saved");
+    }
 
     function setting_set(Request $req)
     {
@@ -117,8 +168,6 @@ class webController extends Controller
 
         return redirect()->route("admin.setting.index")->withSuccess("Settings are updated.");
     }
-
-
 
 
     private function refreshConfigCache()

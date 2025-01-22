@@ -24,6 +24,17 @@ class services extends Model
     public function getAvatarAttribute(){
         return asset("image/$this->icon");
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saving(function ($post) {
+            if (empty($post->slug)) {
+                $post->slug = Str::slug($post->title, '-');
+            }
+        });
+    }
     
     
 }

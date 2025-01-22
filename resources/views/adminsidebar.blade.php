@@ -341,6 +341,40 @@
                    <li>
                       <a href="{{route('admin.setting.index')}}">Mail</a>
                    </li>
+                   <li>
+                      <a href="{{route('seo.index')}}">Seo</a>
+                   </li>
+                   <li>
+                      <a href="{{route('admin.marquee.index')}}">Marquee</a>
+                   </li>
+                   <li>
+                      <a href="{{route('admin.welcome_banner.index')}}">Welcome Banner</a>
+                   </li>
+                </ul>
+             </li>
+             
+             <li class="menu">
+                <a href="#appcontrol" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                   <div class="">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+                         <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                         <polyline points="13 2 13 9 20 9"></polyline>
+                      </svg>
+                      <span>App Control</span>
+                   </div>
+                   <div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                         <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
+                   </div>
+                </a>
+                <ul class="submenu list-unstyled collapse" id="appcontrol" data-parent="#accordionExample" style="">
+                   <li>
+                      <a href="{{route('admin.setting.index')}}">Slider</a>
+                   </li>
+                   <li>
+                      <a href="{{route('seo.index')}}">Banners</a>
+                   </li>
                 </ul>
              </li>
 

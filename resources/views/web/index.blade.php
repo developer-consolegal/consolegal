@@ -31,11 +31,13 @@
 @section('content')
 
 
-<div class="container-fluid py-2 bg-danger">
+@if(isset($marquee) && count($marquee) > 0)
+<div class="container-fluid py-2 bg-danger overflow-hidden">
    <div class="scrolling-text text-white">
-      A private limited company, or LTD, is a type of privately held small business entity. - LLP is an alternative corporate business form that gives the benefits of limited liability of a company and the flexibility of a partnership. - A sole proprietorship is the simplest and most common structure chosen to start a business. - Nidhi Company works with the objective of increasing savings of its members.
+      {{$marquee[0]->label}}
    </div>
 </div>
+@endif
 <!---------- header  ------------>
 <header class="mx-0 ">
    <div class="row main-row mx-auto h-100">

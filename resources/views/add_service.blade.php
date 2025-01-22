@@ -11,7 +11,10 @@
 <!--  BEGIN NAVBAR  -->
 <div class="sub-header-container">
    <header class="header navbar navbar-expand-sm">
-      <a href="javascript:void(0);" class="sidebarCollapse" data-placement="bottom"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+      <a href="javascript:void(0);" class="sidebarCollapse" data-placement="bottom"><svg
+            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-menu">
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -65,32 +68,30 @@
 
          <div class="row">
             <div class="col-md-7" role="tab" id="headingOne10">
-                
+
                <label for="fname">Title</label><br>
-               <textarea rows="3" name="name" id="name" cols="60" placeholder="Title...">@if(isset($service_id)){{$service_id->name}}@endif</textarea><br>
-                    
-               <br/>
-               
-              
+               <textarea rows="3" name="name" id="name" cols="60"
+                  placeholder="Title...">@if(isset($service_id)){{$service_id->name}}@endif</textarea><br>
+
+               <br />
+
+
                <label for="icon">Icon</label><br>
-               
+
                <input type="file" name="icon" id="icon" accept="image/*" required class="form-control">
-                @if(isset($service_id))
-               <img id="preview" src="{{strlen($service_id->icon) > 0 ? $service_id->avatar : '404image.png'}}" 
-               style="width:120px; aspect-ratio:4/3; object-fit:contain;"
-               onerror="this.onerror=null; this.src='https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/placeholder-image.png';"
-               @else
-               <img id="preview" src="404image.png"
-               style="width:120px; aspect-ratio:4/3; object-fit:contain;"
-               onerror="this.onerror=null; this.src='https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/placeholder-image.png';"
-               @endif
-              
-              <br />
-              <br />
-               
+               @if(isset($service_id))
+               <img id="preview" src="{{strlen($service_id->icon) > 0 ? $service_id->avatar : '404image.png'}}"
+                  style="width:120px; aspect-ratio:4/3; object-fit:contain;"
+                  onerror="this.onerror=null; this.src='https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/placeholder-image.png';"
+                  @else <img id="preview" src="404image.png" style="width:120px; aspect-ratio:4/3; object-fit:contain;"
+                  onerror="this.onerror=null; this.src='https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/placeholder-image.png';"
+                  @endif <br />
+               <br />
+
                <label for="fname" class="mt-4">Description</label><br>
                <!-- <div id="summernote"></div> -->
-               <textarea id="summernote" name="description" rows="6" cols="70" placeholder="Description...">@if(isset($service_id)){{$service_id->description}}@endif</textarea>
+               <textarea id="summernote" name="description" rows="6" cols="70"
+                  placeholder="Description...">@if(isset($service_id)){{$service_id->description}}@endif</textarea>
                <!-- <input type="button" id="btnValue" value="Get Value" />   -->
                <!-- <div id="divkarea"></div> -->
 
@@ -136,6 +137,36 @@
 
             <div class="col-md-5">
                <div class="action">
+                  <h6>SEO</h6>
+                  </select>
+                     @csrf
+                     <div class="saveall pl-3">
+                        @if(isset($service_id))
+                        @php($slug = $service_id->slug)
+                        @else
+                        @php($slug = '')
+                        @endif
+                        <label for="slug">Slug:</label><br>
+                        <input type="text" class="w-75" id="slug" name="slug" value="{{$slug}}" placeholder=""><br>
+                        <br>
+                        @if(isset($service_id))
+                        @php($meta_title = $service_id->meta_title)
+                        @else
+                        @php($meta_title = '')
+                        @endif
+                        <label for="meta_title">Meta Title:</label><br>
+                        <input type="text" class="w-75" id="meta_title" name="meta_title" value="{{$meta_title}}" placeholder=""><br>
+                        <br>
+                        @if(isset($service_id))
+                        @php($meta_description = $service_id->meta_description)
+                        @else
+                        @php($meta_description = '')
+                        @endif
+                        <label for="meta_description">Meta Description:</label><br>
+                        <textarea type="text" rows="6" class="w-75" id="meta_description" name="meta_description" value="{{$meta_description}}" placeholder=""></textarea>
+                     </div>
+               </div>
+               <div class="action">
                   <h6>Save Field</h6>
                   </select>
                   <form class="saveall pl-3" id="service-form">
@@ -144,12 +175,18 @@
                         <div class="">
                            <label for="category" class="form-label">Category</label> <br>
                            <select name="category" class="form-control w-75" id="category">
-                              <option {{isset($service_id) && $service_id->category == 'incorporation' ? 'selected' : '' }} value="incorporation">Incorporation</option>
-                              <option {{isset($service_id) && $service_id->category == 'registration' ? 'selected' : '' }} value="registration">Registration</option>
-                              <option {{isset($service_id) && $service_id->category == 'tax-gst' ? 'selected' : '' }} value="tax-gst">Tax/GST</option>
-                              <option {{ isset($service_id) && $service_id->category == 'compliance' ? 'selected' : '' }} value="compliance">Compliance</option>
-                              <option {{isset($service_id) && $service_id->category == 'others' ? 'selected' : '' }} value="others">Others</option>
-                              <option {{isset($service_id) && $service_id->category == 'private' ? 'selected' : '' }} value="private">Private</option>
+                              <option {{isset($service_id) && $service_id->category == 'incorporation' ? 'selected' : ''
+                                 }} value="incorporation">Incorporation</option>
+                              <option {{isset($service_id) && $service_id->category == 'registration' ? 'selected' : ''
+                                 }} value="registration">Registration</option>
+                              <option {{isset($service_id) && $service_id->category == 'tax-gst' ? 'selected' : '' }}
+                                 value="tax-gst">Tax/GST</option>
+                              <option {{ isset($service_id) && $service_id->category == 'compliance' ? 'selected' : ''
+                                 }} value="compliance">Compliance</option>
+                              <option {{isset($service_id) && $service_id->category == 'others' ? 'selected' : '' }}
+                                 value="others">Others</option>
+                              <option {{isset($service_id) && $service_id->category == 'private' ? 'selected' : '' }}
+                                 value="private">Private</option>
                            </select>
                         </div>
                         <br>
@@ -187,9 +224,7 @@
                         @endif
                         <label for="fname">fran_Royalty Points:</label><br>
                         <input type="text" id="f_point" name="f_point" placeholder="₹" value="{{$f_point}}"><br>
-                        <br>
-
-
+                        <br>                    
                         <input type="button" class="btn btn-xs btn-info rounded-0" value="Save" id="save-all-btn">
                         <br><br>
                         <p id="notify"></p>
@@ -514,7 +549,7 @@
    count = count.length;
 
    let nos = count;
-   $(document).on("click", "#add-product", function() {
+   $(document).on("click", "#add-product", function () {
 
       nos++;
 
@@ -551,7 +586,7 @@
          }
       });
 
-    //   console.log(subHeadForm + tabsForm + "true");
+      //   console.log(subHeadForm + tabsForm + "true");
       // console.log(formData2);
 
       // proceed to next form if first successful 
@@ -559,6 +594,7 @@
 
 
       let name = $("[name=name]").val();
+      let slug = $("[name=slug]").val();
       let price = $("[name=price]").val();
       let points = $("[name=points]").val();
       let f_price = $("[name=f_price]").val();
@@ -568,7 +604,7 @@
       let description = $("[name=description]").val();
       let category = $("[name=category]").val();
       let id = $("[name=service_id]").val();
-      
+
       let ServiceFormData = new FormData();
       ServiceFormData.append('name', name);
       ServiceFormData.append('price', price);
@@ -578,11 +614,11 @@
       ServiceFormData.append('description', description);
       ServiceFormData.append('category', category);
       ServiceFormData.append('id', id);
-      
-      if($('#icon')[0].files[0]?.name){
+
+      if ($('#icon')[0].files[0]?.name) {
          ServiceFormData.append('icon', $('#icon')[0].files[0].name);
       }
-      
+
 
 
       // if (name && price && points && description && category) {
@@ -596,7 +632,7 @@
             processData: false,
             data: ServiceFormData,
             enctype: 'multipart/form-data',
-            success: function(data) {
+            success: function (data) {
                if (data.status == 'success') {
 
                   $("[name=service_id]").val(data.data.id);
@@ -611,7 +647,7 @@
                      url: "/admin/services/sub",
                      type: "post",
                      data: formData1,
-                     success: function(data) {
+                     success: function (data) {
                         console.log(data);
 
                         $("#save-all-btn").val('please wait..');
@@ -623,7 +659,7 @@
                            url: "/admin/services/tabs",
                            type: "post",
                            data: formData2,
-                           success: function(data) {
+                           success: function (data) {
                               console.log(data);
 
                               $("#save-all-btn").val('Success');
@@ -631,14 +667,14 @@
 
 
                            },
-                           complete: function() {
+                           complete: function () {
                               $("#save-all-btn").val('Save');
 
                               $("#notify").html('Service inserted successfully').addClass('text-success');
 
                               location.href = "/admin/service/manage";
                            },
-                           error: function() {
+                           error: function () {
                               $("#save-all-btn").val('failed');
                               $("#notify").html('Service failed to insert ! Try again').addClass('text-danger');
                            }
@@ -648,7 +684,7 @@
 
 
                      },
-                     error: function() {
+                     error: function () {
                         alert("failed to send sub head request")
                      }
                   })
@@ -660,10 +696,10 @@
                   $("#notify").html('Service failed to insert ! Try again').addClass('text-danger');
                }
             },
-            complete: function() {
+            complete: function () {
                // $("#save-all-btn").val('Save');
             },
-            error: function(jqXHR, exception) {
+            error: function (jqXHR, exception) {
 
                // console.log(jqXHR)
                // console.log(exception)
@@ -680,39 +716,39 @@
 
 
    })
-   
+
 </script>
 <script>
-        // Get references to the input and image elements
-        const fileInput = document.getElementById('icon');
-        const previewImage = document.getElementById('preview');
+   // Get references to the input and image elements
+   const fileInput = document.getElementById('icon');
+   const previewImage = document.getElementById('preview');
 
-        // Add an event listener to the file input to detect changes
-        fileInput.addEventListener('change', function() {
-            // Get the selected file from the input element
-            const selectedFile = fileInput.files[0];
-            
-            window.selected = selectedFile
-            console.log(selected)
+   // Add an event listener to the file input to detect changes
+   fileInput.addEventListener('change', function () {
+      // Get the selected file from the input element
+      const selectedFile = fileInput.files[0];
 
-            if (selectedFile) {
-                // Create a FileReader object to read the file
-                const reader = new FileReader();
+      window.selected = selectedFile
+      console.log(selected)
 
-                // Set up the FileReader to handle the file's data
-                reader.onload = function(event) {
-                    // Set the src attribute of the image to the data URL of the selected file
-                    previewImage.src = event.target.result;
-                };
+      if (selectedFile) {
+         // Create a FileReader object to read the file
+         const reader = new FileReader();
 
-                // Read the selected file as a data URL
-                reader.readAsDataURL(selectedFile);
-            } else {
-                // If no file is selected or if the selection is cancelled, set the image src to a placeholder or clear it
-                previewImage.src = '#'; // Replace '#' with the path to your placeholder image or leave it empty to clear the image
-            }
-        });
-    </script>
+         // Set up the FileReader to handle the file's data
+         reader.onload = function (event) {
+            // Set the src attribute of the image to the data URL of the selected file
+            previewImage.src = event.target.result;
+         };
+
+         // Read the selected file as a data URL
+         reader.readAsDataURL(selectedFile);
+      } else {
+         // If no file is selected or if the selection is cancelled, set the image src to a placeholder or clear it
+         previewImage.src = '#'; // Replace '#' with the path to your placeholder image or leave it empty to clear the image
+      }
+   });
+</script>
 
 
 
