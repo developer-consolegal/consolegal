@@ -1,4 +1,4 @@
-<section class="my-5 " id="testimonial">
+<section class="my-5" id="testimonial">
    <h2 class="text-center main-title">What Our Clients Says</h2>
    <div class="swiper-container-testimonial ">
       <div class="swiper-wrapper">

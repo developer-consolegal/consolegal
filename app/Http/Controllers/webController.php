@@ -38,8 +38,9 @@ class webController extends Controller
     {
         $data = Blogs::all();
         $marquee = Marquee::where("active", 1)->get();
+        $banner = WelcomeBanner::where("active", 1)->first();
 
-        return view("web.index", ['blogs'  => $data, "marquee" => $marquee]);
+        return view("web.index", ['blogs'  => $data, "marquee" => $marquee, "banner" => $banner]);
     }
 
 
@@ -119,30 +120,6 @@ class webController extends Controller
         // return $req->all();
         $validated = $req->validate([
             'label' => 'required',
-            'active' => 'required'
-        ]);
-
-        if(isset($id)){
-            $data->update($validated);
-            return redirect()->route('admin.marquee.index')->with('success', "Marquee changes saved");
-        }
-        return redirect()->route('admin.marquee.index')->with('success', "Marquee changes saved");
-    }
-    
-    function welcome_banner()
-    {
-        $data = WelcomeBanner::first();
-
-        return view("WelcomeBanner", compact('data'));
-    }
-    
-    function welcome_banner_set(Request $req, $id)
-    {
-        $data = WelcomeBanner::first();
-
-        // return $req->all();
-        $validated = $req->validate([
-            'url' => 'required',
             'active' => 'required'
         ]);
 

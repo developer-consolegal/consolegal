@@ -1,7 +1,9 @@
 @extends("layouts.web")
 
-@section('title','Contact | Consolegal')
-@section('description','Contact Us | mail@consolegal.com')
+{{-- @section('title','Contact | Consolegal')
+@section('description','Contact Us | mail@consolegal.com') --}}
+<x-seo page="{{ 'contact' }}" />
+
 
 @section('content')
 

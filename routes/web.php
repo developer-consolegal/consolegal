@@ -15,6 +15,13 @@ use App\Http\Controllers\CareerCategoryController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\webController;
 use App\Http\Controllers\SeoController;
+use App\Http\Controllers\WelcomeBannerController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\UpdateController;
+use App\Http\Controllers\TeamMemberController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\EventController;
+
 
 use App\Http\Controllers\PayController;
 use App\Http\Controllers\CareerController;
@@ -178,12 +185,20 @@ Route::group(['middleware' => 'admin_auth'], function () {
    Route::resource('/admin/seo', SeoController::class);
 
 
-
    Route::get("/admin/marquee", [webController::class, 'marquee'])->name('admin.marquee.index');
    Route::post("/admin/marquee/{id?}", [webController::class, 'marquee_set'])->name('admin.marquee.set');
 
-   Route::get("/admin/welcome-banner", [webController::class, 'welcome_banner'])->name('admin.welcome_banner.index');
-   Route::post("/admin/welcome-banner/{id?}", [webController::class, 'welcome_banner_set'])->name('admin.welcome_banner.set');
+   Route::get('/admin/welcome-banner', [WelcomeBannerController::class, 'index'])->name('welcome_banner.index');
+   Route::post('/admin/welcome-banner', [WelcomeBannerController::class, 'storeOrUpdate'])->name('welcome_banner.storeOrUpdate');
+   Route::delete('/admin/welcome-banner', [WelcomeBannerController::class, 'destroy'])->name('welcome_banner.destroy');
+
+   Route::resource('/admin/news', NewsController::class);
+   Route::resource('/admin/updates', UpdateController::class);
+
+   Route::resource('/admin/team', TeamMemberController::class);
+   Route::resource('/admin/gallery', GalleryController::class)->except(['edit', 'update', 'show']);
+   Route::resource('events', EventController::class)->except(['edit', 'update', 'show']);
+
 
    Route::get("/admin/dashboard", [admin::class, 'dashboard'])->name('admin.dashboard.index');
 

@@ -1,12 +1,13 @@
 @extends("layouts.web")
 
-@section('title','Health Insurance | Consolegal')
+{{-- @section('title','Health Insurance | Consolegal')
 @section('description',"Healthcare expenditures have risen rapidly in recent years, and with the prospect of a coronavirus 
      pandemic, medical care has become critical. A health insurance plan is essential for managing 
      healthcare costs since it provides financial protection in the event of a medical emergency. 
      There are a number of insurance policies to choose from depending on your needs. 
      Treatment expenditures have risen dramatically in tandem with the rise in health-related 
-     difficulties.")
+     difficulties.") --}}
+<x-seo page="{{ 'health-insurance' }}" />
 
 @section('content')
 

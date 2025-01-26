@@ -64,20 +64,24 @@
             </div>
             <div class="form-group">
                <label>Page<span class="text-danger">*</span></label>
-               <select class="form-control" name="page" value="{{$seo->page}}" required>
-                   <option value="home">Home</option>
-                   <option value="about">About</option>
-                   <option value="tnc">Term & Condition</option>
-                   <option value="privacy">Privacy Policy</option>
-                   <option value="blog">Blog</option>
-                   <option value="personal-loan">Personal Loan</option>
-                   <option value="motor-loan">Motor Loan</option>
-                   <option value="home-loan">Home Loan</option>
-                   <option value="business-loan">Business Loan</option>
-                   <option value="life-insurance">Life Insurance</option>
-                   <option value="travel-insurance">Travel Insurance</option>
-                   <option value="health-insurance">Health Insurance</option>
-                   <option value="car-insurance">Car Insurance</option>
+               <select class="form-control" name="page" required>
+                   <option value="home" {{optional($seo)->page == 'home' ? 'selected' : '' }}>Home</option>
+                   <option value="about" {{optional($seo)->page == 'about' ? 'selected' : '' }}>About</option>
+                   <option value="personal-loan" {{optional($seo)->page == 'personal-loan' ? 'selected' : '' }}>Personal Loan</option>
+                   <option value="car-loan" {{optional($seo)->page == 'car-loan' ? 'selected' : '' }}>Car Loan</option>
+                   <option value="home-loan" {{optional($seo)->page == 'home-loan' ? 'selected' : '' }}>Home Loan</option>
+                   <option value="business-loan" {{optional($seo)->page == 'business-loan' ? 'selected' : ''}}>Business Loan</option>
+                   <option value="life-insurance" {{optional($seo)->page == 'life-insurance' ? 'selected' : '' }}>Life Insurance</option>
+                   <option value="travel-insurance" {{optional($seo)->page == 'travel-insurance' ? 'selected' : '' }}>Travel Insurance</option>
+                   <option value="health-insurance" {{optional($seo)->page == 'health-insurance' ? 'selected' : '' }}>Health Insurance</option>
+                   <option value="motor-insurance" {{optional($seo)->page == 'motor-insurance' ? 'selected' : '' }}>Motor Insurance</option>
+                   <option value="contact" {{optional($seo)->page == 'contact' ? 'selected' : '' }}>Contact</option>
+                   <option value="blog" {{optional($seo)->page == 'blog' ? 'selected' : '' }}>Blog</option>
+                   <option value="career" {{optional($seo)->page == 'career' ? 'selected' : '' }}>Career</option>
+                   <option value="tnc" {{optional($seo)->page == 'tnc' ? 'selected' : '' }}>Term & Condition</option>
+                   <option value="privacy" {{optional($seo)->page == 'privacy' ? 'selected' : '' }}>Privacy Policy</option>
+                   <option value="refund" {{optional($seo)->page == 'refund' ? 'selected' : '' }}>Refund Policy</option>
+                   <option value="paynow" {{optional($seo)->page == 'paynow' ? 'selected' : '' }}>Pay Now</option>
                </select>
             </div>
 

@@ -1,3 +1,5 @@
+
+
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-nav sticky-top flex-column" id="navbarWeb">
    <div class="container-fluid px-3 border-bottom-md">
       <a class="navbar-brand" href="/"><img src="{{ asset('web/image/logo.jpeg')}}" alt="" width="auto"
@@ -114,14 +116,24 @@
                      <li><a class="dropdown-item" href="/blogpage">Blogs</a></li>
                      <li><a class="dropdown-item" href="/contact">Contact Us</a></li>
                      <li><a class="dropdown-item" href="{{route('career')}}">Career</a></li>
-                     <li><a class="dropdown-item" href="/insurance/life">Life Insurance</a></li>
-                     <li><a class="dropdown-item" href="/insurance/health">Health Insurance</a></li>
-                     <li><a class="dropdown-item" href="/insurance/travel">Travel Insurance</a></li>
-                     <li><a class="dropdown-item" href="/insurance/motor">Motor Insurance</a></li>
-                     <li><a class="dropdown-item" href="/loan/personal">Personal Loan</a></li>
-                     <li><a class="dropdown-item" href="/loan/business">Business Loan</a></li>
-                     <li><a class="dropdown-item" href="/loan/home">Home Loan</a></li>
-                     <li><a class="dropdown-item" href="/loan/car">Car Loan</a></li>
+                     <li class="dropdown-submenu">
+                        <a class="dropdown-item dropdown-toggle" href="#">Insurance <i class="fas fa-chevron-down text-small"></i></a>
+                        <ul class="dropdown-menu toggle">
+                           <li><a class="dropdown-item" href="/insurance/life">Life Insurance</a></li>
+                           <li><a class="dropdown-item" href="/insurance/health">Health Insurance</a></li>
+                           <li><a class="dropdown-item" href="/insurance/travel">Travel Insurance</a></li>
+                           <li><a class="dropdown-item" href="/insurance/motor">Motor Insurance</a></li>
+                        </ul>
+                     </li>
+                     <li class="dropdown-submenu">
+                        <a class="dropdown-item dropdown-toggle" href="#">Loan <i class="fas fa-chevron-down text-small"></i></a>
+                        <ul class="dropdown-menu toggle">
+                           <li><a class="dropdown-item" href="/loan/personal">Personal Loan</a></li>
+                           <li><a class="dropdown-item" href="/loan/business">Business Loan</a></li>
+                           <li><a class="dropdown-item" href="/loan/home">Home Loan</a></li>
+                           <li><a class="dropdown-item" href="/loan/car">Car Loan</a></li>
+                        </ul>
+                     </li>
                   </ul>
                </li>
             </ul>
@@ -151,7 +163,7 @@
                   <div class="dropdown">
                      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="login-btn"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-sign-in-alt"></i>  Login
+                        <i class="fas fa-sign-in-alt"></i> Login
                      </a>
 
                      <ul class="dropdown-menu" aria-labelledby="login-btn">
@@ -238,29 +250,6 @@
             </ul>
          </li>
 
-         <!-- <li class=" nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-               Insurance
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-               <li><a class="dropdown-item" href="/insurance/life">Life Insurance</a></li>
-               <li><a class="dropdown-item" href="/insurance/health">Health Insurance</a></li>
-               <li><a class="dropdown-item" href="/insurance/travel">Travel Insurance</a></li>
-               <li><a class="dropdown-item" href="/insurance/motor">Motor Insurance</a></li>
-            </ul>
-         </li> -->
-         <!-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-               Loan
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-               <li><a class="dropdown-item" href="/loan/personal">Personal Loan</a></li>
-               <li><a class="dropdown-item" href="/loan/business">Business Loan</a></li>
-               <li><a class="dropdown-item" href="/loan/home">Home Loan</a></li>
-               <li><a class="dropdown-item" href="/loan/car">Car Loan</a></li>
-            </ul>
-         </li> -->
-
          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                aria-expanded="false">
@@ -271,16 +260,24 @@
                <li><a class="dropdown-item" href="/blogpage">Blogs</a></li>
                <li><a class="dropdown-item" href="/contact">Contact</a></li>
                <li><a class="dropdown-item" href="{{route('career')}}">Career</a></li>
-               <hr class="my-1 text-dark" style="height:1px;" />
-               <li><a class="dropdown-item" href="/insurance/life">Life Insurance</a></li>
-               <li><a class="dropdown-item" href="/insurance/health">Health Insurance</a></li>
-               <li><a class="dropdown-item" href="/insurance/travel">Travel Insurance</a></li>
-               <li><a class="dropdown-item" href="/insurance/motor">Motor Insurance</a></li>
-               <hr class="my-1 text-dark" style="height:1px;" />
-               <li><a class="dropdown-item" href="/loan/personal">Personal Loan</a></li>
-               <li><a class="dropdown-item" href="/loan/business">Business Loan</a></li>
-               <li><a class="dropdown-item" href="/loan/home">Home Loan</a></li>
-               <li><a class="dropdown-item" href="/loan/car">Car Loan</a></li>
+               <li class="dropdown-submenu">
+                  <a class="dropdown-item dropdown-toggle" href="#">Insurance <i class="fas fa-chevron-down text-small"></i></a>
+                  <ul class="dropdown-menu toggle">
+                     <li><a class="dropdown-item" href="/insurance/life">Life Insurance</a></li>
+                     <li><a class="dropdown-item" href="/insurance/health">Health Insurance</a></li>
+                     <li><a class="dropdown-item" href="/insurance/travel">Travel Insurance</a></li>
+                     <li><a class="dropdown-item" href="/insurance/motor">Motor Insurance</a></li>
+                  </ul>
+               </li>
+               <li class="dropdown-submenu">
+                  <a class="dropdown-item dropdown-toggle" href="#">Loan <i class="fas fa-chevron-down text-small"></i></a>
+                  <ul class="dropdown-menu toggle">
+                     <li><a class="dropdown-item" href="/loan/personal">Personal Loan</a></li>
+                     <li><a class="dropdown-item" href="/loan/business">Business Loan</a></li>
+                     <li><a class="dropdown-item" href="/loan/home">Home Loan</a></li>
+                     <li><a class="dropdown-item" href="/loan/car">Car Loan</a></li>
+                  </ul>
+               </li>
             </ul>
          </li>
       </ul>

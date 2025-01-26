@@ -1,7 +1,9 @@
 @extends("layouts.web")
 
-@section('title','Travel Insurance | Consolegal')
-@section('description'," A travel insurance policy is a sort of insurance that compensates the policyholder financially if something goes wrong while on vacation. Depending on your demands and budget, you can purchase travel insurance for a single or numerous journeys. Vacations, business visits, and even educational trips are all covered by travel insurance. The cost and scope of travel insurance is determined by the trip's nature. The finest travel insurance policy provides coverage for a variety of medical and non-medical crises in exchange for a low price. In the event of an emergency, the coverage also covers medical evacuation and repatriation, as well as financial support.")
+{{-- @section('title','Travel Insurance | Consolegal')
+@section('description'," A travel insurance policy is a sort of insurance that compensates the policyholder financially if something goes wrong while on vacation. Depending on your demands and budget, you can purchase travel insurance for a single or numerous journeys. Vacations, business visits, and even educational trips are all covered by travel insurance. The cost and scope of travel insurance is determined by the trip's nature. The finest travel insurance policy provides coverage for a variety of medical and non-medical crises in exchange for a low price. In the event of an emergency, the coverage also covers medical evacuation and repatriation, as well as financial support.") --}}
+
+<x-seo page="{{ 'travel-insurance' }}" />
 
 @section('content')
 

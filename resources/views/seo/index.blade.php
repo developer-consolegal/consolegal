@@ -50,34 +50,38 @@
             
             <div class="form-group">
                <label>Label<span class="text-danger">*</span></label>
-               <input type="text" class="form-control" name="label" value="" required="">
+               <input type="text" class="form-control" name="label" required="">
             </div>
 
             <div class="form-group">
                <label>Meta Title<span class="text-danger">*</span></label>
-               <input type="text" class="form-control" name="meta_title" value="" required="">
+               <input type="text" class="form-control" name="meta_title" required="">
             </div>
             
             <div class="form-group">
                <label>Meta Description<span class="text-danger">*</span></label>
-               <input type="text" class="form-control" name="meta_description" value="" required="">
+               <input type="text" class="form-control" name="meta_description" required="">
             </div>
             <div class="form-group">
                <label>Page<span class="text-danger">*</span></label>
                <select class="form-control" name="page" required>
                   <option value="home">Home</option>
                   <option value="about">About</option>
-                  <option value="tnc">Term & Condition</option>
-                  <option value="privacy">Privacy Policy</option>
-                  <option value="blog">Blog</option>
                   <option value="personal-loan">Personal Loan</option>
-                  <option value="motor-loan">Motor Loan</option>
+                  <option value="car-loan">Car Loan</option>
                   <option value="home-loan">Home Loan</option>
                   <option value="business-loan">Business Loan</option>
                   <option value="life-insurance">Life Insurance</option>
                   <option value="travel-insurance">Travel Insurance</option>
                   <option value="health-insurance">Health Insurance</option>
-                  <option value="car-insurance">Car Insurance</option>
+                  <option value="motor-insurance">Motor Insurance</option>
+                  <option value="contact">Contact</option>
+                  <option value="blog">Blog</option>
+                  <option value="career">Career</option>
+                  <option value="tnc">Term & Condition</option>
+                  <option value="privacy">Privacy Policy</option>
+                  <option value="refund">Refund Policy</option>
+                  <option value="paynow">Pay Now</option>
                </select>
             </div>
 
@@ -90,7 +94,7 @@
                     <th>ID</th>
                     <th>Label</th>
                     <th>Meta Title</th>
-                    <th>Meta Description</th>
+                    {{-- <th>Meta Description</th> --}}
                     <th>Page</th>
                     <th>Timestamp</th>
                     <th class="text-center">Action</th>
@@ -104,7 +108,7 @@
                     <td>{{$list->id}}</td>
                     <td><a href="{{route('seo.show', $list->id)}}">{{$list->label}}</a></td>
                     <td>{{$list->meta_title}}</td>
-                    <td>{{$list->meta_description}}</td>
+                    {{-- <td>{{$list->meta_description}}</td> --}}
                     <td>{{$list->page}}</td>
                     <td>{{$list->timestamp}}</td>
                     <td class="text-center">

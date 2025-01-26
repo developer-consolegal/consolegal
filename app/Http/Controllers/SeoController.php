@@ -3,13 +3,22 @@ namespace App\Http\Controllers;
 
 use App\Models\Seo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class SeoController extends Controller
 {
+
+    public static function getSeoData($page)
+    {
+        // return Cache::remember("seo_data_{$page}", 3600, function () use ($page) {
+            return Seo::where('page', $page)->first();
+        // });
+    }
+
     // Display a listing of the resource.
     public function index()
     {
-        $seos = Seo::paginate(20);
+        $seos = Seo::orderBy('page', 'asc')->simplePaginate(10);
         return view('seo.index', compact('seos'));
     }
 

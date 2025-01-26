@@ -1,29 +1,13 @@
 @extends("layouts.web")
-
+{{-- 
 @section('title','Blogs | Consolegal')
-@section('description','Blogs on loan,insurance,startups,tax,gst and MSMEs')
+@section('description','Blogs on loan,insurance,startups,tax,gst and MSMEs') --}}
+<x-seo page="{{ 'blog' }}" />
 
 
 @section('content')
 <!------ blogs home ------->
-<section id="blogs-home">
-   {{--<div class="align-box">
-      <div class="top">
-         <div class="img">
-            <img src="{{ asset('web/image')}}/profile.png" alt="" class="img-fluid">
-         </div>
-         <div class="detail">
-            <span class="name">alias</span>
-            <span class="profile">Senior Managaer</span>
-         </div>
-      </div>
-      <div class="quote ">
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </div>
-      <a href="" class="btn an-btn">know More</a>
-
-   </div>--}}
-    
+<section id="blogs-home">    
    <div class="container text-center text-white">
       <h1>We Keep your Compliances Simple </h1>
       <h5>From the start of the business till the life cycle of the business</h5>

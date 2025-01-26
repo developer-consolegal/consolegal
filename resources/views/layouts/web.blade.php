@@ -56,9 +56,9 @@
    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
    
    <style>
-       .w-85{
-    width:85% !important;
-}
+   .w-85{
+      width:85% !important;
+   }   
    </style>
    
    @stack('css')

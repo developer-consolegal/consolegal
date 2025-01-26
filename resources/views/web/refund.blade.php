@@ -1,7 +1,8 @@
 @extends("layouts.web")
 
-@section('title','Refund Policy | Consolegal')
-@section('description',"Thank you for your purchase on our website i.e. www.consolegal.com.  We hope you are happy with our services. Your satisfaction is our topmost priority and we’re confident you’ll be pleased with our services. Still, if you are not completely satisfied with the service for any reason let us know immediately via mail at mail@consolegal.com or contact us at 8810878185.")
+{{-- @section('title','Refund Policy | Consolegal')
+@section('description',"Thank you for your purchase on our website i.e. www.consolegal.com.  We hope you are happy with our services. Your satisfaction is our topmost priority and we’re confident you’ll be pleased with our services. Still, if you are not completely satisfied with the service for any reason let us know immediately via mail at mail@consolegal.com or contact us at 8810878185.") --}}
+<x-seo page="{{ 'refund' }}" />
 
 @section('content')
 <!-- content section  -->

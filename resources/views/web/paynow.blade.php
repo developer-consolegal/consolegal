@@ -1,7 +1,8 @@
 @extends("layouts.web")
 
-@section('title','Paynow | Consolegal')
-@section('description','Paynow | Consolegal')
+{{-- @section('title','Paynow | Consolegal')
+@section('description','Paynow | Consolegal') --}}
+<x-seo page="{{ 'paynow' }}" />
 
 @section('content')
 

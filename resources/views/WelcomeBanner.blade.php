@@ -42,9 +42,9 @@
       <div class="addform-page addorder">
          <h2>Welcome Banner</h2>
          @if(isset($data))
-         <form action="{{route('admin.welcome_banner.set', ['id' => $data->id])}}" method="post">
+         <form action="{{ route('welcome_banner.storeOrUpdate') }}" method="post">
             @else
-         <form action="{{route('admin.welcome_banner.set')}}" method="post">
+         <form action="{{route('welcome_banner.set')}}" method="post">
          @endif
             @csrf
             <div class="form-group">
@@ -54,15 +54,18 @@
             
             <div class="form-group">
                <label>Banner<span class="text-danger">*</span></label>
-               <input type="file" class="form-control" name="url" value="{{$data ? $data?->url : ''}}" required="">
-               <img src="{{$data?->url ?? ''}}" style="width: 100px; height:100px; object-fit:contain;" />
+               <input type="file" class="form-control" name="url" required="">
             </div>
+            @if ($banner)
+            <p>Current Banner:</p>
+            <img src="{{ asset('storage/' . $banner->url) }}" alt="Welcome Banner" style="max-width: 100%; height: auto;">
+            @endif
             
             <div class="form-group">
                <label>Active<span class="text-danger">*</span></label>
-               <select class="form-control" name="active" required>
-                   <option value="1" selected="{{$data?->active == 1 ? "selected" : ''}}">Active</option>
-                   <option value="0" {{$data?->active == 0 ? "selected" : ''}}>Inactive</option>
+               <select class="form-control" id="active" name="active" required>
+                   <option value="1" {{ optional($banner)->active ? 'selected' : '' }}>Active</option>
+                   <option value="0" {{ optional($banner)->active ? '' : 'selected' }}>Inactive</option>
                </select>
             </div>
 

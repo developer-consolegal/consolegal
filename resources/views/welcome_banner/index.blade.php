@@ -1,8 +1,6 @@
 @extends('layouts.master')
 
-@section("title","Seo")
-
-
+@section("title","Welcome Banner")
 
 @section('content')
 <!--  BEGIN NAVBAR  -->
@@ -40,56 +38,40 @@
    @include("adminsidebar")
    <div id="content" class="main-content">
       <div class="addform-page addorder">
-         <h2>Seo Settings</h2>
-         <form action="{{route('admin.setting.set')}}" method="post">
+         <h2>Welcome Banner</h2>
+         <form action="{{ route('welcome_banner.storeOrUpdate') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                <h4 class="text-success text-center">{{Session::get("success")}}</h4>
-               <h4 class="text-danger text-center">{{Session::get("error")}}</h4>
+               @error('active')
+               <h4 class="text-danger text-center">{{ $message }}</h4>
+               @enderror
+               @error('banner')
+               <h4 class="text-danger text-center">{{ $message }}</h4>
+               @enderror
             </div>
             
             <div class="form-group">
-               <label>Meta Title<span class="text-danger">*</span></label>
-               <input type="text" class="form-control" name="transport" value="" required="">
+               <label>Banner<span class="text-danger">*</span></label>
+               <input type="file" class="form-control" name="url">
             </div>
+            @if ($banner)
+            <p>Current Banner:</p>
+            <img src="{{ asset('storage/' . $banner->url) }}" alt="Welcome Banner" style="max-width: 150px; height: auto;">
+            @endif
             
             <div class="form-group">
-               <label>Meta Description<span class="text-danger">*</span></label>
-               <input type="text" class="form-control" name="host" value="" required="">
-            </div>
-            <div class="form-group">
-               <label>Page<span class="text-danger">*</span></label>
-               <select class="form-control" value="" required>
-                   <option value="ssl">Home</option>
-                   <option value="tls">About</option>
-                   <option value="tls">Term & Condition</option>
-                   <option value="tls">Privacy Policy</option>
-                   <option value="tls">Blog</option>
-                   <option value="tls">Personal Loan</option>
-                   <option value="tls">Motor Loan</option>
-                   <option value="tls">Home Loan</option>
-                   <option value="tls">Business Loan</option>
-                   <option value="tls">Life Insurance</option>
-                   <option value="tls">Travel Insurance</option>
-                   <option value="tls">Health Insurance</option>
-                   <option value="tls">Car Insurance</option>
+               <label>Active<span class="text-danger">*</span></label>
+               <select class="form-control" id="active" name="active" required>
+                   <option value="1" {{ optional($banner)->active ? 'selected' : '' }}>Active</option>
+                   <option value="0" {{ optional($banner)->active ? '' : 'selected' }}>Inactive</option>
                </select>
             </div>
 
             <div class="form-group"><input type="submit" value="Save"></div>
          </form>
-
-
       </div>
-
-
-
-
    </div>
-
-
-
-
 </div>
 <!--  END CONTENT AREA  -->
 

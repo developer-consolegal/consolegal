@@ -1,7 +1,9 @@
 @extends('layouts.web')
 
-@section('title','One stop solution for Startups and SMEs in India for Legal and Compliance needs | ConsoLegal')
-@section('description','One stop solution for Startups and SMEs in India for Legal and Compliance needs | ConsoLegal')
+{{-- @section('title','One stop solution for Startups and SMEs in India for Legal and Compliance needs | ConsoLegal')
+@section('description','One stop solution for Startups and SMEs in India for Legal and Compliance needs | ConsoLegal') --}}
+
+<x-seo page="{{ 'home' }}" />
 
 @push('css')
 <style>
@@ -160,25 +162,18 @@
 </header>
 
 
+@if($banner)
 <div id="popup-overlay">
    <div id="popup">
-      <div class="container-fluid justify-content-center align-items-center p-2 p-md-0 row" id="popup-content">
-         <div class="col-12 col-md-6 d-flex align-items-center ">
-            <p class="container-fluid container-md fw-bold text-dark">
-               Spread the word and earn big with ConsoLegal! Refer your friends to our top financial services and get
-               rewarded. Join now and start earning.
-            </p>
+      <div class="container-fluid justify-content-center align-items-center p-2 p-md-0 row" style="--var-bg=url({{ asset('storage')}}/{{$banner->url}})" id="popup-content">
+         <div class="text-end">
+            <button id="close-btn" class="btn">X</button>
          </div>
-         <div class="col-12 col-md-6 d-flex align-items-center ">
-            <img width="250px" style="max-width:100%" height="auto" src="{{ asset('web/image')}}/cl-refer.webp" />
-         </div>
-
-         <div class="col-12 text-center">
-            <button id="close-btn" class="btn btn-danger">Close</button>
-         </div>
+            <img src="{{ asset('storage')}}/{{$banner->url}}" />
       </div>
    </div>
 </div>
+@endif
 
 
 <!---------- about us  ------------>

@@ -1,10 +1,10 @@
 @extends("layouts.web")
 
-@section('title','About Us | Consolegal')
+{{-- @section('title','About Us | Consolegal')
 @section('description','We Started as a one man show in the profession gradually scaled up 
             with the joining of passionate and experienced professionals from diverse backgrounds now launching our 
-            online platform ConsoLegal- Keep it Simple. We value accountability, transparency and simplicity.')
-
+            online platform ConsoLegal- Keep it Simple. We value accountability, transparency and simplicity.') --}}
+<x-seo page="{{ 'about' }}" />
 
 @section('content')
 

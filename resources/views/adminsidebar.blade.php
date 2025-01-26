@@ -296,6 +296,78 @@
              </li>
             
              <li class="menu">
+                <a href="#team" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                   <div class="">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+                         <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                         <polyline points="13 2 13 9 20 9"></polyline>
+                      </svg>
+                      <span>Team & Experts</span>
+                   </div>
+                   <div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                         <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
+                   </div>
+                </a>
+                <ul class="submenu list-unstyled collapse" id="team" data-parent="#accordionExample" style="">
+                   <li>
+                      <a href="{{route('team.index')}}">Manage Team</a>
+                   </li>
+                </ul>
+             </li>
+             
+             <li class="menu">
+                <a href="#gallery" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                   <div class="">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+                         <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                         <polyline points="13 2 13 9 20 9"></polyline>
+                      </svg>
+                      <span>Gallery & Events</span>
+                   </div>
+                   <div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                         <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
+                   </div>
+                </a>
+                <ul class="submenu list-unstyled collapse" id="gallery" data-parent="#accordionExample" style="">
+                   <li>
+                      <a href="{{route('gallery.index')}}">Gallery</a>
+                   </li>
+                   <li>
+                      <a href="{{route('events.index')}}">Events</a>
+                   </li>
+                </ul>
+             </li>
+
+             <li class="menu">
+                <a href="#news-updates" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                   <div class="">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+                         <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                         <polyline points="13 2 13 9 20 9"></polyline>
+                      </svg>
+                      <span>News & Updates</span>
+                   </div>
+                   <div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                         <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
+                   </div>
+                </a>
+                <ul class="submenu list-unstyled collapse" id="news-updates" data-parent="#accordionExample" style="">
+                   <li>
+                      <a href="{{route('news.index')}}">News</a>
+                   </li>
+                   <li>
+                      <a href="{{route('updates.index')}}">Updates</a>
+                   </li>
+                </ul>
+             </li>
+            
+             <li class="menu">
                 <a href="#support" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
                    <div class="">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
@@ -348,7 +420,7 @@
                       <a href="{{route('admin.marquee.index')}}">Marquee</a>
                    </li>
                    <li>
-                      <a href="{{route('admin.welcome_banner.index')}}">Welcome Banner</a>
+                      <a href="{{route('welcome_banner.index')}}">Welcome Banner</a>
                    </li>
                 </ul>
              </li>

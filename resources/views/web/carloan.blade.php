@@ -1,11 +1,7 @@
 @extends("layouts.web")
 
-@section('title','Car loan | Consolegal')
-@section('description',"A car improves your social standing while reducing the difficulties and costs of travel. 
-      Having a car was formerly considered to be a luxury but nowadays it is a need and convenience to 
-      get around. You can't buy a car with all of your savings. Car loan is a sum of money that a 
-      customer borrows to pay for a car and repay it by a specific date, commonly by making monthly 
-      payments (annually computed).")
+<x-seo page="{{ 'car-loan' }}" />
+
 
 @section('content')
 <section class="car-loan header-height" id="car-loan">

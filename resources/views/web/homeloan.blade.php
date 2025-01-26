@@ -1,11 +1,6 @@
 @extends("layouts.web")
 
-@section('title','Home loan | Consolegal')
-@section('description',"A home loan is a secured bank loan used to purchase or construct a 
-residential property, such as a house/flat or a plot of land for house construction, or to renovate,
-extend, and repair an existing home by using it as collateral. The title or deed to the property will 
-be held by the bank or financial institution until the loan is repaid in full, including interest. 
-The payment period as well as interest rate on a home loan might be adjustable or fixed.")
+<x-seo page="{{ 'home-loan' }}" />
 
 @section('content')
 

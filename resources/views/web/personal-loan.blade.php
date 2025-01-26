@@ -1,10 +1,6 @@
 @extends("layouts.web")
 
-@section('title','Personal loan | Consolegal')
-@section('description',"A personal loan is an unsecured, short- to 
-medium-term loan given to an individual if you meet the essential Personal Eligibility Criteria.
-This means you won't have to put up any collateral, 
-unlike with a vehicle or home loan, when the lender mortgages the underlying asset.")
+<x-seo page="{{ 'personal-loan' }}" />
 
 @section('content')
 
@@ -12,7 +8,7 @@ unlike with a vehicle or home loan, when the lender mortgages the underlying ass
    <!--personal load cover banner bg -->
 </section>
 
-<section class="tabs-page-scroll ">
+<section class="tabs-page-scroll">
    <div class="tabs-container">
       <ul class="list-unstyled">
          <li class="active"><a href="#tab1">Documents</a></li>

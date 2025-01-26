@@ -1,11 +1,14 @@
 @extends("layouts.web")
 
-@section('title','Motor Insurance | Consolegal')
+{{-- @section('title','Motor Insurance | Consolegal')
 @section('description',"Car Insurance is required while purchasing a new car. A comprehensive car insurance policy, 
      often known as motor package insurance, saves you money if your car is destroyed in an accident 
      or a natural disaster. It also safeguards your vehicle against theft and break-ins. 
      You risk injuring others or causing property damage in the event of an accident. 
-     An automotive insurance coverage also covers third-party liability. ")
+     An automotive insurance coverage also covers third-party liability. ") --}}
+
+<x-seo page="{{ 'motor-insurance' }}" />
+
 
 @section('content')
 

@@ -1,7 +1,8 @@
 @extends("layouts.web")
 
-@section('title','Privacy Policy | Consolegal')
-@section('description',"Thank you for choosing to be part of our community at ConsoLegal.  We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about this privacy notice or our practices with regard to your personal information, please contact us at mail@consolegal.com")
+{{-- @section('title','Privacy Policy | Consolegal')
+@section('description',"Thank you for choosing to be part of our community at ConsoLegal. We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about this privacy notice or our practices with regard to your personal information, please contact us at mail@consolegal.com") --}}
+<x-seo page="{{ 'privacy' }}" />
 
 @section('content')
 <!-- content section  -->

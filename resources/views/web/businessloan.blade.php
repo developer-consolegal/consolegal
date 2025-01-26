@@ -1,15 +1,7 @@
 @extends("layouts.web")
 
-@section('title','Business loan | Consolegal')
-@section('description',"A business loan can be defined as a loan that is purely for business purposes.
-A business loan is any sort of financing used to pay for business expenses, 
-such as paying employees' salary or acquiring inventory. It's a type of unsecured 
-loan that you can get without putting up any security. It can be used to support business needs like as 
-starting a new project, purchasing an asset, or expanding a company. Like other loans, it also involves 
-the formation of a debt, which will be repaid with interest. It is accessible from banks, credit unions, 
-and online lenders and your company must be at least six months old to qualify. Other variables, such as 
-your personal credit score 
-and relationship with the lender, will also be taken into consideration.")
+<x-seo page="{{ 'business-loan' }}" />
+
 
 @section('content')
 

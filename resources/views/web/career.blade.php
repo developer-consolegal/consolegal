@@ -1,7 +1,9 @@
 @extends("layouts.web")
 
-@section('title','Career | Consolegal')
-@section('description','Career opportunities by consolegal')
+{{-- @section('title','Career | Consolegal')
+@section('description','Career opportunities by consolegal') --}}
+<x-seo page="{{ 'career' }}" />
+
 
 @section('content')
 

@@ -1,11 +1,14 @@
 @extends("layouts.web")
 
-@section('title','Life Insurance | Consolegal')
+{{-- @section('title','Life Insurance | Consolegal')
 @section('description',"We as a whole strive to accomplish our fantasies and give our family awesome of everything. 
       As time passes, life's unpredictability increases thus do our concerns. 
       This arrangement provides coverage for various risks such as demise, incapacity because of mishap,
       a scope of basic Illnesses, terminal ailment, and so forth subsequently giving all round security 
-      to you and your family.")
+      to you and your family.") --}}
+
+<x-seo page="{{ 'life-insurance' }}" />
+
 
 @section('content')
 
