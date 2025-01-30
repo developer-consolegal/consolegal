@@ -3,10 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Permission\Traits\HasRoles;
 
-class admins extends Model
+class admins extends Authenticatable
 {
-    use HasFactory;
+    use HasFactory, HasRoles;
+
     protected $table = 'admins';
+
+    protected $guard_name = 'admin'; // Important for Spatie roles
+    protected $fillable = ['name', 'email', 'password'];
 }

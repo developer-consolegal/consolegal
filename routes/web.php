@@ -21,6 +21,10 @@ use App\Http\Controllers\UpdateController;
 use App\Http\Controllers\TeamMemberController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\RolePermissionController;
+use App\Http\Controllers\Admin\AdminRoleController;
+
 
 
 use App\Http\Controllers\PayController;
@@ -162,7 +166,7 @@ Route::get("/join-app/export", [ExportController::class, 'join'])->name("join.ex
 */
 
 //----------------admin------------------------------
-Route::get("/admin", [admin::class, 'login_get']);
+Route::get("/admin", [admin::class, 'login_get'])->name('admin.login');
 Route::post("/admin", [admin::class, 'login_post']);
 
 Route::get("admin/signout", [admin::class, 'signout']);
@@ -170,11 +174,31 @@ Route::get("admin/signout", [admin::class, 'signout']);
 Route::get("/agent/leads/export", [ExportController::class, 'agent_lead'])->name('export.agent.lead');
 Route::get("/fran/leads/export", [ExportController::class, 'fran_lead'])->name('export.fran.lead');
 
+
+Route::middleware('admin_auth')->prefix('admin')->name('admin.')->group(function () {
+   Route::get('/roles-permissions', [RolePermissionController::class, 'index'])->name('roles-permissions.index');
+   
+   Route::post('/roles/store', [RolePermissionController::class, 'storeRole'])->name('roles.store');
+   Route::delete('/roles/{role}', [RolePermissionController::class, 'deleteRole'])->name('roles.delete');
+
+   Route::post('/permissions/store', [RolePermissionController::class, 'storePermission'])->name('permissions.store');
+   Route::delete('/permissions/{permission}', [RolePermissionController::class, 'deletePermission'])->name('permissions.delete');
+
+   Route::post('/roles/{role}/assign-permissions', [RolePermissionController::class, 'assignPermission'])->name('roles.assign-permissions');
+});
+
+Route::middleware('admin_auth')->prefix('admin')->name('admin.')->group(function () {
+   Route::get('assign-role', [AdminRoleController::class, 'index'])->name('assign-role.index');
+   Route::post('assign-role', [AdminRoleController::class, 'assignRole'])->name('assign-role.store');
+});
+
 Route::group(['middleware' => 'admin_auth'], function () {
 
    Route::get("/admin/welcome", [admin::class, 'welcome'])->name('admin.dashboard.welcome');
 
-
+   Route::get('/admin/permissions', [PermissionController::class, 'index'])->name('admin.permissions.index');
+   Route::post('/admin/permissions/{admin}', [PermissionController::class, 'update'])->name('admin.permissions.update');
+    
    Route::get("/admin/setting", [webController::class, 'setting'])->name('admin.setting.index');
    Route::post("/admin/setting", [webController::class, 'setting_set'])->name('admin.setting.set');
    

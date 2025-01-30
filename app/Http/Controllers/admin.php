@@ -33,6 +33,7 @@ use App;
 use PDF;
 
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Traits\EmailTrait;
 use App\Http\Traits\SmsTrait;
@@ -69,28 +70,41 @@ class admin extends Controller
    function login_post(Request $req)
    {
       try {
-         $users = admins::where('email', "$req->email")->first();
+         // $users = admins::where('email', "$req->email")->first();
+
+         $credentials = $req->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        if (Auth::guard('admin')->attempt($credentials)) {
+         // return redirect()->route('admin.dashboard');
+            $data = Lead::all();
+            return ["status" => "success", "data" => $data];
+         }else{
+            return "wrong cred.1";
+         }
+
+
          //user emaill check if exist
-         if ($users) {
-            //pswd check of correct or not
-            if (Hash::check($req->password, $users->password)) {
-               //session creation
-               $req->session()->put('admin', $users);
-               $req->session()->forget('user');
-               $req->session()->forget('frans');
-               $req->session()->forget('agents');
+         // if ($users) {
+         //    if (Hash::check($req->password, $users->password)) {
+         //       $req->session()->put('admin', $users);
+         //       $req->session()->forget('user');
+         //       $req->session()->forget('frans');
+         //       $req->session()->forget('agents');
 
                // return $request->session()->get('admin');
 
-               $data = Lead::all();
+            //    $data = Lead::all();
 
-               return ["status" => "success", "data" => $data];
-            } else {
-               return "wrong cred.1";
-            }
-         } else {
-            return "wrong cred.2";
-         }
+            //    return ["status" => "success", "data" => $data];
+            // } else {
+            //    return "wrong cred.1";
+            // }
+         // } else {
+            // return "wrong cred.2";
+         // }
       } catch (\Throwable $th) {
          throw $th;
       }
@@ -351,10 +365,11 @@ class admin extends Controller
    function signout(Request $req)
    {
       try {
-         if ($req->session()->has('admin')) {
+         Auth::guard('admin')->logout();
+         // if ($req->session()->has('admin')) {
 
-            $req->session()->forget('admin');
-         }
+         //    $req->session()->forget('admin');
+         // }
          return redirect('/admin');
       } catch (\Throwable $th) {
          return $th;

@@ -5,7 +5,6 @@
        <nav id="sidebar">
           <ul class="list-unstyled menu-categories ps ps--active-y" id="accordionExample">
 
-
              <li class="menu">
                 <a href="/admin/welcome" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                    <div class="">
@@ -20,6 +19,9 @@
                    </div>
                 </a>
              </li>
+
+             {{-- Lead Manager  --}}
+             @if(auth('admin')->user()->can('lead'))
              <li class="menu">
                 <a href="#leads" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                    <div class="">
@@ -44,8 +46,11 @@
                    </li>
                 </ul>
              </li>
+             @endif
 
 
+             {{-- Forms Manager  --}}
+             @if(auth('admin')->user()->can('forms'))
              <li class="menu">
                 <a href="#users" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                    <div class="">
@@ -75,9 +80,11 @@
                    </li>
                 </ul>
              </li>
+             @endif
 
 
-
+             {{-- Orders Manager  --}}
+             @if(auth('admin')->user()->can('order'))
              <li class="menu">
                 <a href="#elements" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                    <div class="">
@@ -104,7 +111,10 @@
                    </li>
                 </ul>
              </li>
+             @endif
             
+             {{-- Coupons  --}}
+             @if(auth('admin')->user()->can('coupon'))
              <li class="menu">
                 <a href="#coupon" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                    <div class="">
@@ -126,7 +136,11 @@
                    </li>
                 </ul>
              </li>
+             @endif
 
+
+             {{-- Services  --}}
+             @if(auth('admin')->user()->can('service'))
              <li class="menu">
                 <a href="#services" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                    <div class="">
@@ -153,7 +167,10 @@
                    </li>
                 </ul>
              </li>
+             @endif
              
+             {{-- Career  --}}
+             @if(auth('admin')->user()->can('service'))
              <li class="menu">
                 <a href="#career" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                    <div class="">
@@ -183,6 +200,10 @@
                    </li>
                 </ul>
              </li>
+             @endif
+
+             {{-- cashback --}}
+             @if(auth('admin')->user()->can('cashback'))
              <li class="menu">
                 <a href="#refer" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                    <div class="">
@@ -206,7 +227,10 @@
                    </li>
                 </ul>
              </li>
+             @endif
 
+             {{-- User --}}
+             @if(auth('admin')->user()->can('user'))
              <li class="menu">
                 <a href="#authentication" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                    <div class="">
@@ -245,7 +269,10 @@
                    </li>
                 </ul>
              </li>
+             @endif
 
+             {{-- Wallet --}}
+             @if(auth('admin')->user()->can('wallet'))
              <li class="menu">
                 <a href="#starter-kit" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
                    <div class="">
@@ -267,9 +294,10 @@
                    </li>
                 </ul>
              </li>
+             @endif
 
-
-
+             {{-- Blog --}}
+             @if(auth('admin')->user()->can('blog'))
              <li class="menu">
                 <a href="#pages" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
                    <div class="">
@@ -294,7 +322,10 @@
                    </li>
                 </ul>
              </li>
+             @endif
             
+             {{-- Team --}}
+             @if(auth('admin')->user()->can('team'))
              <li class="menu">
                 <a href="#team" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
                    <div class="">
@@ -316,7 +347,10 @@
                    </li>
                 </ul>
              </li>
+             @endif
              
+             {{-- Gallery --}}
+             @if(auth('admin')->user()->can('gallery'))
              <li class="menu">
                 <a href="#gallery" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
                    <div class="">
@@ -341,7 +375,10 @@
                    </li>
                 </ul>
              </li>
+             @endif
 
+             {{-- News --}}
+             @if(auth('admin')->user()->can('news'))
              <li class="menu">
                 <a href="#news-updates" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
                    <div class="">
@@ -366,7 +403,10 @@
                    </li>
                 </ul>
              </li>
+             @endif
             
+             {{-- Support --}}
+             @if(auth('admin')->user()->can('support'))
              <li class="menu">
                 <a href="#support" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
                    <div class="">
@@ -394,6 +434,41 @@
                    </li>
                 </ul>
              </li>
+             @endif
+
+             {{-- Staff --}}
+             @if(auth('admin')->user()->can('staff'))
+             <li class="menu">
+                <a href="#permission" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                   <div class="">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+                         <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                         <polyline points="13 2 13 9 20 9"></polyline>
+                      </svg>
+                      <span>Staff & Permission</span>
+                   </div>
+                   <div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                         <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
+                   </div>
+                </a>
+                <ul class="submenu list-unstyled collapse" id="permission" data-parent="#accordionExample" style="">
+                   <li>
+                      <a href="{{route('admin.permissions.index')}}">Staff</a>
+                   </li>
+                   <li>
+                      <a href="{{route('admin.roles-permissions.index')}}">Roles & Permissions</a>
+                   </li>
+                   <li>
+                      <a href="{{route('admin.assign-role.index')}}">Assign Roles</a>
+                   </li>
+                </ul>
+             </li>
+             @endif
+
+             {{-- Setting --}}
+             @if(auth('admin')->user()->can('setting'))
              <li class="menu">
                 <a href="#setting" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
                    <div class="">
@@ -424,7 +499,10 @@
                    </li>
                 </ul>
              </li>
+             @endif
              
+             {{-- App Control --}}
+             @if(auth('admin')->user()->can('app'))
              <li class="menu">
                 <a href="#appcontrol" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
                    <div class="">
@@ -449,6 +527,7 @@
                    </li>
                 </ul>
              </li>
+             @endif
 
           </ul>
 

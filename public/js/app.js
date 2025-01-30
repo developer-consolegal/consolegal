@@ -1,4 +1,4 @@
-var App = function() {
+var App = function () {
     var MediaSize = {
         xl: 1200,
         lg: 992,
@@ -30,9 +30,9 @@ var App = function() {
             search: '.search-overlay'
         }
     };
-    
+
     var toggleFunction = {
-        sidebar: function($recentSubmenu) {
+        sidebar: function ($recentSubmenu) {
             $('.sidebarCollapse').on('click', function (sidebar) {
                 sidebar.preventDefault();
                 $(Selector.mainContainer).toggleClass("sidebar-closed");
@@ -42,7 +42,7 @@ var App = function() {
                 $('html,body').toggleClass('sidebar-noneoverflow');
             });
         },
-        overlay: function() {
+        overlay: function () {
             $('#dismiss, .overlay, cs-overlay').on('click', function () {
                 // hide sidebar
                 $(Selector.mainContainer).addClass('sidebar-closed');
@@ -52,34 +52,39 @@ var App = function() {
                 $('html,body').removeClass('sidebar-noneoverflow');
             });
         },
-        search: function() {
-            $(Selector.searchFull).click(function(event) {
-               $(this).parents('.search-animated').find('.search-full').addClass(ToggleClasses.inputFocused);
-               $(this).parents('.search-animated').addClass('show-search');
-               $(Selector.overlay.search).addClass('show');
-               $(Selector.overlay.search).addClass('show');
+        search: function () {
+            $(Selector.searchFull).click(function (event) {
+                $(this).parents('.search-animated').find('.search-full').addClass(ToggleClasses.inputFocused);
+                $(this).parents('.search-animated').addClass('show-search');
+                $(Selector.overlay.search).addClass('show');
+                $(Selector.overlay.search).addClass('show');
             });
 
-            $(Selector.overlay.search).click(function(event) {
-               $(this).removeClass('show');
-               $(Selector.searchFull).parents('.search-animated').find('.search-full').removeClass(ToggleClasses.inputFocused);
-               $(Selector.searchFull).parents('.search-animated').removeClass('show-search');
+            $(Selector.overlay.search).click(function (event) {
+                $(this).removeClass('show');
+                $(Selector.searchFull).parents('.search-animated').find('.search-full').removeClass(ToggleClasses.inputFocused);
+                $(Selector.searchFull).parents('.search-animated').removeClass('show-search');
             });
         }
     }
 
     var inBuiltfunctionality = {
-        mainCatActivateScroll: function() {
-            const ps = new PerfectScrollbar('.menu-categories', {
-                wheelSpeed:.5,
-                swipeEasing:!0,
-                minScrollbarLength:40,
-                maxScrollbarLength:300,
-                suppressScrollX : true
-            });
+        mainCatActivateScroll: function () {
+
+            try {
+                const ps = new PerfectScrollbar('.menu-categories', {
+                    wheelSpeed: .5,
+                    swipeEasing: !0,
+                    minScrollbarLength: 40,
+                    maxScrollbarLength: 300,
+                    suppressScrollX: true
+                });
+            } catch (error) {
+                console.log(error);
+            }
         },
-        preventScrollBody: function() {
-            $('#sidebar').bind('mousewheel DOMMouseScroll', function(e) {
+        preventScrollBody: function () {
+            $('#sidebar').bind('mousewheel DOMMouseScroll', function (e) {
                 var scrollTo = null;
 
                 if (e.type == 'mousewheel') {
@@ -95,10 +100,10 @@ var App = function() {
                 }
             });
         },
-        functionalDropdown: function() {
+        functionalDropdown: function () {
             var getDropdownElement = document.querySelectorAll('.more-dropdown .dropdown-item');
             for (var i = 0; i < getDropdownElement.length; i++) {
-                getDropdownElement[i].addEventListener('click', function() {
+                getDropdownElement[i].addEventListener('click', function () {
                     document.querySelectorAll('.more-dropdown .dropdown-toggle > span')[0].innerText = this.getAttribute('data-value');
                 })
             }
@@ -109,7 +114,7 @@ var App = function() {
         Production Functionality - Only for Online files not for user files
     */
     var productionFunctionality = {
-        createButtons: function() {
+        createButtons: function () {
             var form = [
                 {
                     type: 'anchor',
@@ -121,7 +126,7 @@ var App = function() {
                     label: ''
                 }
             ];
-            
+
             var element = document.createElement("div");
             var wrapHtmlAttr = document.createAttribute("class");
             wrapHtmlAttr.value = "online-actions";
@@ -139,11 +144,11 @@ var App = function() {
                         button.appendChild(textButton);
                         element.appendChild(button);
                         break;
-            
+
                     case "anchor":
                         var anchor = document.createElement('a');
                         var textanchor = document.createTextNode(obj.label);
-                        anchor.setAttribute('href',"https://themeforest.net/item/cork-responsive-admin-dashboard-template/25582188");
+                        anchor.setAttribute('href', "https://themeforest.net/item/cork-responsive-admin-dashboard-template/25582188");
                         anchor.style.cssText = "border: none; background-image: linear-gradient(to right, #ff0844 20%, #ffb199 141%);box-shadow: 0 10px 20px -10px #ff0844;";
                         anchor.classList.add('btn', 'btn-danger', 'buy-btn');
                         anchor.target = obj.target;
@@ -156,35 +161,35 @@ var App = function() {
             }
         },
 
-        scrollTop: function() {
-            $(document).on('click', '.scroll-top-btn', function(event) {
+        scrollTop: function () {
+            $(document).on('click', '.scroll-top-btn', function (event) {
                 event.preventDefault();
                 var body = $("html, body");
-                body.stop().animate({scrollTop:0}, 500, 'swing');
+                body.stop().animate({ scrollTop: 0 }, 500, 'swing');
             });
         },
 
-        checkScrollPosition: function() {
-            $(document).scroll(function(event) {
+        checkScrollPosition: function () {
+            $(document).scroll(function (event) {
                 var lanWrapper = $('.layout-spacing');
                 var elementScrollToTop = $('.scroll-top-btn');
                 var windowScroll = $(window).scrollTop()
                 var elementoffset = lanWrapper.offset().top;
-            
+
                 // Check if window scroll > or == element offset?
                 if (windowScroll >= elementoffset) {
-                elementScrollToTop.addClass('d-inline-block');
+                    elementScrollToTop.addClass('d-inline-block');
                 } else if (windowScroll < elementoffset) {
-                elementScrollToTop.removeClass('d-inline-block');
+                    elementScrollToTop.removeClass('d-inline-block');
                 }
             });
         }
     }
 
     var _mobileResolution = {
-        onRefresh: function() {
+        onRefresh: function () {
             var windowWidth = window.innerWidth;
-            if ( windowWidth <= MediaSize.md ) {
+            if (windowWidth <= MediaSize.md) {
                 toggleFunction.sidebar();
             }
         },
@@ -204,9 +209,9 @@ var App = function() {
     }
 
     var _desktopResolution = {
-        onRefresh: function() {
+        onRefresh: function () {
             var windowWidth = window.innerWidth;
-            if ( windowWidth > MediaSize.md ) {
+            if (windowWidth > MediaSize.md) {
                 toggleFunction.sidebar(true);
             }
         },
@@ -228,7 +233,7 @@ var App = function() {
     function sidebarFunctionality() {
         function sidebarCloser() {
 
-            if (window.innerWidth <= 991 ) {
+            if (window.innerWidth <= 991) {
 
                 if (!$('body').hasClass('alt-menu')) {
 
@@ -241,7 +246,7 @@ var App = function() {
                     $('html, body').removeClass('sidebar-noneoverflow');
                 }
 
-            } else if (window.innerWidth > 991 ) {
+            } else if (window.innerWidth > 991) {
 
                 if (!$('body').hasClass('alt-menu')) {
 
@@ -262,28 +267,28 @@ var App = function() {
         }
 
         function sidebarMobCheck() {
-            if (window.innerWidth <= 991 ) {
+            if (window.innerWidth <= 991) {
 
-                if ( $('.main-container').hasClass('sbar-open') ) {
+                if ($('.main-container').hasClass('sbar-open')) {
                     return;
                 } else {
                     sidebarCloser()
                 }
-            } else if (window.innerWidth > 991 ) {
+            } else if (window.innerWidth > 991) {
                 sidebarCloser();
             }
         }
 
         sidebarCloser();
 
-        $(window).resize(function(event) {
+        $(window).resize(function (event) {
             sidebarMobCheck();
         });
 
     }
 
     return {
-        init: function() {
+        init: function () {
             toggleFunction.overlay();
             toggleFunction.search();
             /*
@@ -301,7 +306,7 @@ var App = function() {
             _mobileResolution.onRefresh();
 
             // Note : -  _mobileResolution -> onResize | Uncomment it if need for onresize functions for DESKTOP RESOLUTION i.e. below or equal to 991px |
-            
+
             // _mobileResolution.onResize();
 
             sidebarFunctionality();

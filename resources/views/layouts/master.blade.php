@@ -10,8 +10,8 @@
 
    <!-- CSS FILES -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-2/css/all.min.css" integrity="sha512-61a6zi50gYXGgd/n9+ZT2/RKnXr6lkRoWlS88AjFdoUHaIDnyBAcoE0Vs/QDU3lK3nCcUowNDqmQ8WaV0yT4qw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-   <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+   {{-- <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+   <link rel="stylesheet" href="{{ asset('css/style.css') }}"> --}}
    <link rel="stylesheet" href="{{ asset('css/style2.css') }}">
    <link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css')}}">
    <link rel="stylesheet" type="text/css" href="{{ asset('css/fonts.css')}}" />
@@ -22,15 +22,18 @@
    <!-- CSS FILES -->
    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+   
    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
    <link rel="stylesheet" href="{{ asset('css/style.css')}}">
-   <link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css')}}">
-   <link rel="stylesheet" type="text/css" href="{{ asset('css/fonts.css')}}" />
+   <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+   {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css')}}">
+   <link rel="stylesheet" type="text/css" href="{{ asset('css/fonts.css')}}" /> --}}
 
 
 
-   <link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css')}}">
-   <link rel="stylesheet" type="text/css" href="{{ asset('css/fonts.css')}}" />
+   {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css')}}"> --}}
+   {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/fonts.css')}}" /> --}}
    <link rel="stylesheet" type="text/css" href="{{ asset('css/datetimepicker.css')}}" />
 
 
@@ -46,6 +49,8 @@
 
    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
 
+
+
 </head>
 
 <body>
@@ -56,6 +61,7 @@
    <script src="{{ asset('js/summernote-bs4.js')}}"></script>
    <script src="{{ asset('js/jquery.min.js') }}"></script>
    <script src="{{ asset('js/bootstrap.min.js')}}"></script>
+   <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
    <!-- <script src="{{ asset('js/scripts1.js')}}"></script> -->
    <script src="{{ asset('js/scripts.js')}}"></script>
 
@@ -89,7 +95,7 @@
       }
 
       // Get the element with id="defaultOpen" and click on it
-      document.getElementById("defaultOpen").click();
+      document.getElementById("defaultOpen")?.click();
    </script>
 
    @stack('scripts')
