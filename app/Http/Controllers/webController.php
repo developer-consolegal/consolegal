@@ -27,6 +27,9 @@ use App\Models\WelcomeBanner;
 use App\Models\Frans;
 use App\Models\User;
 use App\Models\Order;
+use App\Models\TeamMember;
+use App\Models\Event;
+use App\Models\Gallery;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Session;
 
@@ -41,6 +44,16 @@ class webController extends Controller
         $banner = WelcomeBanner::where("active", 1)->first();
 
         return view("web.index", ['blogs'  => $data, "marquee" => $marquee, "banner" => $banner]);
+    }
+
+    function about()
+    {
+        $experts = TeamMember::where("is_expert", "1")->get();
+        $teams = TeamMember::where("is_expert", "0")->get();
+        $gallery = Gallery::orderBy("id", "desc")->limit(10)->get();
+        $events = Event::orderBy("id", "desc")->limit(10)->get();
+
+        return view("web.about", compact("experts", "teams", "gallery", "events"));
     }
 
 

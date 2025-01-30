@@ -8,6 +8,26 @@
 
 @section('content')
 
+@push('css')
+<style>
+   .rowFlex {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+.column {
+  flex: 50%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+</style>
+@endpush
+
 <section id="about-us-home">
    <div class="row container-md mx-auto">
       <div class="col-md-6 lt order-2 order-md-1">
@@ -54,6 +74,53 @@
    </div>
 </section>
 
+<section class="my-5" id="blogs">
+   <h2 class="main-title text-center mb-5">Latest Events</h2>
+
+   <div class="swiper-container-blog">
+      <div class="swiper-wrapper">
+         <!-- slide 1 -->
+
+         @foreach($events as $data)
+         <div class="swiper-slide">
+            <div class="blog-card-container">
+               <div class="img-container">
+                  <span class="date">{{$data->event_date->format('Y-F-d')}}</span>
+                  <img src="{{ asset('storage')}}/{{$data->image}}" loading="lazy">
+               </div>
+               <div class="title" style="height: fit-content;">
+                  <h5>{{$data->label}}</h5>
+               </div>
+               <div class="tags">
+                  <p>{{$data->description}}</p>
+               </div>
+               <div class="read-more"><a href="{{$data->link}}" class="btn an-btn">View Details</a></div>
+            </div>
+         </div>
+         @endforeach
+      </div>
+   </div>
+   <div class="swiper-prev-btn"><i class="fas fa-chevron-left"></i></div>
+   <div class="swiper-next-btn"><i class="fas fa-chevron-right"></i></div>
+</section>
+
+<section>
+   <div class="head text-center">
+      <h3 class="title">Our Gallery</h3>
+      {{-- <p class="sub-title">We are also associated with various professionals across India.</p> --}}
+   </div>
+   <div class="rowFlex container-md py-4">
+      <div class="column">
+         @foreach ($gallery as $index => $item)
+         @if ($index % 2 == 0 && $index != 0)
+            </div><div class="column">
+         @endif
+        <img src="{{asset('storage')}}/{{$item->image}}" style="width:100%;">
+        @endforeach
+      </div>
+   </div>
+</section>
+
 <!-- quick cards  -->
 <section class="quick-cards">
    <div class="head">
@@ -87,6 +154,57 @@
       </div>
    </div>
 
+</section>
+
+<section class="quick-cards pt-2">
+   <div class="head">
+      <h3 class="title">Our Teams</h3>
+      <p class="sub-title">We are also associated with various professionals across India.</p>
+   </div>
+
+   <div class="cards-container container-md mx-auto">
+      <div class="row">
+         @foreach ($teams as $index => $item)
+            @if ($index % 3 == 0 && $index != 0)
+               </div><div class="row">
+            @endif
+            <div class="col-md-4">
+               <div class="cards">
+                  <div class="img"><img src="{{ asset('storage')}}/{{$item->profile_photo}}" alt="{{$item->name}}" class="img-fluid"></div>
+                  <h3 class="title">{{$item->name}}</h3>
+                  <p class="sub-title">{{$item->designation}}</p>
+                  <p class="desc">{{$item->description}}</p>
+               </div>
+            </div>
+         @endforeach
+      </div>
+   </div>
+</section>
+
+<section class="quick-cards pt-2">
+   <div class="head">
+      <h3 class="title">Our Experts</h3>
+      <p class="sub-title">We are also associated with various professionals across India.</p>
+   </div>
+
+      <div class="cards-container container-md mx-auto">
+         <div class="row">
+            @foreach ($experts as $index => $item)
+               @if ($index % 3 == 0 && $index != 0)
+                  </div><div class="row">
+               @endif
+               <div class="col-md-4">
+                  <div class="cards">
+                     <div class="img"><img src="{{ asset('storage')}}/{{$item->profile_photo}}" alt="{{$item->name}}" class="img-fluid"></div>
+                     <h3 class="title">{{$item->name}}</h3>
+                     <p class="sub-title">{{$item->designation}}</p>
+                     <p class="desc">{{$item->description}}</p>
+                  </div>
+               </div>
+            @endforeach
+         </div>
+      </div>
+   
 </section>
 
 

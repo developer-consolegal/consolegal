@@ -15,9 +15,11 @@ class GalleryController extends Controller
     }
 
     // Show form to upload an image
-    public function create()
+    public function edit(Request $request, $id)
     {
-        return view('gallery.create');
+        $image = Gallery::find($id);
+
+        return view('gallery.edit', compact('image'));
     }
 
     // Store a new image
@@ -25,15 +27,47 @@ class GalleryController extends Controller
     {
         $request->validate([
             'image' => 'required|file|mimes:jpg,jpeg,png,webp|max:2048',
+            'meta' => 'nullable|string|max:255',
         ]);
 
-        $imagePath = $request->file('image')->store('gallery', 'public');
+        $image = $request->file('image');
+        $imagePath = time() . "_gallery" . $image->extension();
+        $image->move(public_path('storage'), $imagePath);
 
         Gallery::create([
             'image' => $imagePath,
+            'meta' => $request->meta,
         ]);
 
         return redirect()->route('gallery.index')->with('success', 'Image added successfully!');
+    }
+
+    public function update(Request $request, $id)
+    {
+        $image = Gallery::findOrFail($id);
+
+        $request->validate([
+            'image' => 'nullable|file|mimes:jpg,jpeg,png,webp|max:2048', // Image is optional
+            'meta' => 'nullable|string|max:255',
+        ]);
+
+        // If a new image is uploaded, replace the old one
+        if ($request->hasFile('image')) {
+            // Delete old image from storage
+            Storage::disk('public')->delete($image->image);
+
+            // Store new image
+            $file = $request->file('image');
+            $filePath = time() . "_gallery" . $file->extension();
+            $file->move(public_path("storage"), $filePath);
+            $image->image = $filePath;
+        }
+
+        // Update meta field
+        $image->meta = $request->meta;
+        $image->save();
+
+        return redirect()->route('gallery.index')->with('success', 'Image updated successfully!');
     }
 
     // Delete an image
@@ -42,7 +76,7 @@ class GalleryController extends Controller
         $image = Gallery::findOrFail($id);
 
         // Delete the image from storage
-        Storage::disk('public')->delete($image->image);
+        Storage::disk('storage')->delete($image->image);
 
         $image->delete();
 

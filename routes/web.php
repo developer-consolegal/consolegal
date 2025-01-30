@@ -54,7 +54,8 @@ use PhpOffice\PhpSpreadsheet\Calculation\MathTrig\Exp;
 
 Route::get('/', [webController::class, "index"])->name("home");
 
-Route::view("/about", "web.about")->name("about");
+Route::get("/about", [webController::class, "about"])->name("about");
+// Route::view("/about", "web.about")->name("about");
 
 
 Route::get('/clear', function () {
@@ -196,8 +197,8 @@ Route::group(['middleware' => 'admin_auth'], function () {
    Route::resource('/admin/updates', UpdateController::class);
 
    Route::resource('/admin/team', TeamMemberController::class);
-   Route::resource('/admin/gallery', GalleryController::class)->except(['edit', 'update', 'show']);
-   Route::resource('events', EventController::class)->except(['edit', 'update', 'show']);
+   Route::resource('/admin/gallery', GalleryController::class)->except(['show']);
+   Route::resource('events', EventController::class)->except(['show']);
 
 
    Route::get("/admin/dashboard", [admin::class, 'dashboard'])->name('admin.dashboard.index');

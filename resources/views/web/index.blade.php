@@ -918,7 +918,6 @@
 </section>
 
 
-
 <!----------- blogs section  ---------->
 <section class="my-5" id="blogs">
    <h2 class="main-title text-center mb-5">Latest Blogs</h2>
