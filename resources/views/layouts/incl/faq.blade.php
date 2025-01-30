@@ -951,7 +951,7 @@ Tel: 0542-2982253 Email- mail@consolegal.com
              <div class="support-info mt-3">
                <div class="box">
                   <span class="icon"><i class="fas fa-phone-alt text-primary"></i></span>
-                  <span class="text">+91 8874700008</span>
+                  <span class="text">+91 8810878185</span>
                </div>
                <div class="box">
                   <span class="icon"><i class="fas fa-envelope text-danger"></i></span>

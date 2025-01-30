@@ -24,6 +24,8 @@ use App\Models\service_done;
 use App\Models\email_subscribe;
 use App\Models\Marquee;
 use App\Models\WelcomeBanner;
+use App\Models\News;
+use App\Models\Update;
 use App\Models\Frans;
 use App\Models\User;
 use App\Models\Order;
@@ -39,11 +41,13 @@ class webController extends Controller
 
     function index()
     {
-        $data = Blogs::all();
+        $blogs = Blogs::all();
         $marquee = Marquee::where("active", 1)->get();
         $banner = WelcomeBanner::where("active", 1)->first();
+        $news = News::latest()->limit(8)->get();
+        $update = Update::latest()->limit(8)->get();
 
-        return view("web.index", ['blogs'  => $data, "marquee" => $marquee, "banner" => $banner]);
+        return view("web.index", compact("blogs", "marquee", "banner", "news", "update"));
     }
 
     function about()
