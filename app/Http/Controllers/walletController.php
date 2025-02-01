@@ -30,7 +30,6 @@ class walletController extends Controller
         $user = User::all();
         $fran = Frans::all();
 
-
         $available = Wallet::sum("amount");
 
         $redeem = wallet_history::where("entry", "debit")->sum('amount');

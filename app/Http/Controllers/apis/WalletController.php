@@ -27,12 +27,14 @@ class WalletController extends Controller
         $history = wallet_history::where("user_id", $user->id)->orderBy("id", "desc")->simplePaginate(10);
         $total = wallet_history::where("user_id", $user->id)->where("entry", "credit")->sum("amount");
         $redeem = wallet_history::where("user_id", $user->id)->where("entry", "debit")->sum("amount");
+        $available = Wallet::where("user_id", $user->id)->sum("amount");
 
         return responseJson([
             'wallet'       => $wallet,
             'history'      => $history,
             'total'        => $total,
             'redeem'       => $redeem,
+            'available' => $available
         ], 200);
     }
 

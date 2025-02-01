@@ -295,7 +295,7 @@
                      </div>
                      <h6 class="title">10+ Years Experience</h6>
                      <p class="para">
-                        We are expert in the industry from last 7 years. Continuously delivering the best services for
+                        We are expert in the industry from last 10 years. Continuously delivering the best services for
                         our clients. We provide the best and the most affordable legal services in the country. Our
                         clients trust us on our quality.
                      </p>
