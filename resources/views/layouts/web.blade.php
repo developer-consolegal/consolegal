@@ -82,7 +82,7 @@
    <script>
       // typed animation
       var options = {
-         strings: ["Income Tax", "GST Registration", "Income Tax"],
+         strings: ["Company Registration", "Company Registration", "GST Registration", "Income Tax", "GST Return", "Trademark Registration"],
          typeSpeed: 60,
          loop: true,
          attr: "placeholder",

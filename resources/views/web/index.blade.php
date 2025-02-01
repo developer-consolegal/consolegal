@@ -84,65 +84,71 @@
          <h5 class="p-2 fw-bold">Our Categories:</h5>
 
          <div class="row mx-auto p-0 category-grid gy-3">
-            <div class="col-6 col-md-4 grid-item"><a href="/services/Private-Limited-Company/125">Incorporation</a>
-            </div>
-            <div class="col-6 col-md-4 grid-item"><a href="/services/FSSAI-Registration/85">Registration</a></div>
-            <div class="col-6 col-md-4 grid-item"><a href="/services/Income-Tax-Return/102">Tax/GST</a></div>
-            <div class="col-6 col-md-4 grid-item"><a href="/services/Company-Annual-Filing/96">Compliance</a></div>
-            <div class="col-6 col-md-4 grid-item"><a href="/insurance/life">Insurance</a></div>
-            <div class="col-6 col-md-4 grid-item"><a href="/loan/personal">Loan</a></div>
+            <div class="col-6 col-md-4 grid-item"><a href="/services/Public-Limited-Company">Company Registration</a></div>
+            <div class="col-6 col-md-4 grid-item"><a href="/services/Limited-Liability-Partnership">LLP Registration</a></div>
+            <div class="col-6 col-md-4 grid-item"><a href="/services/GST-Registration">GST Registration</a></div>
+            <div class="col-6 col-md-4 grid-item"><a href="/services/Nidhi-Company-Compliance">Company Compliance 
+            </a></div>
+            <div class="col-6 col-md-4 grid-item d-none d-md-block "><a href="/services/Trade-License">Trade License</a></div>
+            <div class="col-6 col-md-4 grid-item"><a href="/services/ISO-Registration">ISO Registration</a></div>
+            <div class="col-6 col-md-4 grid-item"><a href="/services/Income-Tax-Return">Income Tax Return</a></div>
 
-            <div class="col-6 col-md-4 grid-item d-none d-md-block "><a href="/services/PSARA-License/91">PSARA
-                  License</a></div>
-            <div class="col-6 col-md-4 grid-item d-none d-md-block "><a href="/services/Trade-License/93">Trade
-                  License</a></div>
-            <div class="col-6 col-md-4 grid-item d-none d-md-block "><a href="/services/TDS-Return/122">TDS Return</a>
+            <div class="col-6 col-md-4 grid-item d-none d-md-block "><a href="/services/FSSAI-Registration">FSSAI License</a></div>
+            <div class="col-6 col-md-4 grid-item d-none d-md-block "><a href="/services/Startup-Recognition">Startup Recognition</a>
             </div>
          </div>
       </div>
       <div class="col-12 col-md-6 mx-auto icons-grid row">
          <div class="icon col-6 col-md-4">
-            <a href="/services/Income-Tax-Return/102" class="w-100">
+            <a href="/services/Litigation-Services" class="w-100">
                <div class="inner">
-                  <img src="{{ asset('web/image')}}/Income-tax-return.png" alt="" loading="lazy">
-                  <span>Income tax</span>
+                  <img src="{{ asset('web/image')}}/Loan.png" alt="" loading="lazy">
+                  <span>Litigation Services</span>
                </div>
             </a>
          </div>
          <div class="icon col-6 col-md-4">
+            <a href="/services/Income-Tax-Return" class="w-100">
+               <div class="inner">
+                  <img src="{{ asset('web/image')}}/Income-tax-return.png" alt="" loading="lazy">
+                  <span>Income tax return</span>
+               </div>
+            </a>
+         </div>
+         {{-- <div class="icon col-6 col-md-4">
             <a href="/loan/personal" class="w-100">
                <div class="inner">
                   <img src="{{ asset('web/image')}}/Loan.png" alt="" loading="lazy">
                   <span>Loan</span>
                </div>
             </a>
-         </div>
+         </div> --}}
          <div class="icon col-6 col-md-4">
-            <a href="/services/GST-Registration/120" class="w-100">
+            <a href="/services/GST-Registration" class="w-100">
                <div class="inner">
                   <img src="{{ asset('web/image')}}/GST.png" alt="" loading="lazy">
-                  <span>GST</span>
+                  <span>GST Return</span>
                </div>
             </a>
          </div>
          <div class="icon col-6 col-md-4">
-            <a href="/services/Payroll-Management/131" class="w-100">
+            <a href="/services/Payroll-Management" class="w-100">
                <div class="inner">
                   <img src="{{ asset('web/image')}}/Payroll-Managment.png" alt="" loading="lazy">
                   <span>Payroll Managment</span>
                </div>
             </a>
          </div>
-         <div class="icon col-6 col-md-4">
+         {{-- <div class="icon col-6 col-md-4">
             <a href="/insurance/life" class="w-100">
                <div class="inner">
                   <img src="{{ asset('web/image')}}/Insurance.png" alt="" loading="lazy">
                   <span>Insurance</span>
                </div>
             </a>
-         </div>
+         </div> --}}
          <div class="icon col-6 col-md-4">
-            <a href="/services/Private-Limited-Company/125">
+            <a href="/services/Private-Limited-Company">
                <div class="inner">
                   <img src="{{ asset('web/image')}}/Income-tax-return.png" alt="" loading="lazy">
                   <span>Company Registration</span>
@@ -150,7 +156,23 @@
             </a>
          </div>
          <div class="icon col-6 col-md-4">
-            <a href="/services/Trademark-Registration/94" class="w-100">
+            <a href="/services/MSME-SSI-Registration">
+               <div class="inner">
+                  <img src="{{ asset('web/image')}}/Income-tax-return.png" alt="" loading="lazy">
+                  <span>MSME Registration</span>
+               </div>
+            </a>
+         </div>
+         <div class="icon col-6 col-md-4">
+            <a href="/services/Startup-Recognition" class="w-100">
+               <div class="inner">
+                  <img src="{{ asset('web/image')}}/Registration-Certificate.png" alt="" loading="lazy">
+                  <span>Startup Recognition</span>
+               </div>
+            </a>
+         </div>
+         <div class="icon col-6 col-md-4">
+            <a href="/services/Trademark-Registration" class="w-100">
                <div class="inner">
                   <img src="{{ asset('web/image')}}/Trade-mark-Registration.png" alt="" loading="lazy">
                   <span>Trademark Registration</span>
@@ -158,21 +180,21 @@
             </a>
          </div>
          <div class="icon col-6 col-md-4">
-            <a href="/services/TDS-Return/122" class="w-100">
+            <a href="/services/Company-Annual-Filing" class="w-100">
                <div class="inner">
                   <img src="{{ asset('web/image')}}/TDS-Return.png" alt="" loading="lazy">
-                  <span>TDS Return</span>
+                  <span>Project Report</span>
                </div>
             </a>
          </div>
-         <div class="icon col-6 col-md-4">
+         {{-- <div class="icon col-6 col-md-4">
             <a href="/services/MSME-SSI-Registration/127" class="w-100">
                <div class="inner">
                   <img src="{{ asset('web/image')}}/Registration-Certificate.png" alt="" loading="lazy">
                   <span>Registration Certificate</span>
                </div>
             </a>
-         </div>
+         </div> --}}
       </div>
    </div>
 
@@ -271,7 +293,7 @@
                      <div class="img-container">
                         <img src="{{ asset('web/image')}}/CL.png" alt="" loading="lazy">
                      </div>
-                     <h6 class="title">7+ Years Experience</h6>
+                     <h6 class="title">10+ Years Experience</h6>
                      <p class="para">
                         We are expert in the industry from last 7 years. Continuously delivering the best services for
                         our clients. We provide the best and the most affordable legal services in the country. Our
@@ -427,7 +449,7 @@
                <h6 class="title">Private Limited Company Incorporation</h6>
                <p class="para">A private limited company, or LTD, is a type of privately held small business entity.</p>
 
-               <a href="/services/Private-Limited-Company/125" class="btn">Get Started</a>
+               <a href="/services/private-limited-company" class="btn">Get Started</a>
             </div>
          </div>
          <!-- cards container  -->
@@ -440,7 +462,7 @@
                <p class="para">LLP is an alternative corporate business form that gives the benefits of limited
                   liability of a company and the flexibility of a partnership.</p>
 
-               <a href="/services/Partnership-Registration/123" class="btn">Get Started</a>
+               <a href="/services/partnership-registration" class="btn">Get Started</a>
             </div>
          </div>
          <!-- cards container  -->
@@ -453,7 +475,7 @@
                <p class="para">A sole proprietorship is the simplest and most common structure chosen to start a
                   business.</p>
 
-               <a href="/services/One-Person-Company-Registration/126" class="btn">Get Started</a>
+               <a href="/services/One-Person-Company-Registration" class="btn">Get Started</a>
             </div>
          </div>
          <!-- cards container  -->
@@ -465,7 +487,7 @@
                <h6 class="title">Nidhi Company Registration</h6>
                <p class="para">Nidhi Company works with the objective of increasing savings of its members.</p>
 
-               <a href="/services/Nidhi-Company-Compliance/98" class="btn">Get Started</a>
+               <a href="/services/Nidhi-Company-Compliance" class="btn">Get Started</a>
             </div>
          </div>
       </div>
@@ -481,7 +503,7 @@
                <p class="para">Udyam (MSME) Registration is Free of Cost and paperless and no online or offline agency.
                </p>
 
-               <a href="/services/MSME-SSI-Registration/127" class="btn">Get Started</a>
+               <a href="/services/msme-ssi-registration" class="btn">Get Started</a>
             </div>
          </div>
          <!-- cards container  -->
@@ -494,7 +516,7 @@
                <p class="para">An Importer-Exporter Code is a business identification number which mandatory for export
                   from India or Import to India.</p>
 
-               <a href="/services/Import-Export-Code-Registration/89" class="btn">Get Started</a>
+               <a href="/services/import-export-code-registration" class="btn">Get Started</a>
             </div>
          </div>
          <!-- cards container  -->
@@ -507,7 +529,7 @@
                <p class="para">In both the schemes a percentage is deducted from employee's salary and proportionate
                   amount is added to it.</p>
 
-               <a href="/services/EPF-Registration/87" class="btn">Get Started</a>
+               <a href="/services/epf-registration" class="btn">Get Started</a>
             </div>
          </div>
          <!-- cards container  -->
@@ -520,7 +542,7 @@
                <p class="para">A shop or establishment registration certificate gives businesses the right to conduct
                   work in a particular state.</p>
 
-               <a href="/services/Shop-&-Establishment-Registration/86" class="btn">Get Started</a>
+               <a href="/services/shop-establishment-registration" class="btn">Get Started</a>
             </div>
          </div>
       </div>
@@ -536,7 +558,7 @@
                <p class="para">FSSAI registration or License is mandatory for all types of food business operators in
                   India.</p>
 
-               <a href="/services/FSSAI-Registration/85" class="btn">Get Started</a>
+               <a href="/services/fssai-registration" class="btn">Get Started</a>
             </div>
          </div>
          <!-- cards container  -->
@@ -549,7 +571,7 @@
                <p class="para">The drug sale license is issued for both retail as well as wholesale purpose for the
                   distribution of drug in India.</p>
 
-               <a href="/services/Drug-License/92" class="btn">Get Started</a>
+               <a href="/services/drug-license" class="btn">Get Started</a>
             </div>
          </div>
          <!-- cards container  -->
@@ -562,7 +584,7 @@
                <p class="para">Every trader involved in a general trading activity within the territorial boundaries of
                   any municipal corporation is required to get a trade license.</p>
 
-               <a href="/services/Trade-License/93" class="btn">Get Started</a>
+               <a href="/services/trade-license" class="btn">Get Started</a>
             </div>
          </div>
          <!-- cards container  -->
@@ -574,7 +596,7 @@
                <h6 class="title">PSARA License</h6>
                <p class="para">PSARA license is a must requirement for opening any private security agency in India.</p>
 
-               <a href="/services/PSARA-License/91" class="btn">Get Started</a>
+               <a href="/services/psara-license" class="btn">Get Started</a>
             </div>
          </div>
       </div>
@@ -590,7 +612,7 @@
                <p class="para">A tax return is documentation filed with a tax authority that reports income, expenses,
                   and other relevant financial information.</p>
 
-               <a href="/services/Income-Tax-Return/102" class="btn">Get Started</a>
+               <a href="/services/income-tax-return" class="btn">Get Started</a>
             </div>
          </div>
          <!-- cards container  -->
@@ -602,7 +624,7 @@
                <h6 class="title">GST Registration</h6>
                <p class="para">You can get your GSTIN as a sole proprietor or as a partnership business as well.</p>
 
-               <a href="/services/GST-Registration/120" class="btn">Get Started</a>
+               <a href="/services/gst-registration" class="btn">Get Started</a>
             </div>
          </div>
          <!-- cards container  -->
@@ -615,7 +637,7 @@
                <p class="para">A GST return is a document containing details of all income/sales and/or expense/purchase
                   which a taxpayer (every GSTIN) is required to file.</p>
 
-               <a href="/services/GST-Return/121" class="btn">Get Started</a>
+               <a href="/services/gst-return" class="btn">Get Started</a>
             </div>
          </div>
          <!-- cards container  -->
@@ -628,7 +650,7 @@
                <p class="para">TDS Return is a quarterly statement submitted by the deductor to the Income Tax
                   Department.</p>
 
-               <a href="/services/TDS-Return/122" class="btn">Get Started</a>
+               <a href="/services/tds-return" class="btn">Get Started</a>
             </div>
          </div>
       </div>
@@ -643,7 +665,7 @@
                <h6 class="title">Trademark Registration</h6>
                <p class="para">It grants you the legal right to use your trademark exclusively in such countries.</p>
 
-               <a href="/services/Trademark-Registration/94" class="btn">Get Started</a>
+               <a href="/services/trademark-registration" class="btn">Get Started</a>
             </div>
          </div>
          <!-- cards container  -->
@@ -656,7 +678,7 @@
                <p class="para">Seal of approval from a third party body that a company runs to one of the international
                   standards developed.</p>
 
-               <a href="/services/ISO-Registration/90" class="btn">Get Started</a>
+               <a href="/services/iso-registration" class="btn">Get Started</a>
             </div>
          </div>
          <!-- cards container  -->
@@ -668,7 +690,7 @@
                <h6 class="title">Payroll Management</h6>
                <p class="para">The process of administration of a company's employee's financial records.</p>
 
-               <a href="/services/Payroll-Management/131" class="btn">Get Started</a>
+               <a href="/services/payroll-management" class="btn">Get Started</a>
             </div>
          </div>
          <!-- cards container  -->
@@ -681,7 +703,7 @@
                <p class="para">The process of recording your company's financial transactions into organized accounts on
                   a daily basis.</p>
 
-               <a href="/services/Accounting-Bookkeeping/132" class="btn">Get Started</a>
+               <a href="/services/accounting-bookkeeping" class="btn">Get Started</a>
             </div>
          </div>
       </div>
@@ -697,7 +719,7 @@
                <p class="para">Company Annual Filings refers to the filing of Audited Annual Financial Accounts of the
                   Company.</p>
 
-               <a href="/services/Company-Annual-Filing/96" class="btn">Get Started</a>
+               <a href="/services/company-annual-filing" class="btn">Get Started</a>
             </div>
          </div>
          <!-- cards container  -->
@@ -710,7 +732,7 @@
                <p class="para">LLP is required to file LLP Form 8 (Statement of Account & Solvency) and LLP Form 11
                   (Annual Return) annually.</p>
 
-               <a href="/services/LLP-Annual-Filing/97" class="btn">Get Started</a>
+               <a href="/services/limited-liability-partnership" class="btn">Get Started</a>
             </div>
          </div>
          <!-- cards container  -->
@@ -723,7 +745,7 @@
                <p class="para">For filing financial documents and other supporting documents to the Registrar of
                   Companies.</p>
 
-               <a href="/services/Nidhi-Company-Compliance/98" class="btn">Get Started</a>
+               <a href="/services/nidhi-company-compliance" class="btn">Get Started</a>
             </div>
          </div>
          <!-- cards container  -->
@@ -736,7 +758,7 @@
                <p class="para">The Event-Based Compliances are those mandatory compliances which are other than the
                   usual and necessary annual and periodical compliances</p>
 
-               <a href="/services/Nidhi-Company-Compliance/98" class="btn">Get Started</a>
+               <a href="/services/event-based-compliances" class="btn">Get Started</a>
             </div>
          </div>
       </div>

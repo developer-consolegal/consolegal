@@ -1,8 +1,8 @@
 @extends("layouts.web")
 
 
-@section('title',"$service->name | Consolegal")
-@section('description',"$service->description")
+@section('title',"$service->meta_title")
+@section('description',"$service->meta_description")
 
 @section('content')
 
@@ -161,6 +161,17 @@
 
          <!-- overview section  -->
          <div class="scroll-section" id="overview">
+            @if(isset($service_id))
+            @php($video_url = $service_id->video_url)
+            @else
+            @php($video_url = '')
+            @endif
+
+            @if($video_url)
+            <iframe width="100%" height="315" src="{{$video_url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            @endif
+
+
 
             @foreach($tabs as $data)
             @if($data->name == "overview")

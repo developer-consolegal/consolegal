@@ -19,7 +19,7 @@
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                      @foreach($service_menu as $data)
                      @if($data->category == "incorporation")
-                     <li><a class="dropdown-item" href="/services/{{$data->slug}}/{{$data->id}}">{{$data->name}}</a>
+                     <li><a class="dropdown-item" href="/services/{{$data->slug}}">{{$data->name}}</a>
                      </li>
                      @endif
                      @endforeach
@@ -34,7 +34,7 @@
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                      @foreach($service_menu as $data)
                      @if($data->category == "registration")
-                     <li><a class="dropdown-item" href="/services/{{$data->slug}}/{{$data->id}}">{{$data->name}}</a>
+                     <li><a class="dropdown-item" href="/services/{{$data->slug}}">{{$data->name}}</a>
                      </li>
                      @endif
                      @endforeach
@@ -48,7 +48,7 @@
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                      @foreach($service_menu as $data)
                      @if($data->category == "tax-gst")
-                     <li><a class="dropdown-item" href="/services/{{$data->slug}}/{{$data->id}}">{{$data->name}}</a>
+                     <li><a class="dropdown-item" href="/services/{{$data->slug}}">{{$data->name}}</a>
                      </li>
                      @endif
                      @endforeach
@@ -62,7 +62,7 @@
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                      @foreach($service_menu as $data)
                      @if($data->category == "compliance")
-                     <li><a class="dropdown-item" href="/services/{{$data->slug}}/{{$data->id}}">{{$data->name}}</a>
+                     <li><a class="dropdown-item" href="/services/{{$data->slug}}">{{$data->name}}</a>
                      </li>
                      @endif
                      @endforeach
@@ -76,36 +76,13 @@
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                      @foreach($service_menu as $data)
                      @if($data->category == "others")
-                     <li><a class="dropdown-item" href="/services/{{$data->slug}}/{{$data->id}}">{{$data->name}}</a>
+                     <li><a class="dropdown-item" href="/services/{{$data->slug}}">{{$data->name}}</a>
                      </li>
                      @endif
                      @endforeach
                   </ul>
                </li>
 
-
-               <!-- <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                     Insurance
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                     <li><a class="dropdown-item" href="/insurance/life">Life Insurance</a></li>
-                     <li><a class="dropdown-item" href="/insurance/health">Health Insurance</a></li>
-                     <li><a class="dropdown-item" href="/insurance/travel">Travel Insurance</a></li>
-                     <li><a class="dropdown-item" href="/insurance/motor">Motor Insurance</a></li>
-                  </ul>
-               </li> -->
-               <!-- <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                     Loan
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                     <li><a class="dropdown-item" href="/loan/personal">Personal Loan</a></li>
-                     <li><a class="dropdown-item" href="/loan/business">Business Loan</a></li>
-                     <li><a class="dropdown-item" href="/loan/home">Home Loan</a></li>
-                     <li><a class="dropdown-item" href="/loan/car">Car Loan</a></li>
-                  </ul>
-               </li> -->
                <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                      data-bs-toggle="dropdown" aria-expanded="false">
@@ -116,6 +93,8 @@
                      <li><a class="dropdown-item" href="/blogpage">Blogs</a></li>
                      <li><a class="dropdown-item" href="/contact">Contact Us</a></li>
                      <li><a class="dropdown-item" href="{{route('career')}}">Career</a></li>
+                     <li><a class="dropdown-item" href="{{route('partnerWithUs')}}">Partner With Us</a></li>
+
                      <li class="dropdown-submenu">
                         <a class="dropdown-item dropdown-toggle" href="#">Insurance <i class="fas fa-chevron-down text-small"></i></a>
                         <ul class="dropdown-menu toggle">
@@ -192,7 +171,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                @foreach($service_menu as $data)
                @if($data->category == "incorporation")
-               <li><a class="dropdown-item" href="/services/{{$data->slug}}/{{$data->id}}">{{$data->name}}</a></li>
+               <li><a class="dropdown-item" href="/services/{{$data->slug}}">{{$data->name}}</a></li>
                @endif
                @endforeach
             </ul>
@@ -205,7 +184,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                @foreach($service_menu as $data)
                @if($data->category == "registration")
-               <li><a class="dropdown-item" href="/services/{{$data->slug}}/{{$data->id}}">{{$data->name}}</a></li>
+               <li><a class="dropdown-item" href="/services/{{$data->slug}}">{{$data->name}}</a></li>
                @endif
                @endforeach
             </ul>
@@ -218,7 +197,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                @foreach($service_menu as $data)
                @if($data->category == "tax-gst")
-               <li><a class="dropdown-item" href="/services/{{$data->slug}}/{{$data->id}}">{{$data->name}}</a></li>
+               <li><a class="dropdown-item" href="/services/{{$data->slug}}">{{$data->name}}</a></li>
                @endif
                @endforeach
             </ul>
@@ -231,7 +210,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                @foreach($service_menu as $data)
                @if($data->category == "compliance")
-               <li><a class="dropdown-item" href="/services/{{$data->slug}}/{{$data->id}}">{{$data->name}}</a></li>
+               <li><a class="dropdown-item" href="/services/{{$data->slug}}">{{$data->name}}</a></li>
                @endif
                @endforeach
             </ul>
@@ -244,7 +223,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                @foreach($service_menu as $data)
                @if($data->category == "others")
-               <li><a class="dropdown-item" href="/services/{{$data->slug}}/{{$data->id}}">{{$data->name}}</a></li>
+               <li><a class="dropdown-item" href="/services/{{$data->slug}}">{{$data->name}}</a></li>
                @endif
                @endforeach
             </ul>
@@ -260,6 +239,7 @@
                <li><a class="dropdown-item" href="/blogpage">Blogs</a></li>
                <li><a class="dropdown-item" href="/contact">Contact</a></li>
                <li><a class="dropdown-item" href="{{route('career')}}">Career</a></li>
+               <li><a class="dropdown-item" href="{{route('partnerWithUs')}}">Partner With Us</a></li>
                <li class="dropdown-submenu">
                   <a class="dropdown-item dropdown-toggle" href="#">Insurance <i class="fas fa-chevron-down text-small"></i></a>
                   <ul class="dropdown-menu toggle">

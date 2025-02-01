@@ -29,12 +29,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         $services = services::all();
-        $data = collect();
-         foreach($services as $service){
-                 $service['slug'] = str_replace(' ','-',$service->name);
-                 $data->push($service);
-         }
         
-        View::share('service_menu', $data);
+        View::share('service_menu', $services);
     }
 }

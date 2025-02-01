@@ -527,7 +527,7 @@ class admin extends Controller
          }
          return ['status' => 'exist'];
       } catch (\Throwable $th) {
-         // throw $th;
+         throw $th;
       }
    }
 
@@ -552,20 +552,18 @@ class admin extends Controller
 
          $service = services::where("id", $req->id)->first();
 
-
-
          foreach ($req->input() as $key => $val) {
             $service->$key = $val;
          }
 
 
-         //  if($req->hasFile('icon') && $req->file('icon')){
-         //      $file = $req->file('icon');
-         //      $icon_path = time() . '_kyc.' . $file->extension();
-         //      $file->move(public_path('storage'), $icon_path);
+          if($req->hasFile('icon') && $req->file('icon')){
+              $file = $req->file('icon');
+              $icon_path = time() . '_kyc.' . $file->extension();
+              $file->move(public_path('storage'), $icon_path);
 
-         //      $service->icon = $icon_path;
-         //  }
+              $service->icon = $icon_path;
+          }
 
          $service->save();
 

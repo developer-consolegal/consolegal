@@ -140,7 +140,7 @@
 
 
              {{-- Services  --}}
-             @if(auth('admin')->user()->can('service'))
+             @if(auth('admin')->user()->can('services'))
              <li class="menu">
                 <a href="#services" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                    <div class="">
@@ -170,7 +170,7 @@
              @endif
              
              {{-- Career  --}}
-             @if(auth('admin')->user()->can('service'))
+             @if(auth('admin')->user()->can('career'))
              <li class="menu">
                 <a href="#career" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                    <div class="">

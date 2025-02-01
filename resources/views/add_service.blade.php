@@ -75,7 +75,6 @@
 
                <br />
 
-
                <label for="icon">Icon</label><br>
 
                <input type="file" name="icon" id="icon" accept="image/*" required class="form-control">
@@ -96,7 +95,13 @@
                <!-- <div id="divkarea"></div> -->
 
                <br>
-
+               @if(isset($service_id))
+               @php($video_url = $service_id->video_url)
+               @else
+               @php($video_url = '')
+               @endif
+               <label for="video_url">Video Url</label><br>
+               <input type="text" class="form-control" name="video_urls" placeholder="Youtube Url" value="{{$video_url}}">
                <br>
                <h2 class="">Sub Heads</h2>
 
@@ -595,6 +600,9 @@
 
       let name = $("[name=name]").val();
       let slug = $("[name=slug]").val();
+      let video_url = $("[name=video_url]").val();
+      let meta_title = $("[name=meta_title]").val();
+      let meta_description = $("[name=meta_description]").val();
       let price = $("[name=price]").val();
       let points = $("[name=points]").val();
       let f_price = $("[name=f_price]").val();
@@ -607,6 +615,10 @@
 
       let ServiceFormData = new FormData();
       ServiceFormData.append('name', name);
+      ServiceFormData.append('slug', slug);
+      ServiceFormData.append('video_url', video_url);
+      ServiceFormData.append('meta_title', meta_title);
+      ServiceFormData.append('meta_description', meta_description);
       ServiceFormData.append('price', price);
       ServiceFormData.append('points', points);
       ServiceFormData.append('f_price', f_price);

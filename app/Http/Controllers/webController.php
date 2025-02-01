@@ -9,6 +9,7 @@ use App\Http\Traits\EmailTrait;
 use Barryvdh\DomPDF\Facade;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 
 use ZipArchive;
 use DB;
@@ -58,6 +59,20 @@ class webController extends Controller
         $events = Event::orderBy("id", "desc")->limit(10)->get();
 
         return view("web.about", compact("experts", "teams", "gallery", "events"));
+    }
+    
+    function partnerWithUs()
+    {
+        if ($user = Session::has('frans')) {
+            $user = Session::get('frans');
+        } elseif (Session::has('user')) {
+            $user = Session::get('user');
+        } elseif (Session::has('agents')) {
+            $user = Session::get('agents');
+        } else {
+            $user = null;
+        }
+        return view("web.partner-with-us", compact('user'));
     }
 
 
@@ -223,11 +238,10 @@ class webController extends Controller
 
 
 
-    function service(Request $req, $name = null, $id = null)
+    function service(Request $req, $slug = null)
     {
 
-
-        if ($name != null && $id != null) {
+        if ($slug != null) {
 
             if ($user = Session::has('frans')) {
                 $user = Session::get('frans');
@@ -241,14 +255,33 @@ class webController extends Controller
 
             $service_all = services::where("category", "!=", "private")->get();
 
-            $service_id = services::find($id);
-            $sub_heads  = services_sub_head::where("service_id", $id)->get();
-            $tabs = tabs_content::where("service_id", $id)->get();
+            $service = services::where("slug", $slug)->first();
+            $sub_heads  = services_sub_head::where("service_id", $service->id)->get();
+            $tabs = tabs_content::where("service_id", $service->id)->get();
 
             // return ['services' => $service_id, 'sub_head' => $sub_heads, 'tabs' => $tabs];
-            return view("web.index2", ['service' => $service_id, 'services_all' => $service_all, 'sub_head' => $sub_heads, 'tabs' => $tabs, 'user' =>  $user]);
+            return view("web.index2", ['service' => $service, 'services_all' => $service_all, 'sub_head' => $sub_heads, 'tabs' => $tabs, 'user' =>  $user]);
         }
     }
+
+    // function serviceRefresh()
+    // {
+    //     // Fetch all services
+    //     $services = services::all();
+
+    //     // Loop through each service and update the slug
+    //     foreach ($services as $service) {
+    //         $service->slug = Str::slug($service->name);
+
+    //         // Save the updated slug
+    //         $service->save();
+    //     }
+
+    //     return response()->json([
+    //         'message' => 'Slugs updated successfully!',
+    //         'total_updated' => $services->count()
+    //     ]);
+    // }
 
 
     function liveSearch(Request $req)

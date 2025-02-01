@@ -59,8 +59,8 @@ use PhpOffice\PhpSpreadsheet\Calculation\MathTrig\Exp;
 Route::get('/', [webController::class, "index"])->name("home");
 
 Route::get("/about", [webController::class, "about"])->name("about");
-// Route::view("/about", "web.about")->name("about");
 
+Route::get("/partner-with-us", [webController::class, "partnerWithUs"])->name("partnerWithUs");
 
 Route::get('/clear', function () {
    Artisan::call('cache:clear');
@@ -91,7 +91,9 @@ Route::post('/career', [CareerController::class, 'store'])->name('career.store')
 
 Route::get("/services", [webController::class, "service"])->name("services");
 
-Route::get("/services/{name}/{id}", [webController::class, "service"])->name("service.show");
+// Route::get("/services-refresh", [webController::class, "serviceRefresh"])->name("services-refresh");
+
+Route::get("/services/{slug}", [webController::class, "service"])->name("service.show");
 
 Route::post("/live-search", [webController::class, "liveSearch"]);
 

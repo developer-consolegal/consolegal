@@ -692,8 +692,9 @@ ul.navbar-item.flex-row.ml-md-auto {
     border-right: 1px solid #0e1726;
     overflow-y: scroll;
 }
+
 #sidebar ul.menu-categories.ps::-webkit-scrollbar{
-    display: none;
+    /* display: none; */
 }
 /* #sidebar .ps__thumb-y { */
 /* right: 4px; */
@@ -1770,6 +1771,9 @@ input[type="submit"] {
     box-shadow: 0px 3px 10px -7px rgb(0 0 0 / 47%);
     overflow: hidden;
     cursor: pointer;
+}
+.an-btn.secondary {
+    background: #15426d;
 }
 
 .btn.focus,
