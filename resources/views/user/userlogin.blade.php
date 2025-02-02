@@ -25,10 +25,9 @@
                   <div class="text-center">
                      <h4 class="mb-4">Login</h4>
                   </div>
-                  <form class="login-form" method="POST" id="login-form" data-redirect="{{session()->get('buyservice')}}">
+                  <form class="login-form" action="" method="POST" id="login-form" data-redirect="{{session()->get('buyservice')}}">
                      @csrf
                      <div class="row">
-
                         <div class="col-lg-12 mb-3">
                            <div class="form-group position-relative">
                               <label>Your Email <span class="text-danger">*</span></label>
@@ -153,6 +152,11 @@
 
          let redirect = $(this).attr("data-redirect");
 
+         $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
          $.ajax({
             url: "/users/login",
             type: "POST",
@@ -173,9 +177,6 @@
                   $(".email_err").html("Wrong Email !!");
                } else if (data.status == "password_err") {
                   $(".password_err").html("Wrong Password !!");
-               }
-               else(data.status) {
-                  $(".password_err").html(data.status);
                }
             },
             complete: function() {

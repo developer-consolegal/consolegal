@@ -79,7 +79,7 @@
    <!--------- footer  ----------->
    @include('layouts.incl.footer')
 
-   <script>
+   {{-- <script>
       // typed animation
       var options = {
          strings: ["Company Registration", "Company Registration", "GST Registration", "Income Tax", "GST Return", "Trademark Registration"],
@@ -91,7 +91,7 @@
          cursorChar: "|",
       };
       var typed = new Typed("#search input", options);
-   </script>
+   </script> --}}
    
    <script>
        

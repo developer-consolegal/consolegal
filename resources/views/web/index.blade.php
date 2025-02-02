@@ -1036,6 +1036,19 @@
 
 @include('layouts.incl.faq')
 
+<script>
+   var options = {
+      strings: ["Company Registration", "Company Registration", "GST Registration", "Income Tax", "GST Return", "Trademark Registration"],
+      typeSpeed: 60,
+      loop: true,
+      attr: "placeholder",
+      loopCount: Infinity,
+      showCursor: true,
+      cursorChar: "|",
+   };
+   var typed = new Typed("#search input", options);
+</script>
+
 
 <script>
    function liveSearch(query) {
