@@ -67,6 +67,68 @@ let swiperBlog = new Swiper(".swiper-container-blog", {
   },
 });
 
+let swiperTeams = new Swiper(".swiper-container-teams", {
+  slidesPerView: 3,
+  spaceBetween: 30,
+  loop: true,
+  speed: 1000,
+
+  autoplay: {
+    delay: 2300,
+    disableOnInteraction: false,
+  },
+  breakpoints: {
+    1180: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
+    920: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
+    576: {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+    },
+  },
+  navigation: {
+    nextEl: ".swiper-next-btn",
+    prevEl: ".swiper-prev-btn",
+  },
+});
+
+let swiperTeamsExperts = new Swiper(".swiper-container-teams.experts", {
+  slidesPerView: 3,
+  spaceBetween: 30,
+  loop: true,
+  speed: 1000,
+
+  autoplay: {
+    delay: 2300,
+    disableOnInteraction: false,
+  },
+  breakpoints: {
+    1180: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
+    920: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
+    576: {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+    },
+  },
+  navigation: {
+    nextEl: ".swiper-next-btn",
+    prevEl: ".swiper-prev-btn",
+  },
+});
+
 ////////////////// swiper testimonial slider
 let swiperTestimonial = new Swiper(".swiper-container-testimonial", {
   effect: "coverflow",

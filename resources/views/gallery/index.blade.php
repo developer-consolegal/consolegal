@@ -52,12 +52,16 @@
             </div>
             
             <div class="form-group">
-                <label for="image">Gallery Image<span class="text-danger">*</span></label>
+                <label for="image">Gallery Image<span class="text-danger">* (302 × 200 px)</span></label>
                 <input type="file" name="image" id="image" class="form-control">
             </div>
 
             <div class="form-group">
-                <label for="meta">Alt Text / Meta Description</label>
+                <label for="description">Description</label>
+                <input type="text" name="description" id="description" class="form-control" placeholder="Enter description">
+            </div>
+            <div class="form-group">
+                <label for="meta">Alt Text</label>
                 <input type="text" name="meta" id="meta" class="form-control" placeholder="Enter image alt text">
             </div>
 
@@ -70,8 +74,9 @@
                 @php($nos++)
             <div class="col-md-4 col-12 border">
                 <div>
-                    <img src="{{asset('storage')}}/{{$item->image}}" style="width: 100%; max-height:250px;">
+                    <img src="{{asset('storage')}}/{{$item->image}}" style="width: 100%; height:250px; object-fit:cover;">
                 </div>
+                <p class="text-dark"><strong>Description:</strong> {{ $item->description ?? 'N/A' }}</p>
                 <p class="text-dark"><strong>Alt Text:</strong> {{ $item->meta ?? 'N/A' }}</p>
                 <div class="d-flex justify-content-end">
                     <a href="{{route('gallery.edit', $item->id)}}" class="btn text-primary"><img src="{{asset('web/image/icons-pencil.png')}}" style="width: 15px;"></a>

@@ -60,6 +60,17 @@ class webController extends Controller
 
         return view("web.about", compact("experts", "teams", "gallery", "events"));
     }
+
+
+    function galleryEvents()
+    {
+        $experts = TeamMember::where("is_expert", "1")->get();
+        $teams = TeamMember::where("is_expert", "0")->get();
+        $gallery = Gallery::orderBy("id", "desc")->limit(20)->get();
+        $events = Event::orderBy("id", "desc")->limit(10)->get();
+
+        return view("web.gallery-events", compact("experts", "teams", "gallery", "events"));
+    }
     
     function partnerWithUs()
     {

@@ -1,9 +1,5 @@
 @extends("layouts.web")
 
-{{-- @section('title','About Us | Consolegal')
-@section('description','We Started as a one man show in the profession gradually scaled up 
-            with the joining of passionate and experienced professionals from diverse backgrounds now launching our 
-            online platform ConsoLegal- Keep it Simple. We value accountability, transparency and simplicity.') --}}
 <x-seo page="{{ 'about' }}" />
 
 @section('content')
@@ -37,7 +33,7 @@
             with the joining of passionate and experienced professionals from diverse backgrounds now launching our 
             online platform ConsoLegal- Keep it Simple. We value accountability, transparency and simplicity.</p>
             <a href="#more" class="btn an-btn">Know more</a>
-         </div>f
+         </div>
       </div>
       <div class="col-md-6 rt order-1 order-md-2">
          <div class="img-container">
@@ -74,53 +70,6 @@
    </div>
 </section>
 
-<section class="my-5" id="blogs">
-   <h2 class="main-title text-center mb-5">Latest Events</h2>
-
-   <div class="swiper-container-blog">
-      <div class="swiper-wrapper">
-         <!-- slide 1 -->
-
-         @foreach($events as $data)
-         <div class="swiper-slide">
-            <div class="blog-card-container">
-               <div class="img-container">
-                  <span class="date">{{$data->event_date->format('Y-F-d')}}</span>
-                  <img src="{{ asset('storage')}}/{{$data->image}}" loading="lazy">
-               </div>
-               <div class="title" style="height: fit-content;">
-                  <h5>{{$data->label}}</h5>
-               </div>
-               <div class="tags">
-                  <p>{{$data->description}}</p>
-               </div>
-               <div class="read-more"><a href="{{$data->link}}" class="btn an-btn">View Details</a></div>
-            </div>
-         </div>
-         @endforeach
-      </div>
-   </div>
-   <div class="swiper-prev-btn"><i class="fas fa-chevron-left"></i></div>
-   <div class="swiper-next-btn"><i class="fas fa-chevron-right"></i></div>
-</section>
-
-<section>
-   <div class="head text-center">
-      <h3 class="title">Our Gallery</h3>
-      {{-- <p class="sub-title">We are also associated with various professionals across India.</p> --}}
-   </div>
-   <div class="rowFlex container-md py-4">
-      <div class="column">
-         @foreach ($gallery as $index => $item)
-         @if ($index % 2 == 0 && $index != 0)
-            </div><div class="column">
-         @endif
-        <img src="{{asset('storage')}}/{{$item->image}}" style="width:100%;">
-        @endforeach
-      </div>
-   </div>
-</section>
-
 <!-- quick cards  -->
 <section class="quick-cards">
    <div class="head">
@@ -129,28 +78,38 @@
    </div>
 
    <div class="cards-container container-md mx-auto ">
-     
-      <div class="cards">
-         <div class="img"><img src="{{ asset('web/image')}}/team2.jpeg" alt="" class="img-fluid"></div>
-         <h3 class="title">Gaurav Goel</h3>
-         <p class="sub-title">Director </p>
-         <p class="desc">B-Tech from Galgotias College 12+ Years Experience in Education</p>
-      </div>
-      <div class="cards">
-         <div class="img"><img src="{{ asset('web/image')}}/team1.jpeg" alt="" class="img-fluid"></div>
-         <h3 class="title" style="padding-top: 10px">Shubham Agrawal </h3>
-         <p class="sub-title" style="padding: 10px 0">Founder & Director </p>
-         <p class="desc">Bachelor in Law from Mahatma Gandhi Kashi Vidyapeeth, Varanasi
-            & 8+ Years Experience in Business Compliance & Taxation
-         </p>
-      </div>
-      <div class="cards">
-         <div class="img"><img src="{{ asset('web/image')}}/team3.jpeg" alt="" class="img-fluid"></div>
-         <h3 class="title">Juhi Goyal </h3>
-         <p class="sub-title">Executive Head </p>
-         <p class="desc">Graduation in Commerce 
-            <br>CA Final & CS Executive 4+ Experience in Projection & Analysis.
-         </p>
+      <div class="swiper-container-teams">
+         <div class="swiper-wrapper">
+            <div class="swiper-slide">
+               <div class="cards">
+                  <div class="img"><img src="{{ asset('web/image')}}/team1.jpeg" alt="" class="img-fluid"></div>
+                  <h3 class="title" style="padding-top: 10px">Shubham Agrawal </h3>
+                  <p class="sub-title" style="padding: 10px 0">Founder & Director </p>
+                  <p class="desc">Bachelor in Law from Mahatma Gandhi Kashi Vidyapeeth, Varanasi
+                     & 8+ Years Experience in Business Compliance & Taxation
+                  </p>
+               </div>
+            </div>
+            <div class="swiper-slide">
+               <div class="cards">
+                  <div class="img"><img src="{{ asset('web/image')}}/team2.jpeg" alt="" class="img-fluid"></div>
+                  <h3 class="title">Gaurav Goel</h3>
+                  <p class="sub-title">Director </p>
+                  <p class="desc">B-Tech from Galgotias College 12+ Years Experience in Education</p>
+               </div>
+            </div>
+            
+            <div class="swiper-slide">
+               <div class="cards">
+                  <div class="img"><img src="{{ asset('web/image')}}/team3.jpeg" alt="" class="img-fluid"></div>
+                  <h3 class="title">Juhi Goyal </h3>
+                  <p class="sub-title">Executive Head </p>
+                  <p class="desc">Graduation in Commerce 
+                     <br>CA Final & CS Executive 4+ Experience in Projection & Analysis.
+                  </p>
+               </div>
+            </div>
+         </div>
       </div>
    </div>
 
@@ -163,11 +122,10 @@
    </div>
 
    <div class="cards-container container-md mx-auto">
-      <div class="row">
+      <div class="swiper-container-teams">
+         <div class="swiper-wrapper">
          @foreach ($teams as $index => $item)
-            @if ($index % 3 == 0 && $index != 0)
-               </div><div class="row">
-            @endif
+         <div class="swiper-slide">
             <div class="col-md-4">
                <div class="cards">
                   <div class="img"><img src="{{ asset('storage')}}/{{$item->profile_photo}}" alt="{{$item->name}}" class="img-fluid"></div>
@@ -176,7 +134,10 @@
                   <p class="desc">{{$item->description}}</p>
                </div>
             </div>
+         </div>
          @endforeach
+         </div>
+      </div>
       </div>
    </div>
 </section>
@@ -188,11 +149,10 @@
    </div>
 
       <div class="cards-container container-md mx-auto">
-         <div class="row">
+         <div class="swiper-container-teams">
+            <div class="swiper-wrapper">
             @foreach ($experts as $index => $item)
-               @if ($index % 3 == 0 && $index != 0)
-                  </div><div class="row">
-               @endif
+            <div class="swiper-slide">
                <div class="col-md-4">
                   <div class="cards">
                      <div class="img"><img src="{{ asset('storage')}}/{{$item->profile_photo}}" alt="{{$item->name}}" class="img-fluid"></div>
@@ -201,7 +161,9 @@
                      <p class="desc">{{$item->description}}</p>
                   </div>
                </div>
+            </div>
             @endforeach
+            </div>
          </div>
       </div>
    

@@ -53,7 +53,7 @@
          <ul class="links-list">
             @foreach($service_menu as $data)
             @if($data->category == "incorporation")
-            <li><a href="/services/{{$data->slug}}/{{$data->id}}">{{$data->name}}</a></li>
+            <li><a href="/services/{{$data->slug}}">{{$data->name}}</a></li>
             @endif
             @endforeach
          </ul>
@@ -63,7 +63,7 @@
          <ul class="links-list">
             @foreach($service_menu as $data)
             @if($data->category == "registration")
-            <li><a href="/services/{{$data->slug}}/{{$data->id}}">{{$data->name}}</a></li>
+            <li><a href="/services/{{$data->slug}}">{{$data->name}}</a></li>
             @endif
             @endforeach
 
@@ -74,7 +74,7 @@
          <ul class="links-list">
             @foreach($service_menu as $data)
             @if($data->category == "tax-gst")
-            <li><a href="/services/{{$data->slug}}/{{$data->id}}">{{$data->name}}</a></li>
+            <li><a href="/services/{{$data->slug}}">{{$data->name}}</a></li>
             @endif
             @endforeach
          </ul>
@@ -84,7 +84,7 @@
          <ul class="links-list">
             @foreach($service_menu as $data)
             @if($data->category == "compliance")
-            <li><a href="/services/{{$data->slug}}/{{$data->id}}">{{$data->name}}</a></li>
+            <li><a href="/services/{{$data->slug}}">{{$data->name}}</a></li>
             @endif
             @endforeach
 

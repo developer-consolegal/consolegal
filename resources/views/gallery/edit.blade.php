@@ -61,6 +61,11 @@
             </div>
 
             <div class="form-group">
+               <label for="description">Description</label>
+               <input type="text" name="description" id="description" value="{{$image->description}}" class="form-control" placeholder="Enter description">
+           </div>
+
+            <div class="form-group">
                 <label for="meta">Alt Text</label>
                 <input type="text" name="meta" id="meta" value="{{$image->meta}}" class="form-control" placeholder="Enter image alt text">
             </div>

@@ -84,12 +84,24 @@
                </li>
 
                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                     aria-expanded="false">
+                     Programs
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                     <li><a class="dropdown-item" href="https://www.startupassist.consolegal.com/" target="_blank">Startup Assist</a></li>
+                     <li><a class="dropdown-item" href="https://www.msmeignite.consolegal.com/images/home/logo.png" target="_blank">MSME Ignite</a></li>
+                  </ul>
+               </li>
+
+               <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                      data-bs-toggle="dropdown" aria-expanded="false">
                      More
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                      <li><a class="dropdown-item" href="/about">About</a></li>
+                     <li><a class="dropdown-item" href="{{route('galleryEvents')}}">Gallery & Events</a></li>
                      <li><a class="dropdown-item" href="/blogpage">Blogs</a></li>
                      <li><a class="dropdown-item" href="/contact">Contact Us</a></li>
                      <li><a class="dropdown-item" href="{{route('career')}}">Career</a></li>
@@ -228,6 +240,16 @@
                @endforeach
             </ul>
          </li>
+         <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+               aria-expanded="false">
+               Programs
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+               <li><a class="dropdown-item" href="https://www.startupassist.consolegal.com/" target="_blank">Startup Assist</a></li>
+               <li><a class="dropdown-item" href="https://www.msmeignite.consolegal.com/images/home/logo.png" target="_blank">MSME Ignite</a></li>
+            </ul>
+         </li>
 
          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
@@ -236,6 +258,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                <li><a class="dropdown-item" href="/about">About</a></li>
+               <li><a class="dropdown-item" href="{{route('galleryEvents')}}">Gallery & Events</a></li>
                <li><a class="dropdown-item" href="/blogpage">Blogs</a></li>
                <li><a class="dropdown-item" href="/contact">Contact</a></li>
                <li><a class="dropdown-item" href="{{route('career')}}">Career</a></li>
@@ -272,4 +295,11 @@
       <span>Call</span></a>
    <a href="{{config('app.whatsapp')}}" target="_blank" class="sticky-wp"><i
          class="fab fa-whatsapp"></i><span>Whatsapp</span></a>
+</div>
+
+<div class="side-strip-action left">
+   <a href="https://www.startupassist.consolegal.com/" target="_blank" class="sticky-phone-alt"><i class="fas fa-star"></i>
+      <span>Startup Assist</span></a>
+   <a href="https://www.msmeignite.consolegal.com/images/home/logo.png" target="_blank" class="sticky-wp"><i
+         class="fas fa-ribbon"></i><span>MSME Ignite</span></a>
 </div>

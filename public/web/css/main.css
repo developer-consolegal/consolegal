@@ -213,6 +213,15 @@ h2 {
     align-items: center;
 }
 
+.side-strip-action.left {
+    right: unset;
+    width: 32px;
+    position: fixed !important;
+    top: 60%;
+    left:0;
+    align-items: flex-start;
+}
+
 .sticky-wp,
 .sticky-phone-alt {
     width: 100%;
@@ -227,6 +236,11 @@ h2 {
     transition: width .4s linear;
     padding-left: 6px;
     overflow: hidden;
+}
+
+.side-strip-action.left .sticky-wp,
+.side-strip-action.left .sticky-phone-alt {
+    padding-left: 3px;
 }
 
 .captcha-ct {
@@ -244,9 +258,28 @@ h2 {
 .sticky-phone-alt span {
     font-size: 15px;
     font-weight: bold;
+    white-space: nowrap;
 }
 
 .sticky-wp:hover,
+.sticky-phone-alt:hover {
+    width: 230px;
+    color: #fff;
+    /*justify-content: flex-;*/
+}
+
+.side-strip-action.left .sticky-wp{
+    background-color: #efa434;
+}
+
+.side-strip-action.left .sticky-wp:hover{
+    width: 150px;
+}
+
+.side-strip-action.left .sticky-phone-alt:hover{
+    width: 180px;
+}
+
 .sticky-phone-alt:hover {
     width: 230px;
     color: #fff;
@@ -2070,6 +2103,11 @@ header::after {
     align-items: center;
     padding: 20px;
     position: relative;
+}
+
+.quick-cards .cards-container .swiper-container-teams{
+    width: 100%;
+    overflow: hidden;
 }
 
 .quick-cards .cards-container .cards {

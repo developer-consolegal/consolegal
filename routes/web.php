@@ -59,6 +59,7 @@ use PhpOffice\PhpSpreadsheet\Calculation\MathTrig\Exp;
 Route::get('/', [webController::class, "index"])->name("home");
 
 Route::get("/about", [webController::class, "about"])->name("about");
+Route::get("/gallery-events", [webController::class, "galleryEvents"])->name("galleryEvents");
 
 Route::get("/partner-with-us", [webController::class, "partnerWithUs"])->name("partnerWithUs");
 

@@ -27,6 +27,7 @@ class GalleryController extends Controller
     {
         $request->validate([
             'image' => 'required|file|mimes:jpg,jpeg,png,webp|max:2048',
+            'description' => 'required',
             'meta' => 'nullable|string|max:255',
         ]);
 
@@ -48,6 +49,7 @@ class GalleryController extends Controller
 
         $request->validate([
             'image' => 'nullable|file|mimes:jpg,jpeg,png,webp|max:2048', // Image is optional
+            'description' => 'required',
             'meta' => 'nullable|string|max:255',
         ]);
 
@@ -65,6 +67,7 @@ class GalleryController extends Controller
 
         // Update meta field
         $image->meta = $request->meta;
+        $image->description = $request->description;
         $image->save();
 
         return redirect()->route('gallery.index')->with('success', 'Image updated successfully!');

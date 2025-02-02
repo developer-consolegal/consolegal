@@ -1,8 +1,5 @@
 @extends('layouts.web')
 
-{{-- @section('title','One stop solution for Startups and SMEs in India for Legal and Compliance needs | ConsoLegal')
-@section('description','One stop solution for Startups and SMEs in India for Legal and Compliance needs | ConsoLegal') --}}
-
 <x-seo page="{{ 'home' }}" />
 
 @push('css')
@@ -84,23 +81,22 @@
          <h5 class="p-2 fw-bold">Our Categories:</h5>
 
          <div class="row mx-auto p-0 category-grid gy-3">
-            <div class="col-6 col-md-4 grid-item"><a href="/services/Public-Limited-Company">Company Registration</a></div>
-            <div class="col-6 col-md-4 grid-item"><a href="/services/Limited-Liability-Partnership">LLP Registration</a></div>
-            <div class="col-6 col-md-4 grid-item"><a href="/services/GST-Registration">GST Registration</a></div>
-            <div class="col-6 col-md-4 grid-item"><a href="/services/Nidhi-Company-Compliance">Company Compliance 
+            <div class="col-6 col-md-4 grid-item"><a href="/services/private-limited-company">Company Registration</a></div>
+            <div class="col-6 col-md-4 grid-item"><a href="/services/limited-liability-partnership">LLP Registration</a></div>
+            <div class="col-6 col-md-4 grid-item"><a href="/services/gst-registration">GST Registration</a></div>
+            <div class="col-6 col-md-4 grid-item"><a href="/services/company-annual-filing">Company Compliance 
             </a></div>
-            <div class="col-6 col-md-4 grid-item d-none d-md-block "><a href="/services/Trade-License">Trade License</a></div>
-            <div class="col-6 col-md-4 grid-item"><a href="/services/ISO-Registration">ISO Registration</a></div>
-            <div class="col-6 col-md-4 grid-item"><a href="/services/Income-Tax-Return">Income Tax Return</a></div>
+            <div class="col-6 col-md-4 grid-item d-none d-md-block "><a href="/services/trade-license">Trade License</a></div>
+            <div class="col-6 col-md-4 grid-item"><a href="/services/iso-registration">ISO Registration</a></div>
+            <div class="col-6 col-md-4 grid-item"><a href="/services/income-tax-return">Income Tax Return</a></div>
 
-            <div class="col-6 col-md-4 grid-item d-none d-md-block "><a href="/services/FSSAI-Registration">FSSAI License</a></div>
-            <div class="col-6 col-md-4 grid-item d-none d-md-block "><a href="/services/Startup-Recognition">Startup Recognition</a>
-            </div>
+            <div class="col-6 col-md-4 grid-item d-none d-md-block "><a href="/services/fssai-registration">FSSAI License</a></div>
+            <div class="col-6 col-md-4 grid-item d-none d-md-block "><a href="/services/startup-recognition">Startup Recognition</a></div>
          </div>
       </div>
       <div class="col-12 col-md-6 mx-auto icons-grid row">
          <div class="icon col-6 col-md-4">
-            <a href="/services/Litigation-Services" class="w-100">
+            <a href="/services/litigation-services" class="w-100">
                <div class="inner">
                   <img src="{{ asset('web/image')}}/Loan.png" alt="" loading="lazy">
                   <span>Litigation Services</span>
@@ -108,23 +104,15 @@
             </a>
          </div>
          <div class="icon col-6 col-md-4">
-            <a href="/services/Income-Tax-Return" class="w-100">
+            <a href="/services/income-tax-return" class="w-100">
                <div class="inner">
                   <img src="{{ asset('web/image')}}/Income-tax-return.png" alt="" loading="lazy">
                   <span>Income tax return</span>
                </div>
             </a>
          </div>
-         {{-- <div class="icon col-6 col-md-4">
-            <a href="/loan/personal" class="w-100">
-               <div class="inner">
-                  <img src="{{ asset('web/image')}}/Loan.png" alt="" loading="lazy">
-                  <span>Loan</span>
-               </div>
-            </a>
-         </div> --}}
          <div class="icon col-6 col-md-4">
-            <a href="/services/GST-Registration" class="w-100">
+            <a href="/services/gst-registration" class="w-100">
                <div class="inner">
                   <img src="{{ asset('web/image')}}/GST.png" alt="" loading="lazy">
                   <span>GST Return</span>
@@ -132,23 +120,15 @@
             </a>
          </div>
          <div class="icon col-6 col-md-4">
-            <a href="/services/Payroll-Management" class="w-100">
+            <a href="/services/payroll-management" class="w-100">
                <div class="inner">
                   <img src="{{ asset('web/image')}}/Payroll-Managment.png" alt="" loading="lazy">
                   <span>Payroll Managment</span>
                </div>
             </a>
          </div>
-         {{-- <div class="icon col-6 col-md-4">
-            <a href="/insurance/life" class="w-100">
-               <div class="inner">
-                  <img src="{{ asset('web/image')}}/Insurance.png" alt="" loading="lazy">
-                  <span>Insurance</span>
-               </div>
-            </a>
-         </div> --}}
          <div class="icon col-6 col-md-4">
-            <a href="/services/Private-Limited-Company">
+            <a href="/services/private-limited-company">
                <div class="inner">
                   <img src="{{ asset('web/image')}}/Income-tax-return.png" alt="" loading="lazy">
                   <span>Company Registration</span>
@@ -164,7 +144,7 @@
             </a>
          </div>
          <div class="icon col-6 col-md-4">
-            <a href="/services/Startup-Recognition" class="w-100">
+            <a href="/services/startup-recognition" class="w-100">
                <div class="inner">
                   <img src="{{ asset('web/image')}}/Registration-Certificate.png" alt="" loading="lazy">
                   <span>Startup Recognition</span>
@@ -172,7 +152,7 @@
             </a>
          </div>
          <div class="icon col-6 col-md-4">
-            <a href="/services/Trademark-Registration" class="w-100">
+            <a href="/services/trademark-registration" class="w-100">
                <div class="inner">
                   <img src="{{ asset('web/image')}}/Trade-mark-Registration.png" alt="" loading="lazy">
                   <span>Trademark Registration</span>
@@ -180,21 +160,13 @@
             </a>
          </div>
          <div class="icon col-6 col-md-4">
-            <a href="/services/Company-Annual-Filing" class="w-100">
+            <a href="/services/company-annual-filing" class="w-100">
                <div class="inner">
                   <img src="{{ asset('web/image')}}/TDS-Return.png" alt="" loading="lazy">
                   <span>Project Report</span>
                </div>
             </a>
          </div>
-         {{-- <div class="icon col-6 col-md-4">
-            <a href="/services/MSME-SSI-Registration/127" class="w-100">
-               <div class="inner">
-                  <img src="{{ asset('web/image')}}/Registration-Certificate.png" alt="" loading="lazy">
-                  <span>Registration Certificate</span>
-               </div>
-            </a>
-         </div> --}}
       </div>
    </div>
 
