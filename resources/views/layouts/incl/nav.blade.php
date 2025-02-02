@@ -300,6 +300,6 @@
 <div class="side-strip-action left">
    <a href="https://www.startupassist.consolegal.com/" target="_blank" class="sticky-phone-alt"><i class="fas fa-star"></i>
       <span>Startup Assist</span></a>
-   <a href="https://www.msmeignite.consolegal.com/images/home/logo.png" target="_blank" class="sticky-wp"><i
+   <a href="https://www.msmeignite.consolegal.com/" target="_blank" class="sticky-wp"><i
          class="fas fa-ribbon"></i><span>MSME Ignite</span></a>
 </div>
