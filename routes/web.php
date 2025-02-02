@@ -229,6 +229,8 @@ Route::group(['middleware' => 'admin_auth'], function () {
 
 
    Route::get("/admin/dashboard", [admin::class, 'dashboard'])->name('admin.dashboard.index');
+   Route::get("/admin/dashboard/pending", [admin::class, 'pendingLeads'])->name('admin.pendingLeads.index');
+   Route::get("/admin/dashboard/completed", [admin::class, 'completeLeads'])->name('admin.completeLeads.index');
 
    /*********************************************/
    Route::get("/admin/contacts", [admin::class, 'contact'])->name('admin.contacts.index');
@@ -376,6 +378,7 @@ Route::group(['middleware' => 'admin_auth'], function () {
    Route::view("/admin/user/create", "add_user");
    Route::post("admin/user/create", [users::class, 'create'])->name('admin.user.create');
    Route::post("admin/user/update", [admin::class, 'user_update']);      // update 
+   Route::post("admin/user/{user_id}/toggle-disable", [admin::class, 'toggleUserStatus'])->name('admin.user.toggle-disable');      // update 
    Route::get("/users/export", [ExportController::class, 'user'])->name('export.users');
 
 
@@ -384,6 +387,7 @@ Route::group(['middleware' => 'admin_auth'], function () {
    Route::get("/admin/franchise/all", [franchise::class, "franchise_get"])->name('franchise.all');
    Route::get("/admin/franchise/profile/{id?}", [franchise::class, "franchise_profile"])->name('fran.profile');
    Route::post("admin/franchise/update", [admin::class, 'franchise_update']);      // update 
+   Route::post("admin/franchise/{user_id}/toggle-disable", [admin::class, 'toggleFranStatus'])->name('admin.fran.toggle-disable');      // update 
    Route::get("admin/franchise/delete/{id}", [franchise::class, 'franchise_delete']);      // update 
    Route::get("/frans/export", [ExportController::class, 'frans'])->name('export.frans');
 
@@ -403,6 +407,8 @@ Route::group(['middleware' => 'admin_auth'], function () {
 
    Route::get("/admin/agents/edit/{id}", [admin::class, "agent_profile"]);
    Route::post("/admin/agents/edit/{id}", [admin::class, "agent_update"]);
+   Route::post("admin/agents/{user_id}/toggle-disable", [admin::class, 'toggleAgentStatus'])->name('admin.agents.toggle-disable');      // update 
+
 
    Route::get("/admin/agents/delete/{id}", [admin::class, "agent_delete"]);
 

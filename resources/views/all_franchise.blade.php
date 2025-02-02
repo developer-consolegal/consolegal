@@ -46,6 +46,7 @@
                   <th>Email Address</th>
                   <th>Phone No.</th>
                   <th>Company</th>
+                  <th>Disabled</th>
                   <th class="text-center">Action</th>
                </tr>
             </thead>
@@ -59,6 +60,17 @@
                   <td>{{$list->email}}</td>
                   <td>{{$list->phone}}</td>
                   <td>{{$list->company_name}}</td>
+                  <td>
+                     <form action="{{route('admin.fran.toggle-disable', $list->id)}}" method="post">
+                             <button class="btn text-center" type="submit">
+                                 @if($list->disabled_at)
+                                 <i class="fas fa-check-circle text-white bg-success rounded-circle p-1" title="activate user account"></i>
+                                 @else
+                                 <i class="fas fa-times-circle text-white border border-2 border-danger bg-danger rounded-circle p-1" title="disable user account temprory"></i>
+                                 @endif
+                             </button>
+                     </form>
+                 </td>
                   <td class="text-center">
                      <a href="/admin/franchise/profile?id={{$list->id}}">
                         <i class="fa fa-pencil" aria-hidden="true"></i> 

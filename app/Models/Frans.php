@@ -19,11 +19,18 @@ class Frans extends Model
         'company_name',
         'address',
         'status',
+        'remember_token',
+        'disabled_at',
         'created_at',
         'updated_at',
     ];
 
     public $appends = ["user_id"];
+
+    public function isDisabled()
+    {
+        return !is_null($this->disabled_at);
+    }
 
     public function getUserIdAttribute()
     {

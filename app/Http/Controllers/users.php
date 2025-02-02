@@ -81,6 +81,10 @@ class users extends Controller
 
          if ($users) {
 
+            if ($users->isDisabled()) {
+               return ["status" => "Your account is temporarily disabled."];
+           }
+
             if (Hash::check($req->password, $users->password)) {
 
                $req->session()->put('user', $users);

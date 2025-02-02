@@ -411,8 +411,38 @@ class admin extends Controller
    {
       try {
 
-         $leads = Lead::orWhere('name', 'like', '%' . $req->query('search') . '%')->orderBy("id", "desc")
+         $leads = Lead::where('status', $req->query('status'))->where('name', 'like', '%' . $req->query('search') . '%')->orderBy("id", "desc")
             ->simplePaginate(30);
+
+         $services = services::all();
+
+         return view("dashboard", ["data" => $leads, 'service' => $services]);
+      } catch (\Throwable $th) {
+         throw $th;
+      }
+   }
+
+   function completeLeads(Request $req)
+   {
+      try {
+
+         $leads = Lead::with('orders')->whereHas('orders')->where('name', 'like', '%' . $req->query('search') . '%')->orderBy("id", "desc")
+         ->simplePaginate(30);
+
+         $services = services::all();
+
+         return view("dashboard", ["data" => $leads, 'service' => $services]);
+      } catch (\Throwable $th) {
+         throw $th;
+      }
+   }
+   
+   function pendingLeads(Request $req)
+   {
+      try {
+
+         $leads = Lead::with('orders')->whereDoesntHave('orders')->where('name', 'like', '%' . $req->query('search') . '%')->orderBy("id", "desc")
+         ->simplePaginate(30);
 
          $services = services::all();
 
@@ -437,6 +467,50 @@ class admin extends Controller
       return view("subscribed", compact('data'));
    }
 
+   public function toggleUserStatus($user_id)
+   {
+      $user = User::findOrFail($user_id);
+
+      if ($user->disabled_at) {
+         $user->disabled_at = null;  // Enable the user
+      } else {
+         $user->disabled_at = now(); // Disable the user
+      }
+
+      $user->save();
+
+      return redirect()->back()->with('success', !$user->disabled_at ? 'User account status is active.' : 'User account is restricted');
+   }
+   
+   public function toggleFranStatus($user_id)
+   {
+      $user = Frans::findOrFail($user_id);
+
+      if ($user->disabled_at) {
+         $user->disabled_at = null;  // Enable the user
+      } else {
+         $user->disabled_at = now(); // Disable the user
+      }
+
+      $user->save();
+
+      return redirect()->back()->with('success', !$user->disabled_at ? 'User account status is active.' : 'User account is restricted');
+   }
+   
+   public function toggleAgentStatus($user_id)
+   {
+      $user = agents_model::findOrFail($user_id);
+
+      if ($user->disabled_at) {
+         $user->disabled_at = null;  // Enable the user
+      } else {
+         $user->disabled_at = now(); // Disable the user
+      }
+
+      $user->save();
+
+      return redirect()->back()->with('success', !$user->disabled_at ? 'User account status is active.' : 'User account is restricted');
+   }
 
    public function paginate($items, $perPage = 5, $page = null, $options = [])
    {

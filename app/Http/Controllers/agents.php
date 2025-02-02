@@ -39,6 +39,10 @@ class agents extends Controller
 
       $users = agents_model::where('email', "$req->email")->first();
 
+      if ($users->isDisabled()) {
+         return redirect()->back()->with('error', 'Your account is temporarily disabled.');
+     }
+
       if ($req->password == $users->password) {
 
          $req->session()->put('agents', $users);

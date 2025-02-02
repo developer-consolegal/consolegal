@@ -364,6 +364,10 @@ class franchise extends Controller
 
       $check = Frans::where("email", "$req->email")->first();
 
+      if ($check->isDisabled()) {
+         return redirect()->back()->with('error','Your account is temporarily disabled.');
+     }
+
       if ($check) {
 
          $check_key = Hash::check($req->password, $check->password);

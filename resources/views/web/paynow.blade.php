@@ -170,8 +170,8 @@
             "amount": Number(total_amount),
             "currency": "INR",
             "name": "CONSOLEGAL",
-            "description": "Test Transaction",
-            "image": "https://web-app-ca.herokuapp.com/image/logo.jpeg",
+            "description": "",
+            // "image": "https://web-app-ca.herokuapp.com/image/logo.jpeg",
             "order_id": "",
             "handler": function(response) {
                 $.ajaxSetup({
@@ -207,9 +207,6 @@
                 "name": name,
                 "email": email,
                 "contact": phone
-            },
-            "notes": {
-                "address": "test test"
             },
             "theme": {
                 "color": "#F37254"

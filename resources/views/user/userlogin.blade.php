@@ -25,7 +25,7 @@
                   <div class="text-center">
                      <h4 class="mb-4">Login</h4>
                   </div>
-                  <form class="login-form" id="login-form" data-redirect="{{session()->get('buyservice')}}">
+                  <form class="login-form" method="POST" id="login-form" data-redirect="{{session()->get('buyservice')}}">
                      @csrf
                      <div class="row">
 
@@ -146,8 +146,8 @@
 
    <script>
       // submit login form ajax 
-      $(document).on("submit", "#login-form", function(e) {
-         e.preventDefault();
+      $(document).on("submit", "#login-form", function(event) {
+         event.preventDefault();
 
          let formData = $(this).serialize();
 
@@ -173,6 +173,9 @@
                   $(".email_err").html("Wrong Email !!");
                } else if (data.status == "password_err") {
                   $(".password_err").html("Wrong Password !!");
+               }
+               else(data.status) {
+                  $(".password_err").html(data.status);
                }
             },
             complete: function() {

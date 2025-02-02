@@ -42,6 +42,12 @@
                       <a href="/admin/dashboard">All Leads</a>
                    </li>
                    <li>
+                      <a href="{{route('admin.pendingLeads.index')}}">Pending Leads</a>
+                   </li>
+                   <li>
+                      <a href="{{route('admin.completeLeads.index')}}">Completed Leads</a>
+                   </li>
+                   <li>
                       <a href="/leads">Add Leads </a>
                    </li>
                 </ul>

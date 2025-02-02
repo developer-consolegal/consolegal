@@ -13,6 +13,11 @@ class agents_model extends Model
 
     public $appends = ["user_id"];
 
+    public function isDisabled()
+    {
+        return !is_null($this->disabled_at);
+    }
+
     public function getUserIdAttribute()
     {
         return "AM-CL-00" . $this->id;

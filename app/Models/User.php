@@ -27,6 +27,9 @@ class User extends Authenticatable
         'company',
         'ref_id',
         'profile',
+        'email_verified_at',
+        'remember_token',
+        'disabled_at',
         'created_at',
         'updated_at',
     ];
@@ -61,6 +64,11 @@ class User extends Authenticatable
     public function userId()
     {
         return "UM-CL-00" . $this->id;
+    }
+
+    public function isDisabled()
+    {
+        return !is_null($this->disabled_at);
     }
 
     public function getUrlAttribute()
