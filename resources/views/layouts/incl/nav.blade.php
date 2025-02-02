@@ -90,7 +90,7 @@
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                      <li><a class="dropdown-item" href="https://www.startupassist.consolegal.com/" target="_blank">Startup Assist</a></li>
-                     <li><a class="dropdown-item" href="https://www.msmeignite.consolegal.com/images/home/logo.png" target="_blank">MSME Ignite</a></li>
+                     <li><a class="dropdown-item" href="https://www.msmeignite.consolegal.com/" target="_blank">MSME Ignite</a></li>
                   </ul>
                </li>
 
@@ -247,7 +247,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                <li><a class="dropdown-item" href="https://www.startupassist.consolegal.com/" target="_blank">Startup Assist</a></li>
-               <li><a class="dropdown-item" href="https://www.msmeignite.consolegal.com/images/home/logo.png" target="_blank">MSME Ignite</a></li>
+               <li><a class="dropdown-item" href="https://www.msmeignite.consolegal.com/" target="_blank">MSME Ignite</a></li>
             </ul>
          </li>
 
