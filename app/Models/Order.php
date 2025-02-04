@@ -61,6 +61,7 @@ class Order extends Model
     {
         return route("user.download.customer", ["id" => $this->id]);
     }
+
     public function getPdfAttribute()
     {
         return route("user.download.invoice", ["id" => $this->id]);

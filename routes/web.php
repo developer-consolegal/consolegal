@@ -24,8 +24,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RolePermissionController;
 use App\Http\Controllers\Admin\AdminRoleController;
-
-
+use App\Http\Controllers\Admin\AdminReportController;
 
 use App\Http\Controllers\PayController;
 use App\Http\Controllers\CareerController;
@@ -128,14 +127,14 @@ Route::view("/insurance/life", "web.lifeinsurance")->name("insurance.life");
 Route::post("/email/subscribe", [webController::class, "email_subscribe"])->middleware('csrf')->name("subscribe.post");
 
 // download file 
-Route::get("/download/{id}", [webController::class, "download"])->name("download.docs");
+Route::get("/download/{id?}", [webController::class, "download"])->name("download.docs");
 
-Route::get("/download/invoice/{id}", [webController::class, "download_invoice"])->name("user.download.invoice");
-Route::get("/download/customer/{id}", [webController::class, "download_customer"])->name("user.download.customer");
+Route::get("/download/invoice/{id?}", [webController::class, "download_invoice"])->name("user.download.invoice");
+Route::get("/download/customer/{id?}", [webController::class, "download_customer"])->name("user.download.customer");
 
 // text file pdf
-Route::get("/text/{id}", [webController::class, "textpdf"])->name("download.pdf");
-Route::get("/reciept/{id}", [webController::class, "download_reciept"])->name('download.reciept');
+Route::get("/text/{id?}", [webController::class, "textpdf"])->name("download.pdf");
+Route::get("/reciept/{id?}", [webController::class, "download_reciept"])->name('download.reciept');
 
 // end web route for all visitors here 
 Route::get('/not_found', [NotFound::class, 'index']);
@@ -199,6 +198,8 @@ Route::group(['middleware' => 'admin_auth'], function () {
 
    Route::get("/admin/welcome", [admin::class, 'welcome'])->name('admin.dashboard.welcome');
 
+   Route::get('/admin/staff', [admin::class, 'staffs'])->name('admin.staffs.index');
+   Route::get('/admin/staff/profile/{id}', [admin::class, 'staffs_edit'])->name('admin.staffs.edit');
    Route::get('/admin/permissions', [PermissionController::class, 'index'])->name('admin.permissions.index');
    Route::post('/admin/permissions/{admin}', [PermissionController::class, 'update'])->name('admin.permissions.update');
     
@@ -245,6 +246,7 @@ Route::group(['middleware' => 'admin_auth'], function () {
 
    Route::post("/admin/add", [admin::class, 'admin_add']);  // add new admin
 
+   Route::get("admin/create", [admin::class, 'admin_create']);
    Route::post("admin/update", [admin::class, 'admin_update']);
    Route::post("admin/delete", [admin::class, 'admin_delete']);
 
@@ -334,6 +336,8 @@ Route::group(['middleware' => 'admin_auth'], function () {
    Route::get("/admin/royalty_points", [admin::class, 'royalty_points_get']);
    Route::post("/admin/royalty_points", [admin::class, 'royalty_points_post']);
 
+   Route::get("/admin/stats", [AdminReportController::class, "index"])->name('admin.reports.index');
+
 
    Route::get("/admin/wallet", [walletController::class, "wallet_all"])->name('admin.wallet.index');
 
@@ -413,6 +417,7 @@ Route::group(['middleware' => 'admin_auth'], function () {
    Route::get("/admin/agents/delete/{id}", [admin::class, "agent_delete"]);
 
    Route::post("/admin/agents/create", [agents::class, "agent_add"]);
+   
    Route::get("/agents/export", [ExportController::class, 'agent'])->name('export.agents');
 
 

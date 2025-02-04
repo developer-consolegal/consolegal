@@ -110,6 +110,32 @@ class admin extends Controller
       }
    }
 
+   function staffs(Request $req){
+      try{
+         $key = $req->key ?? '';
+         $users = admins::with('roles')->where("id", "LIKE", '%' . $key . '%')
+         ->orWhere("name", "LIKE", '%' . $key . '%')
+         ->orWhere("email", "LIKE", '%' . $key . '%')
+         ->orWhere("phone", "LIKE", '%' . $key . '%')
+         ->orderBy("id", "DESC")
+         ->simplePaginate(10);
+
+         // return count($users[0]->roles);
+
+         return view("all_staff", compact('users'));
+      }catch (\Throwable $th) {
+         throw $th;
+      }
+   }
+
+   function staffs_edit(Request $req, $id)
+   {
+      $user = admins::find($id);
+
+      return view("staff_profile", ['data' => $user]);
+   }
+
+
    // update admin details 
    function admin_update(Request $req)
    {
@@ -126,9 +152,6 @@ class admin extends Controller
                if ($req->phone) {
                   $admin->phone = $req->phone;
                }
-               if ($req->company) {
-                  $admin->company = $req->company;
-               }
                if ($req->password) {
                   $admin->password = Hash::make($req->password);
                }
@@ -140,7 +163,7 @@ class admin extends Controller
                   EmailTrait::confirm($admin->email, $body, "Profile update", $admin->name);
                }
 
-               return $admin;
+               return redirect()->route('admin.staffs.index')->with('success', 'Profile has been updated');
             }
          }
       } catch (\Throwable $th) {
@@ -333,9 +356,12 @@ class admin extends Controller
       }
    }
 
+   function admin_create(Request $req){
+      return view('add_staff');
+   }
 
    // register new admin 
-   public function admin_add(Request $req)
+   function admin_add(Request $req)
    {
       try {
          if ($req->name && $req->email && $req->phone && $req->password) {
@@ -349,7 +375,8 @@ class admin extends Controller
 
             $admin->save();
 
-            return $admin;
+            return redirect()->route('admin.staffs.index')->with('success', 'New staff created');
+
          } else {
             return ["error" => 'failed to register'];
          }
@@ -381,14 +408,19 @@ class admin extends Controller
 
    function admin_delete(Request $req)
    {
-
+      try{
       if ($req->id) {
          $admin = admins::find($req->id)->delete();
 
-         return $admin;
+         return redirect()->route('admin.staffs.index')->with('success', 'Profile has been deleted');
+
       }
-      return redirect('/admin/welcome');
+   } catch (\Throwable $th) {
+      return redirect()->route('admin.staffs.index')->with('error', 'Profile has failed to delete');
+
+      }
    }
+      // return redirect('/admin/welcome');
 
 
 
@@ -467,7 +499,7 @@ class admin extends Controller
       return view("subscribed", compact('data'));
    }
 
-   public function toggleUserStatus($user_id)
+   function toggleUserStatus($user_id)
    {
       $user = User::findOrFail($user_id);
 
@@ -482,7 +514,7 @@ class admin extends Controller
       return redirect()->back()->with('success', !$user->disabled_at ? 'User account status is active.' : 'User account is restricted');
    }
    
-   public function toggleFranStatus($user_id)
+   function toggleFranStatus($user_id)
    {
       $user = Frans::findOrFail($user_id);
 
@@ -497,7 +529,7 @@ class admin extends Controller
       return redirect()->back()->with('success', !$user->disabled_at ? 'User account status is active.' : 'User account is restricted');
    }
    
-   public function toggleAgentStatus($user_id)
+   function toggleAgentStatus($user_id)
    {
       $user = agents_model::findOrFail($user_id);
 
@@ -512,7 +544,7 @@ class admin extends Controller
       return redirect()->back()->with('success', !$user->disabled_at ? 'User account status is active.' : 'User account is restricted');
    }
 
-   public function paginate($items, $perPage = 5, $page = null, $options = [])
+   function paginate($items, $perPage = 5, $page = null, $options = [])
    {
       $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
       $items = $items instanceof Collection ? $items : Collection::make($items);

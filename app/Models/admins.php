@@ -14,4 +14,6 @@ class admins extends Authenticatable
 
     protected $guard_name = 'admin'; // Important for Spatie roles
     protected $fillable = ['name', 'email', 'password'];
+
+    
 }

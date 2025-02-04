@@ -2,8 +2,6 @@
 
 @section("title","Permissions")
 
-
-
 @section('content')
 <!--  BEGIN NAVBAR  -->
 @include("adminheader")
@@ -92,14 +90,7 @@
         </div>
 
       </div>
-
-
-
-
    </div>
-
-
-
 
 </div>
 <!--  END CONTENT AREA  -->
