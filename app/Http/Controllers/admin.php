@@ -22,6 +22,7 @@ use App\Models\tabs_content;
 use App\Models\User;
 use App\Models\service_done;
 use App\Models\email_subscribe;
+use App\Models\CampaignInquiry;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -490,6 +491,13 @@ class admin extends Controller
       $data = DB::table('contact')->orderBy("id", "DESC")->simplePaginate(50);
 
       return view("contacts", compact('data'));
+   }
+   
+   function enquiries()
+   {
+      $data = CampaignInquiry::orderBy("id", "DESC")->simplePaginate(20);
+
+      return view("campaign_inquiry", compact('data'));
    }
 
    function emails()

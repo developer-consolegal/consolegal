@@ -24,11 +24,13 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RolePermissionController;
 use App\Http\Controllers\Admin\AdminRoleController;
+use App\Http\Controllers\Admin\CampaignController as AdminCampaignController;
+use App\Http\Controllers\Admin\TicketController as AdminTicketController;
 use App\Http\Controllers\Admin\AdminReportController;
 
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\MessageController;
-use App\Http\Controllers\Admin\TicketController as AdminTicketController;
+use App\Http\Controllers\CampaignController;
 
 use App\Http\Controllers\PayController;
 use App\Http\Controllers\CareerController;
@@ -128,6 +130,9 @@ Route::view("/insurance/travel", "web.travelinsurance")->name("insurance.travel"
 Route::view("/insurance/health", "web.healthinsurance")->name("insurance.health");
 Route::view("/insurance/life", "web.lifeinsurance")->name("insurance.life");
 
+Route::get('/campaign/{slug}', [CampaignController::class, "show"])->name('campaign.show');
+Route::post('/campaign/{slug}', [CampaignController::class, "store"])->name('campaign.store');
+
 Route::post("/email/subscribe", [webController::class, "email_subscribe"])->middleware('csrf')->name("subscribe.post");
 
 // download file 
@@ -205,6 +210,10 @@ Route::middleware('admin_auth')->prefix('admin')->name('admin.')->group(function
    Route::post('assign-role', [AdminRoleController::class, 'assignRole'])->name('assign-role.store');
 });
 
+Route::middleware('admin_auth')->prefix('admin')->name('admin.')->group(function () {
+   Route::resource('campaigns', AdminCampaignController::class);
+});
+
 Route::group(['middleware' => 'admin_auth'], function () {
 
    Route::get("/admin/welcome", [admin::class, 'welcome'])->name('admin.dashboard.welcome');
@@ -245,6 +254,7 @@ Route::group(['middleware' => 'admin_auth'], function () {
    Route::get("/admin/dashboard/completed", [admin::class, 'completeLeads'])->name('admin.completeLeads.index');
 
    /*********************************************/
+   Route::get("/admin/campaign-inquiry", [admin::class, 'enquiries'])->name('admin.campaign_inquiry.index');
    Route::get("/admin/contacts", [admin::class, 'contact'])->name('admin.contacts.index');
    Route::get("/admin/contacts/export", [ExportController::class, 'contacts'])->name('admin.contacts.export');
    /******************************************/
