@@ -26,6 +26,10 @@ use App\Http\Controllers\Admin\RolePermissionController;
 use App\Http\Controllers\Admin\AdminRoleController;
 use App\Http\Controllers\Admin\AdminReportController;
 
+use App\Http\Controllers\TicketController;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\Admin\TicketController as AdminTicketController;
+
 use App\Http\Controllers\PayController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\JoinAppController;
@@ -166,6 +170,13 @@ Route::get("/join-app/export", [ExportController::class, 'join'])->name("join.ex
    return $respose;
 });
 */
+
+Route::middleware(['admin_auth'])->prefix('admin')->name('admin.')->group(function () {
+   Route::get('tickets', [AdminTicketController::class, 'index'])->name('tickets.index');
+   Route::get('tickets/{ticket}', [AdminTicketController::class, 'show'])->name('tickets.show');
+   Route::post('tickets/{ticket}/reply', [AdminTicketController::class, 'reply'])->name('tickets.reply');
+   Route::post('tickets/{ticket}/close', [AdminTicketController::class, 'close'])->name('tickets.close');
+});
 
 //----------------admin------------------------------
 Route::get("/admin", [admin::class, 'login_get'])->name('admin.login');
@@ -452,6 +463,12 @@ Route::post("/leads/web", [leads::class, 'leads_post']);
 Route::view("/order/success", "user.thanku");  //send request for buy service
 
 
+Route::middleware(['users_m'])->prefix('users')->name('user.')->group(function () {
+   Route::resource('tickets', TicketController::class);
+   Route::post('tickets/{ticket}/messages', [MessageController::class, 'store'])->name('messages.store');
+   Route::post('tickets/{ticket}/close', [TicketController::class, 'close'])->name('tickets.close');
+});
+
 Route::group(['middleware' => 'users_m'], function () {
 
 
@@ -517,6 +534,12 @@ Route::get("/franchise", [franchise::class, "login_page"])->name('fran.login');
 Route::post('/franchise', [franchise::class, 'login'])->name('fran.login.post');         //login
 
 Route::post("/franchise/update", [franchise::class, 'frans_update']); // update 
+
+Route::middleware(['frans_auth'])->prefix('franchise')->name('franchise.')->group(function () {
+   Route::resource('tickets', TicketController::class);
+   Route::post('tickets/{ticket}/messages', [MessageController::class, 'store'])->name('messages.store');
+   Route::post('tickets/{ticket}/close', [TicketController::class, 'close'])->name('tickets.close');
+});
 
 Route::group(["middleware" => "frans_auth"], function () {
 

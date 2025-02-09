@@ -5,7 +5,6 @@
 
 @section('content')
 
-
 <section class="myccount">
 
   <div class="container-fluid">

@@ -18,6 +18,8 @@
    <link rel="stylesheet" type="text/css" href="{{ asset('user/css')}}/fonts.css" />
    <script src="{{ asset('user/js')}}/jquery.min.js"></script>
    <script src="{{ asset('user/js')}}/bootstrap.min.js"></script>
+
+   @stack('css')
 </head>
 
 <body>
@@ -74,6 +76,7 @@
                <li class=""><i class="fa fa-shopping-basket" aria-hidden="true"></i><a href="{{route('user.dashboard.orders')}}">Order</a></li>
                <li class=""><i class="fa fa-google-wallet" aria-hidden="true"></i><a href="{{route('user.dashboard.wallet')}}">Wallet</a></li>
                <li class=""><i class="fa fa-money-bill-wave-alt" aria-hidden="true"></i><a href="{{route('user.dashboard.payment')}}">Online Payments</a></li>
+               <li class=""><i class="fa fa-check-circle" aria-hidden="true"></i><a href="{{route('user.tickets.index')}}">Tickets</a></li>
                <li class=""><i class="fa fa-share-square" aria-hidden="true"></i><a href="{{route('user.dashboard.refer_earn')}}">Refer</a></li>
              </ul>
            </nav>
@@ -224,7 +227,6 @@ success: function(data) {
 
    <script src="{{ asset('user/js')}}/scripts.js"></script>
 
-
    <script>
       // Get the modal
       var modal = document.getElementById('id01');
@@ -236,6 +238,7 @@ success: function(data) {
          }
       }
    </script>
-</body>
 
+   @stack('script')
+</body>
 </html>

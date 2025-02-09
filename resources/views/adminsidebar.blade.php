@@ -430,6 +430,9 @@
                 </a>
                 <ul class="submenu list-unstyled collapse" id="support" data-parent="#accordionExample" style="">
                    <li>
+                      <a href="{{route('admin.tickets.index')}}">Tickets</a>
+                   </li>
+                   <li>
                       <a href="{{route('admin.contacts.index')}}">Contact Forms</a>
                    </li>
                    <li>
