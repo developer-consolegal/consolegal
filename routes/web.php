@@ -31,6 +31,7 @@ use App\Http\Controllers\Admin\AdminReportController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\CampaignController;
+use App\Http\Controllers\PartnerInquiryController;
 
 use App\Http\Controllers\PayController;
 use App\Http\Controllers\CareerController;
@@ -67,6 +68,7 @@ Route::get("/about", [webController::class, "about"])->name("about");
 Route::get("/gallery-events", [webController::class, "galleryEvents"])->name("galleryEvents");
 
 Route::get("/partner-with-us", [webController::class, "partnerWithUs"])->name("partnerWithUs");
+Route::post('/partner-inquiry', [PartnerInquiryController::class, 'store'])->name('partner.inquiry.store');
 
 Route::get('/clear', function () {
    Artisan::call('cache:clear');
@@ -255,6 +257,7 @@ Route::group(['middleware' => 'admin_auth'], function () {
 
    /*********************************************/
    Route::get("/admin/campaign-inquiry", [admin::class, 'enquiries'])->name('admin.campaign_inquiry.index');
+   Route::get("/admin/partner-inquiry", [admin::class, 'partner_inquiry'])->name('admin.partner_inquiry.index');
    Route::get("/admin/contacts", [admin::class, 'contact'])->name('admin.contacts.index');
    Route::get("/admin/contacts/export", [ExportController::class, 'contacts'])->name('admin.contacts.export');
    /******************************************/

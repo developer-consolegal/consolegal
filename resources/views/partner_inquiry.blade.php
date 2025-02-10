@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title','Campaign Inquiry')
+@section('title','Partner Inquiry')
 @section('content')
 <!--  BEGIN NAVBAR  -->
 @include('adminheader')
@@ -21,7 +21,7 @@
     <div id="content" class="main-content wallet">
 
         <div class="user" id="navbarscroll">
-            <h2>Campaign Inquiries</h2>
+            <h2>Partner Inquiries</h2>
             <div class="row d-flex justify-content-between align-items-center">   
                 <div class="col-10">
                 </div>        
@@ -37,6 +37,9 @@
                         <th class="text-left">Name</th>
                         <th class="text-left">Phone</th>
                         <th class="text-left">Email</th>
+                        <th class="text-left">State</th>
+                        <th class="text-left">City</th>
+                        <th class="text-left">Occupation</th>
                         <th class="text-left">Message</th>
                         <th>Date</th>
                     </tr>
@@ -50,6 +53,9 @@
                         <td class="text-left">{{$list->name}}</td>
                         <td class="text-left">{{$list->phone}}</td>
                         <td class="text-left">{{$list->email}}</td>
+                        <td class="text-left">{{$list->state}}</td>
+                        <td class="text-left">{{$list->city}}</td>
+                        <td class="text-left">{{$list->occupation}}</td>
                         <td class="text-left">{{$list->message}}</td>
                         <td class="text-center">
                             {{$list->created_at}}

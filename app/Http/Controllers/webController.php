@@ -307,7 +307,7 @@ class webController extends Controller
         foreach ($search as $item) {
 
             $data .= "<li class='py-1'>
-                        <a class='btn text-dark' href='/services/$item->name/$item->id'>$item->name</a>
+                        <a class='btn text-dark' href='/services/$item->slug'>$item->name</a>
                     </li>";
         }
 

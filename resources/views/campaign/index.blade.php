@@ -54,6 +54,7 @@
                     <th>#</th>
                     <th>Name</th>
                     <th>Slug</th>
+                    <th>Page</th>
                     <th>Label</th>
                     <th>Meta Title</th>
                     <th>Actions</th>
@@ -65,6 +66,7 @@
                         <td>{{ $loop->iteration }}</td>
                         <td><a href="/campaign/{{$campaign->slug}}" target="_blank">{{ $campaign->name }}</a></td>
                         <td>{{ $campaign->slug }}</td>
+                        <td>{{ $campaign->name }}</td>
                         <td>{{ $campaign->label }}</td>
                         <td>{{ $campaign->meta_title }}</td>
                         <td class="d-flex align-items-center">

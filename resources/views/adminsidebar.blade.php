@@ -436,7 +436,10 @@
                       <a href="{{route('admin.contacts.index')}}">Contact Forms</a>
                    </li>
                    <li>
-                      <a href="{{route('admin.campaign_inquiry.index')}}">Campaign Enquiry</a>
+                      <a href="{{route('admin.campaign_inquiry.index')}}">Campaign Inquiry</a>
+                   </li>
+                   <li>
+                      <a href="{{route('admin.partner_inquiry.index')}}">Partner Inquiry</a>
                    </li>
                    <li>
                       <a href="{{route('join')}}">App Waiting List</a>

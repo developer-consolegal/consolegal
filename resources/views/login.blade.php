@@ -63,9 +63,9 @@
                         </div>
 
                         <div class="col-12 text-center">
-                           <p class="mb-0 mt-3"><small class="text-dark mr-2">Don't have an account ?</small>
+                           {{-- <p class="mb-0 mt-3"><small class="text-dark mr-2">Don't have an account ?</small>
                               <a href="/users/signup" class="text-dark font-weight-bold">Sign Up</a>
-                           </p>
+                           </p> --}}
                         </div>
                      </div>
                   </form>

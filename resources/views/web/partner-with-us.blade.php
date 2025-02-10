@@ -42,31 +42,32 @@
          </div>
       </div>
 
-      <div class="col-12 col-md-6 rt">
-         <form id="lead-form">
+      <div class="col-12 col-md-6 rt mt-3 mt-md-0">
+         <form id="partner-inquiry-form">
+            @csrf
             <h3 class="title mb-1">Secure your spot now</h3>
             <p class="mb-4">Be the first to know when the product launches and other not-to-miss updates.</p>
             <div class="row g-3">
                <div class="col-12 col-md-6">
-                  <input type="text" required name="name" class="form-control" placeholder="Name">
+                  <input type="text" name="name" placeholder="Name" class="form-control" required value="{{ old('name') }}">
                </div>
                <div class="col-12 col-md-6">
-                  <input type="text" required name="email" class="form-control" placeholder="Email">
+                  <input type="email" name="email" placeholder="Email" class="form-control" required value="{{ old('email') }}">
                </div>
                <div class="col-12 col-md-6">
-                  <input type="text" required name="phone" class="form-control" placeholder="Phone">
+                  <input type="text" name="phone" placeholder="Phone" class="form-control" required value="{{ old('phone') }}">
                </div>
                <div class="col-12 col-md-6">
-                  <input type="text" required name="state" class="form-control" placeholder="State">
+                  <input type="text" name="state" placeholder="State" class="form-control" required value="{{ old('state') }}">
                </div>
                <div class="col-12 col-md-6">
-                  <input type="text" required name="city" class="form-control" placeholder="City">
+                  <input type="text" name="city" placeholder="City" class="form-control" required value="{{ old('city') }}">
                </div>
                <div class="col-12 col-md-6">
-                  <input type="text" required name="occupation" class="form-control" placeholder="Occupation">
+                  <input type="text" name="occupation" placeholder="Occupation" class="form-control" required value="{{ old('occupation') }}">
                </div>
                <div class="col-12 col-md-12">
-                  <textarea rows="4" required name="message" class="form-control" placeholder="Message"></textarea>
+                  <textarea name="message" placeholder="Message" class="form-control" rows="4" required>{{ old('message') }}</textarea>
                </div>
                <div class="col-12 row align-items-center mt-2">
                   <div class="g-recaptcha" data-sitekey="6LfQ4B8qAAAAAEbOCn71lwSwarsWil2_6kQlDEAj"></div>
@@ -87,7 +88,7 @@
 
 
 
-<a class="inquiry-btn btn btn-warning" title="Fill Enquiry Form" href="#">INQUIRY</a>
+{{-- <a class="inquiry-btn btn btn-warning" title="Fill Enquiry Form" href="#">INQUIRY</a> --}}
 
 
 <!---------- how to start  ---------->
@@ -118,36 +119,36 @@
 <section class="mt-5 w-75 mx-auto">
 
    <div class="row">
-      <div class="col-6">
+      <div class="col-12 col-md-6">
          <img src="{{ asset('web/image')}}/partner-with-us-dummy-4.png" class="img-fluid">
          <h5 class="fw-bold">Ready to Partner with Us?</h5>
          <p>Let’s work together to create success stories. Fill out the form below, and our team will reach out within 24 hours.</p>
       </div>
-      <div class="col-6">
-         <form id="lead-form" class="rounded-3 p-3 shadow">
+      <div class="col-12 col-md-6">
+         <form id="partner-inquiry-form-bottom" class="rounded-3 p-3 shadow">
             <h3 class="title mb-1">Secure your spot now</h3>
             <p class="mb-4">Be the first to know when the product launches and other not-to-miss updates.</p>
             <div class="row g-3">
                <div class="col-12 col-md-6">
-                  <input type="text" required name="name" class="form-control" placeholder="Name">
+                  <input type="text" name="name" placeholder="Name" class="form-control" required value="{{ old('name') }}">
                </div>
                <div class="col-12 col-md-6">
-                  <input type="text" required name="email" class="form-control" placeholder="Email">
+                  <input type="email" name="email" placeholder="Email" class="form-control" required value="{{ old('email') }}">
                </div>
                <div class="col-12 col-md-6">
-                  <input type="text" required name="phone" class="form-control" placeholder="Phone">
+                  <input type="text" name="phone" placeholder="Phone" class="form-control" required value="{{ old('phone') }}">
                </div>
                <div class="col-12 col-md-6">
-                  <input type="text" required name="state" class="form-control" placeholder="State">
+                  <input type="text" name="state" placeholder="State" class="form-control" required value="{{ old('state') }}">
                </div>
                <div class="col-12 col-md-6">
-                  <input type="text" required name="city" class="form-control" placeholder="City">
+                  <input type="text" name="city" placeholder="City" class="form-control" required value="{{ old('city') }}">
                </div>
                <div class="col-12 col-md-6">
-                  <input type="text" required name="occupation" class="form-control" placeholder="Occupation">
+                  <input type="text" name="occupation" placeholder="Occupation" class="form-control" required value="{{ old('occupation') }}">
                </div>
                <div class="col-12 col-md-12">
-                  <textarea rows="4" required name="message" class="form-control" placeholder="Message"></textarea>
+                  <textarea name="message" placeholder="Message" class="form-control" rows="4" required>{{ old('message') }}</textarea>
                </div>
                <div class="col-12 row align-items-center mt-2">
                   <div class="g-recaptcha" data-sitekey="6LfQ4B8qAAAAAEbOCn71lwSwarsWil2_6kQlDEAj"></div>
@@ -155,7 +156,7 @@
                <div class="col-12">
                   <button type="submits" id="sendBtn" class="btn an-btn px-4">Schedule a call</button>
                </div>
-               <p id="notify"></p>
+               <p id="notify-bottom"></p>
             </div>
          </form>
       </div>
@@ -163,7 +164,7 @@
 </section>
 
 <script>
-   $(document).on("submit", "#lead-form", function(e) {
+   $(document).on("submit", "#partner-inquiry-form", function(e) {
       e.preventDefault();
       // validateCaptcha();
       let formData = $(this).serialize();
@@ -177,30 +178,59 @@
       }
 
       $.ajax({
-         url: "/leads/web?type=ajax",
-         type: "post",
+         url: "{{ route('partner.inquiry.store') }}",
+         type: "POST",
          data: formData,
-         beforeSend: function() {
-            $("#sendBtn").text("Sending...")
-         },
          success: function(data) {
-
-            $("#notify").html("Thank You ! Request sent successfuly").css("color", "green");
-            $("#lead-form")[0].reset()
-            $("#sendBtn").text("Send")
-
-            setTimeout(() => {
-               location.href = "/thankyou";
-            }, 200);
-
+            // $('#success-message').removeClass('d-none').text(data.success);
+            $('#notify').html(data.success).css("color", "green");
+            $('#partner-inquiry-form')[0].reset();  // Clear the form
          },
-         complete: function() {
-            $("#sendBtn").text("Send")
+         error: function(xhr) {
+                var errors = xhr.responseJSON.errors;
+                var errorList = '<ul>';
+                $.each(errors, function(key, value) {
+                    errorList += '<li>' + value[0] + '</li>';
+                });
+                errorList += '</ul>';
+
+                $('#notify').html(errorList).css("color", "red");
+            }
+      })
+   })
+   
+   $(document).on("submit", "#partner-inquiry-form-bottom", function(e) {
+      e.preventDefault();
+      // validateCaptcha();
+      let formData = $(this).serialize();
+
+      let formDataArray = new URLSearchParams(formData);
+      let recaptchaResponse = formDataArray.get('g-recaptcha-response');
+
+      if (!recaptchaResponse) {
+         $("#notify-bottom").html('reCAPTCHA verification is required').css("color", "red");
+         return
+      }
+
+      $.ajax({
+         url: "{{ route('partner.inquiry.store') }}",
+         type: "POST",
+         data: formData,
+         success: function(data) {
+            // $('#success-message').removeClass('d-none').text(data.success);
+            $('#notify-bottom').html(data.success).css("color", "green");
+            $('#partner-inquiry-form-bottom')[0].reset();  // Clear the form
          },
-         error: function(error) {
-            $("#sendBtn").text("Send")
-            $("#notify").html("Existing user! please proceed with Login").css("color", "red");
-         }
+         error: function(xhr) {
+                var errors = xhr.responseJSON.errors;
+                var errorList = '<ul>';
+                $.each(errors, function(key, value) {
+                    errorList += '<li>' + value[0] + '</li>';
+                });
+                errorList += '</ul>';
+
+                $('#notify-bottom').html(errorList).css("color", "red");
+            }
       })
    })
 </script>

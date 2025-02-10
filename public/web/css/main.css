@@ -4408,8 +4408,9 @@ h3.title {
     }
 
      .dropdown-menu.toggle {
-        right: 0;
-        left: 0;
+         left: unset;
+        right: unset;
+        right: -500px;
         width: 160px;
      }
      
@@ -4417,7 +4418,8 @@ h3.title {
         display: block;
         opacity: 1;
         top: -50px;
-        left: 165px; /* Position submenu to the right */
+        left: unset;
+        right: -100%; /* Position submenu to the right */
      }
 
 

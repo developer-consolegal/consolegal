@@ -5,7 +5,7 @@
 @push('css')
 <style>
    .scrolling-text {
-      width: 100%;
+      width: fit-content;
       overflow: hidden;
       white-space: nowrap;
       animation: scroll-left 20s linear infinite;
@@ -1036,6 +1036,8 @@
 
 @include('layouts.incl.faq')
 
+@push('script')
+    
 <script>
    var options = {
       strings: ["Company Registration", "Company Registration", "GST Registration", "Income Tax", "GST Return", "Trademark Registration"],
@@ -1048,6 +1050,8 @@
    };
    var typed = new Typed("#search input", options);
 </script>
+@endpush
+
 
 
 <script>
