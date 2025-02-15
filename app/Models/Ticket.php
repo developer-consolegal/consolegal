@@ -9,13 +9,14 @@ class Ticket extends Model
 {
     use HasFactory;
     
-    protected $fillable = ['user_id', 'subject', 'status', 'closed_by'];
+    protected $fillable = ['user_id', 'user_type', 'subject', 'status', 'closed_by'];
 
     public function messages() {
         return $this->hasMany(Message::class);
     }
 
     public function user() {
-        return $this->belongsTo(User::class);
+        return $this->morphTo();
     }
+    
 }

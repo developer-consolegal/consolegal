@@ -18,6 +18,8 @@
    <link rel="stylesheet" type="text/css" href="{{ asset('user/css')}}/fonts.css" />
    <script src="{{ asset('user/js')}}/jquery.min.js"></script>
    <script src="{{ asset('user/js')}}/bootstrap.min.js"></script>
+
+   @stack('css')
 </head>
 
 <body>
@@ -76,6 +78,7 @@
                <li class=""><i class="fa fa-money-bill-wave-alt" aria-hidden="true"></i><a href="{{route('franchise.dashboard.payment')}}">Online Payments</a></li>
                <li class=""><i class="fa fa-users" aria-hidden="true"></i><a href="{{route('franchise.dashboard.users')}}">Users</a></li>
                <li class=""><i class="fa fa-share-square" aria-hidden="true"></i><a href="{{route('franchise.dashboard.leads')}}">Leads</a></li>
+               <li class=""><i class="fa fa-check-circle" aria-hidden="true"></i><a href="{{route('franchise.tickets.index')}}">Tickets</a></li>
              </ul>
            </nav> 
          </div>
@@ -231,6 +234,8 @@ success: function(data) {
          }
       }
    </script>
+
+   @stack('script')
 </body>
 
 </html>

@@ -1,12 +1,11 @@
 <?php
-// app/Http/Controllers/MessageController.php
 namespace App\Http\Controllers;
 
 use App\Models\Message;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 
-class MessageController extends Controller
+class FranchiseMessageController extends Controller
 {
     public function store(Request $request, Ticket $ticket) {
         $request->validate([
@@ -14,7 +13,7 @@ class MessageController extends Controller
             'attachment' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $user = $request->session()->get("user");
+        $user = $request->session()->get("frans");
 
         $attachmentPath = null;
         if ($request->hasFile('attachment')) {

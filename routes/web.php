@@ -30,6 +30,14 @@ use App\Http\Controllers\Admin\AdminReportController;
 
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\MessageController;
+
+use App\Http\Controllers\FranchiseTicketController;
+use App\Http\Controllers\FranchiseMessageController;
+
+use App\Http\Controllers\AgentsTicketController;
+use App\Http\Controllers\AgentsMessageController;
+
+
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\PartnerInquiryController;
 
@@ -549,9 +557,8 @@ Route::post('/franchise', [franchise::class, 'login'])->name('fran.login.post');
 Route::post("/franchise/update", [franchise::class, 'frans_update']); // update 
 
 Route::middleware(['frans_auth'])->prefix('franchise')->name('franchise.')->group(function () {
-   Route::resource('tickets', TicketController::class);
-   Route::post('tickets/{ticket}/messages', [MessageController::class, 'store'])->name('messages.store');
-   Route::post('tickets/{ticket}/close', [TicketController::class, 'close'])->name('tickets.close');
+   Route::resource('tickets', FranchiseTicketController::class);
+   Route::post('tickets/{ticket}/messages', [FranchiseMessageController::class, 'store'])->name('messages.store');
 });
 
 Route::group(["middleware" => "frans_auth"], function () {
@@ -597,6 +604,11 @@ Route::group(["middleware" => "frans_auth"], function () {
 Route::get(("/agents"), [agents::class, 'login']);
 Route::post(("/agents/login"), [agents::class, 'login_post'])->name('agent.login');
 Route::post("/agents/update", [agents::class, 'update']);
+
+Route::middleware(['agents_auth'])->prefix('agents')->name('agent.')->group(function () {
+   Route::resource('tickets', AgentsTicketController::class);
+   Route::post('tickets/{ticket}/messages', [AgentsMessageController::class, 'store'])->name('messages.store');
+});
 
 Route::group(["middleware" => "agents_auth"], function () {
 

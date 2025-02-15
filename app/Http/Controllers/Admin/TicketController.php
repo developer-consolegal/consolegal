@@ -21,6 +21,8 @@ class TicketController extends Controller
             ->latest()
             ->paginate(10);
 
+            // return $tickets;
+
         return view('tickets.index', compact('tickets'));
     }
 

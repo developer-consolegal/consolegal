@@ -2,7 +2,6 @@
 
 @section("title","Dashboard Franchise")
 
-
 @section('content')
           <!-- ACCOUNT DETAILS START -->
           @if($kyc)

@@ -1,21 +1,20 @@
 <?php
-// app/Http/Controllers/TicketController.php
 namespace App\Http\Controllers;
 
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 
-class TicketController extends Controller
+class FranchiseTicketController extends Controller
 {
     public function index(Request $request) {
-        $user = $request->session()->get("user");
-        $tickets = Ticket::with('messages')->where("user_type", get_class($user))->where('user_id', $user->id)->get();
-        return view('tickets.user.index', compact('tickets'));
+        $user = $request->session()->get("frans");
 
+        $tickets = Ticket::with('messages')->where("user_type", get_class($user))->where('user_id', $user->id)->get();
+        return view('tickets.frans.index', compact('tickets'));
     }
 
     public function create() {
-        return view('tickets.user.create');
+        return view('tickets.frans.create');
     }
 
     public function store(Request $request) {
@@ -23,7 +22,7 @@ class TicketController extends Controller
             'subject' => 'required|string|max:255',
         ]);
 
-        $user = $request->session()->get("user");
+        $user = $request->session()->get("frans");
 
         $ticket = Ticket::create([
             'user_id' => $user->id,
@@ -31,21 +30,21 @@ class TicketController extends Controller
             'subject' => $request->subject,
         ]);
 
-        return redirect()->route('user.tickets.index', $ticket->id);
+        return redirect()->route('franchise.tickets.index', $ticket->id);
     }
 
     public function show(Request $request, Ticket $ticket) {
-        $user = $request->session()->get("user");
+        $user = $request->session()->get("frans");
 
         if ($user->id !== $ticket->user_id) {
             abort(403, 'Unauthorized access.');
         }
         
-        return view('tickets.user.show', compact('ticket'));
+        return view('tickets.frans.show', compact('ticket'));
     }
 
     public function close(Ticket $ticket) {
-        $user = $request->session()->get("user");
+        $user = $request->session()->get("frans");
 
         if ($user->id !== $ticket->user_id) {
             abort(403, 'Unauthorized access.');

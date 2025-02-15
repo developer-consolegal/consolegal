@@ -15,7 +15,8 @@ class CreateTicketsTable extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->bigInteger('user_id');
+            $table->string('user_type');
             $table->string('subject');
             $table->enum('status', ['open', 'pending', 'closed'])->default('open');
             $table->enum('closed_by', ['user', 'admin'])->nullable();

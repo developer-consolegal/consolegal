@@ -12,7 +12,10 @@
 <!--  BEGIN NAVBAR  -->
 <div class="sub-header-container">
    <header class="header navbar navbar-expand-sm">
-      <a href="javascript:void(0);" class="sidebarCollapse" data-placement="bottom"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+      <a href="javascript:void(0);" class="sidebarCollapse" data-placement="bottom"><svg
+            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-menu">
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -55,65 +58,7 @@
 <div class="main-container" id="container">
 
    <!--  BEGIN SIDEBAR  -->
-   <div class="sidebar-wrapper sidebar-theme">
-
-      <nav id="sidebar">
-         <ul class="list-unstyled menu-categories ps ps--active-y" id="accordionExample">
-            <li class="menu">
-               <a href="#leads" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                  <div class="">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                     </svg>
-                     <span>Lead Manager</span>
-                  </div>
-                  <div>
-                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                     </svg>
-                  </div>
-               </a>
-               <ul class="collapse submenu list-unstyled" id="leads" data-parent="#accordionExample">
-                  <li>
-                     <a href="{{route('agent.users')}}">All Users</a>
-                  </li>
-                  <li>
-                     <a href="{{route('agent.leads')}}">All Leads</a>
-                  </li>
-                  <li>
-                     <a href="{{route('agent.dashboard')}}">Add Leads </a>
-                  </li>
-               </ul>
-            </li>
-<li class="menu">
-               <a href="#account" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                  <div class="">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users">
-                         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                         <circle cx="9" cy="7" r="4"></circle>
-                         <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                         <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                      </svg>
-                     <span>Account</span>
-                  </div>
-                  <div>
-                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="user">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                     </svg>
-                  </div>
-               </a>
-               <ul class="collapse submenu list-unstyled" id="account" data-parent="#accordionExample">
-                  <li>
-                     <a href="{{route('agent.account')}}">Profile</a>
-                  </li>
-               </ul>
-            </li>
-         </ul>
-
-      </nav>
-
-   </div>
+   @include("agentsidebar")
    <!--  END SIDEBAR  -->
 
    <!--  BEGIN CONTENT AREA  -->
@@ -124,14 +69,14 @@
             <a href="{{route('export.agent.lead')}}" class="btn-sm btn-dark"><i class="fas fa-file text-white"></i></a>
          </div>
 
-        <div class="mx-auto mb-4">
+         <div class="mx-auto mb-4">
             <form action="{{route('agent.leads')}}" method="get" class="w-100">
-                <div class="d-flex">
-                    <input type="text" name="query" class="form-control mr-2" placeholder="Search by name, email" />
-                    <button class="btn-sm btn-warning">Go</button>
-                </div>
+               <div class="d-flex">
+                  <input type="text" name="query" class="form-control mr-2" placeholder="Search by name, email" />
+                  <button class="btn-sm btn-warning">Go</button>
+               </div>
             </form>
-        </div>
+         </div>
 
          <table class="table responsive table-striped">
             <tr>
@@ -168,7 +113,7 @@
                </td>
                <td>
                   {{$data->orders?->form_status}}
-                </td>
+               </td>
                <td>
                   {{$data->from}}
                </td>
@@ -182,14 +127,7 @@
          {{$leads->links()}}
       </div>
 
-
-
-
    </div>
-
-
-
-
 </div>
 <!--  END CONTENT AREA  -->
 

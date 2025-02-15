@@ -74,11 +74,11 @@
    @foreach ($tickets as $ticket)
    <tr>
       <td>{{$ticket->id}}</td>
-      <td>{{$ticket->user->user_id }} <br> ({{ucfirst($ticket->user->name)}})</td>
-      <td><a href="{{ route('admin.tickets.show', $ticket->id) }}">{{ ucfirst($ticket->subject) }}</a></td>
+      <td>{{$ticket?->user?->user_id }} <br> @if($ticket?->user)({{ucfirst($ticket?->user?->name)}})@else <i>Null</i> @endif</td>
+      <td><a href="{{ route('admin.tickets.show', $ticket?->id) }}">{{ ucfirst($ticket?->subject) }}</a></td>
       <td>
-      <span class="badge p-2 text-white bg-{{ $ticket->status == 'closed' ? 'danger' : ($ticket->status == 'pending' ? 'warning' : 'success') }}">
-                        {{ ucfirst($ticket->status) }}
+      <span class="badge p-2 text-white bg-{{ $ticket?->status == 'closed' ? 'danger' : ($ticket->status == 'pending' ? 'warning' : 'success') }}">
+                        {{ ucfirst($ticket?->status) }}
                     </span>
       </td>
       <td>{{$ticket->created_at}}</td>

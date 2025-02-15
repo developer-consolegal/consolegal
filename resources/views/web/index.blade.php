@@ -248,7 +248,38 @@
    </div>
 </section>
 
-
+<section class="mb-0 my-md-5">
+   <div class="row container-md mx-auto main-row">
+      <h3 class="title text-center col-12">News & Updates</h3>
+   <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">News</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Updates</button>
+      </li>
+    </ul>
+    <div class="tab-content border border-top-0 p-0" id="myTabContent">
+      <div class="tab-pane fade show active pb-4" id="home" role="tabpanel" aria-labelledby="home-tab">
+         @foreach($news as $item)
+            <div class="bg-white border border-top-0 rounded-2 px-4 pt-3 pb-2 mt-3 news-cards mx-2">
+               <h6 class="fw-bold">{{$item->title}}</h6>
+               <p class="text-small" style="font-size: 15px;">{{$item->description}}</p>
+            </div>
+         @endforeach
+      </div>
+      <div class="tab-pane fade pb-4" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+         @foreach($update as $item)
+            <div class="bg-white border border-top-0 rounded-2 px-4 pt-3 pb-2 mt-3 news-cards mx-2">
+               <h6 class="fw-bold">{{$item->title}}</h6>
+               <a href="{{$item->link}}" class="text-primary">{{$item->link}}</a>
+            </div>
+         @endforeach
+      </div>
+    </div>
+   </div>
+   </section>
+   
 <!---------- why choose  ------------>
 <section class="my-5 position-relative" id="why-choose">
    <!-- sidebar caption  -->
@@ -735,11 +766,6 @@
          </div>
       </div>
 
-
-
-
-
-
    </div>
 </section>
 
@@ -889,38 +915,6 @@
    </div>
 </section>
 
-<section class="mb-0 my-md-5">
-   <div class="row container-md mx-auto main-row">
-      <h3 class="title text-center col-12">News & Updates</h3>
-   <ul class="nav nav-tabs" id="myTab" role="tablist">
-      <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">News</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Updates</button>
-      </li>
-    </ul>
-    <div class="tab-content border border-top-0 p-0" id="myTabContent">
-      <div class="tab-pane fade show active pb-4" id="home" role="tabpanel" aria-labelledby="home-tab">
-         @foreach($news as $item)
-            <div class="bg-white border border-top-0 rounded-2 px-4 pt-3 pb-2 mt-3 news-cards mx-2">
-               <h6 class="fw-bold">{{$item->title}}</h6>
-               <p class="text-small" style="font-size: 15px;">{{$item->description}}</p>
-            </div>
-         @endforeach
-      </div>
-      <div class="tab-pane fade pb-4" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-         @foreach($update as $item)
-            <div class="bg-white border border-top-0 rounded-2 px-4 pt-3 pb-2 mt-3 news-cards mx-2">
-               <h6 class="fw-bold">{{$item->title}}</h6>
-               <a href="{{$item->link}}" class="text-primary">{{$item->link}}</a>
-            </div>
-         @endforeach
-      </div>
-    </div>
-   </div>
-   </section>
-
 <!-- app download section  -->
 <section class="mt-0 my-md-5" id="join-app">
    <div class="row mx-auto container-md main-row">
@@ -1035,6 +1029,22 @@
 <!---------- FAQs section ------------>
 
 @include('layouts.incl.faq')
+
+<section class="my-5">
+   <div class="row mx-auto">
+      <div class="col-12 col-md-12 d-flex justify-content-center align-items-center">
+         <h2 class="main-title fw-bold">Important Links</h2>
+      </div>
+      <div class="col-12 mt-2 col-md-12 clients-slider-container ">
+         <div class="d-flex justify-content-around align-items-center">
+            <div class="img-container"><a href="https://www.startupindia.gov.in/" target="_blank"><img src="{{ asset('web/important-links')}}/image-1.png" alt="" loading="lazy"></a></div>
+            <div class="img-container"><a href="https://up.gov.in/en" target="_blank"><img src="{{ asset('web/important-links')}}/image-2.png" alt="" loading="lazy"></a></div>
+            <div class="img-container"><a href="https://digitalindia.gov.in/" target="_blank"><img src="{{ asset('web/important-links')}}/image-3.png" alt="" loading="lazy"></a></div>
+         </div>
+
+      </div>
+   </div>
+</section>
 
 @push('script')
     
