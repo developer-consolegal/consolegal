@@ -589,10 +589,10 @@
                 </a>
                 <ul class="submenu list-unstyled collapse" id="appcontrol" data-parent="#accordionExample" style="">
                    <li>
-                      <a href="{{route('admin.setting.index')}}">Slider</a>
+                      <a href="{{route('admin.sliders.index')}}">Slider</a>
                    </li>
                    <li>
-                      <a href="{{route('seo.index')}}">Banners</a>
+                      <a href="{{route('admin.banners.index')}}">Banners</a>
                    </li>
                 </ul>
              </li>

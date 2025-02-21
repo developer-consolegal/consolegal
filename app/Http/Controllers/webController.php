@@ -153,7 +153,7 @@ class webController extends Controller
     {
         $data = Marquee::first();
 
-        return view("marquee", compact('data'));
+        return view("Marquee", compact('data'));
     }
     
     function marquee_set(Request $req, $id)

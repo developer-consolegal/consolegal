@@ -6,6 +6,7 @@ use App\Http\Controllers\apis\PaymentController;
 use App\Http\Controllers\apis\ServiceController;
 use App\Http\Controllers\apis\WalletController;
 use App\Http\Controllers\apis\BlogController;
+use App\Http\Controllers\apis\NewsUpdateController;
 use App\Http\Controllers\webController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -28,13 +29,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::name('apis')->middleware("error_handle")->group(function () {
 
-
     Route::post("/login", [AuthController::class, 'login'])->name("login");
     Route::post("/register", [AuthController::class, 'register'])->name("register");
     Route::post("/forgot", [AuthController::class, 'forgot'])->name("forgot");
     Route::post("/verify-otp", [AuthController::class, 'verifyOtp'])->name("verify");
     Route::post("/reset-password", [AuthController::class, 'resetPassword'])->name("reset");
 
+    Route::get("news", [NewsUpdateController::class, "news"])->name("news.index");
+    Route::get("updates", [NewsUpdateController::class, "updates"])->name("updates.index");
+    Route::get("slider-home", [NewsUpdateController::class, 'sliderHome'])->name("sliderHome.index");
+    Route::get("banner-trending", [NewsUpdateController::class, 'bannerTrending'])->name("bannerTrending.index");
+    Route::get("banner-home", [NewsUpdateController::class, 'bannerHome'])->name("bannerHome.index");
     Route::get("blogs/{category}", [BlogController::class, "blogs_category"])->name("blog.category");
     Route::get("/blog/{id}/show", [BlogController::class, 'blog_view'])->name('blog.show');
     Route::post("/contact", [webController::class, "contact"])->name("contact.post");

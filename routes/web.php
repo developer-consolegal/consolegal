@@ -36,8 +36,8 @@ use App\Http\Controllers\FranchiseMessageController;
 
 use App\Http\Controllers\AgentsTicketController;
 use App\Http\Controllers\AgentsMessageController;
-
-
+use App\Http\Controllers\SliderController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\PartnerInquiryController;
 
@@ -222,6 +222,8 @@ Route::middleware('admin_auth')->prefix('admin')->name('admin.')->group(function
 
 Route::middleware('admin_auth')->prefix('admin')->name('admin.')->group(function () {
    Route::resource('campaigns', AdminCampaignController::class);
+   Route::resource('sliders', SliderController::class);
+   Route::resource('banners', BannerController::class);
 });
 
 Route::group(['middleware' => 'admin_auth'], function () {
