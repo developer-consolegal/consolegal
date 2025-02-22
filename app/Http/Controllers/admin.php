@@ -249,6 +249,40 @@ class admin extends Controller
          return ["msg" => "Wallet credited successfuly."];
       }
    }
+   
+   
+   function users_allocate(Request $req)
+   {
+
+      if ($req->amount && $req->id) {
+
+         $id = $req->id;
+
+         $wallet_id = Wallet::where("user_id", $id)->first()->id;
+
+         $wallet_update = new wallet_history;
+
+
+         $wallet_update->amount = $req->amount;
+         $wallet_update->amount_type = "allocate";
+
+         $wallet_update->user_id = $id;
+         $wallet_update->wallet_id = $wallet_id;
+         $wallet_update->entry = "credit";
+
+
+         $wallet_update->save();
+
+         // update wallet amount 
+         $wallets = Wallet::where("user_id", $id)->first();
+
+         $wallets->amount = $wallets->amount + $req->amount;
+
+         $wallets->save();
+
+         return ["msg" => "Wallet credited successfuly."];
+      }
+   }
 
 
    function user_update(Request $req)
@@ -1173,7 +1207,6 @@ class admin extends Controller
       //    'details' => $customer, 'order' => $order, 'assign' => $form_id, 'form' => $service, 'user' => $user, 'service_name' => $service_name, 'input' => $input, 'file' => $file
       // ];
    }
-
 
    function order_approve(Request $req)
    {

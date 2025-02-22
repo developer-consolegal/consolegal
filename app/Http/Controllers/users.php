@@ -14,6 +14,7 @@ use App\Models\form_content;
 use App\Models\form_name;
 use App\Models\form_submit;
 use App\Models\services;
+use App\Models\Document;
 use App\Models\Wallet;
 use App\Models\wallet_history;
 use App\Providers\RouteServiceProvider;
@@ -58,6 +59,10 @@ class users extends Controller
    {
       $user = User::find($req->id);
       $kyc = Kyc::where(["user_type" => "user", "user_id" => $user->id])->first();
+
+      if (request()->ajax()) {
+         return ["user" => $user];
+      }
 
       return view("user_profile", ['data' => $user, 'type' => 'user', 'kyc' => $kyc]);
    }
@@ -471,6 +476,34 @@ class users extends Controller
          ]
       );
    }
+   
+   function documents(Request $req)
+   {
+
+      $user = $req->session()->get("user");
+
+      $user_id = $req->session()->get("user")->id;
+
+      // $documents = Document::where("user_id", $user_id)->where("user_type", get_class($user))->orderBy('created_at', 'desc')->simplePaginate(20);
+
+      $query = Document::where("user_id", $user_id)
+      ->where("user_type", get_class($user));
+
+      if (request()->has('label') && !empty(request()->label)) {
+         $query->where('label', 'like', '%' . request()->label . '%');
+      }
+
+     if (request()->has('category') && !empty(request()->category)) {
+      $query->where('category', 'like', '%' . request()->category . '%');
+     }
+
+     $documents = $query->orderBy('created_at', 'desc')->simplePaginate(20);
+
+
+      return view("user.documents", compact('documents'));
+   }
+
+
    function refer_earn(Request $req)
    {
       $user = $req->session()->get("user");

@@ -80,6 +80,12 @@
                             <a href="/leads/{{$list->id}}">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
                             </a>
+                            <a href="{{route('admin.documents.index')}}?id={{$list->id}}">
+                                <i class="fa fa-upload" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" onclick="allocateMoneyModal({{$list->id}})">
+                                <i class="fa fa-rupee" aria-hidden="true"></i> 
+                            </a>
                         </td>
 
                     </tr>
@@ -94,6 +100,41 @@
 </div>
 <!-- END MAIN CONTAINER -->
 
+<div class="modal fade" id="allocateModal" style="z-index: 9999999;" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Allocate Credit</h1>
+          <button type="button" onclick="hideModal()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times text-dark"></i></button>
+        </div>
+        <div class="modal-body">
+          <form action="" method="POST" id="allocateform">
+             @csrf
+ 
+             <input type="hidden" name="id" id="id">
+             <div class="mb-3">
+                <label for="id" class="form-label">User ID</label>
+                <input type="text" id="user_id" class="form-control" readonly disabled />
+             </div>
+             <div class="mb-3">
+                <label for="name" class="form-label">User Name</label>
+                <input type="text" id="name" class="form-control" readonly disabled />
+             </div>
+          
+             <div class="mb-3">
+                <label for="amount" class="form-label">Amount</label>
+                <input type="number" id="amount" name="amount" class="form-control" required />
+             </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="hideModal()" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" form="allocateform" class="btn btn-primary">Credit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 <script>
     function deleteUser(id) {
@@ -103,13 +144,61 @@
             location.href = `/users/delete/${id}`;
         }
     }
+
+    function hideModal(){
+        $("#allocateModal").modal("hide")
+    }
+
+    function allocateMoneyModal(id){
+      $.ajax({
+         type:"get",
+         url:`{{route("user.profile")}}`,
+         data:{id},
+         success:function(data){
+            console.log(data);
+
+            $("#allocateModal #user_id").attr("placeholder",data.user.user_id)
+            $("#allocateModal #id").val(data.user.id)
+            $("#allocateModal #name").val(data.user.name)
+
+         },
+         error:function(err){
+            console.log(err);
+         }
+      })
+
+        $("#allocateModal").modal("show")
+    }
+    
+
+    $(document).on("submit","#allocateform", function(e){         
+         e.preventDefault();
+
+      let formData = $(this).serialize();
+
+      const confirmation = confirm('Please confirm to proceed.')
+
+      if(!confirmation){
+         return
+      }
+
+      $.ajax({
+         type:"post",
+         url:"{{route('admin.users.allocate')}}",
+         data:formData,
+         success:function(data){
+            console.log(data);
+            hideModal();
+
+            $("#allocateModal #amount").val("")
+
+            alert(data.msg)
+         },
+         error:function(err){
+            console.log(err);
+         }
+      })
+    })
 </script>
-
-
-
-
-
-
-
 
 @endsection

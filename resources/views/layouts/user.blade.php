@@ -74,6 +74,7 @@
                <li class="active"><i class="fa fa-bars" aria-hidden="true"></i><a href="{{route('user.dashboard')}}">Dashboard</a></li>
                <li class="active"><i class="fa fa-user" aria-hidden="true"></i><a href="{{route('user.account')}}">Account Details</a></li>
                <li class=""><i class="fa fa-shopping-basket" aria-hidden="true"></i><a href="{{route('user.dashboard.orders')}}">Order</a></li>
+               <li class=""><i class="fa fa-file-pdf" aria-hidden="true"></i><a href="{{route('user.dashboard.documents')}}">Documents</a></li>
                <li class=""><i class="fa fa-google-wallet" aria-hidden="true"></i><a href="{{route('user.dashboard.wallet')}}">Wallet</a></li>
                <li class=""><i class="fa fa-money-bill-wave-alt" aria-hidden="true"></i><a href="{{route('user.dashboard.payment')}}">Online Payments</a></li>
                <li class=""><i class="fa fa-check-circle" aria-hidden="true"></i><a href="{{route('user.tickets.index')}}">Tickets</a></li>

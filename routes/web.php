@@ -27,6 +27,7 @@ use App\Http\Controllers\Admin\AdminRoleController;
 use App\Http\Controllers\Admin\CampaignController as AdminCampaignController;
 use App\Http\Controllers\Admin\TicketController as AdminTicketController;
 use App\Http\Controllers\Admin\AdminReportController;
+use App\Http\Controllers\DocumentController;
 
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\MessageController;
@@ -150,6 +151,7 @@ Route::get("/download/{id?}", [webController::class, "download"])->name("downloa
 
 Route::get("/download/invoice/{id?}", [webController::class, "download_invoice"])->name("user.download.invoice");
 Route::get("/download/customer/{id?}", [webController::class, "download_customer"])->name("user.download.customer");
+Route::get('documents/download/{id}', [DocumentController::class, 'download'])->name('documents.download');
 
 // text file pdf
 Route::get("/text/{id?}", [webController::class, "textpdf"])->name("download.pdf");
@@ -226,6 +228,13 @@ Route::middleware('admin_auth')->prefix('admin')->name('admin.')->group(function
    Route::resource('banners', BannerController::class);
 });
 
+
+Route::middleware(['middleware' => 'admin_auth'])->name('admin.')->group(function() {
+   Route::resource('/admin/documents', DocumentController::class);
+});
+
+
+
 Route::group(['middleware' => 'admin_auth'], function () {
 
    Route::get("/admin/welcome", [admin::class, 'welcome'])->name('admin.dashboard.welcome');
@@ -237,8 +246,7 @@ Route::group(['middleware' => 'admin_auth'], function () {
     
    Route::get("/admin/setting", [webController::class, 'setting'])->name('admin.setting.index');
    Route::post("/admin/setting", [webController::class, 'setting_set'])->name('admin.setting.set');
-   
-   
+      
    // Route::get("/admin/seo", [webController::class, 'seo'])->name('admin.seo.index');
    // Route::get("/admin/seo/create", [webController::class, 'seo'])->name('admin.seo.create');
    // Route::post("/admin/seo", [webController::class, 'seo_set'])->name('admin.seo.set');
@@ -411,13 +419,15 @@ Route::group(['middleware' => 'admin_auth'], function () {
 
 
    Route::get("/admin/users/all", [users::class, "users_get"])->name('user.all');
-   Route::get("/admin/users/profile/{id?}", [users::class, "users_profile"]);
+   Route::get("/admin/users/profile/{id?}", [users::class, "users_profile"])->name('user.profile');
 
    Route::view("/admin/user/create", "add_user");
    Route::post("admin/user/create", [users::class, 'create'])->name('admin.user.create');
    Route::post("admin/user/update", [admin::class, 'user_update']);      // update 
    Route::post("admin/user/{user_id}/toggle-disable", [admin::class, 'toggleUserStatus'])->name('admin.user.toggle-disable');      // update 
    Route::get("/users/export", [ExportController::class, 'user'])->name('export.users');
+   Route::post("admin/users/allocate", [admin::class, 'users_allocate'])->name('admin.users.allocate');      // update 
+
 
 
    Route::view("/admin/franchise/create", "add_franchise");
@@ -500,6 +510,7 @@ Route::group(['middleware' => 'users_m'], function () {
 
 
    Route::get(("/users/orders"), [users::class, 'orders'])->name("user.dashboard.orders");
+   Route::get(("/users/documents"), [users::class, 'documents'])->name("user.dashboard.documents");
    Route::get(("/users/wallet"), [users::class, 'wallet'])->name("user.dashboard.wallet");
    Route::get(("/users/payment"), [users::class, 'payment'])->name("user.dashboard.payment");
    Route::get(("/users/refer-earn"), [users::class, 'refer_earn'])->name("user.dashboard.refer_earn");

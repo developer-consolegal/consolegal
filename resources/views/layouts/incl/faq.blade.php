@@ -1107,6 +1107,13 @@
                            align-items: center;
                            margin-top: 10px;
                         }
+
+                        .text-warning{
+                           color: #efa434 !important;
+                        }
+                        .bg-warning{
+                           background-color: #efa434 !important;
+                        }
                      </style>
                      @endpush
                     
