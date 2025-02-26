@@ -12,7 +12,7 @@ class services extends Model
     
     public $appends = ['avatar'];
 
-    protected $fillable = ['name', 'slug', 'meta_title', 'meta_description', 'description', 'category', 'icon', 'price', 'points', 'f_price', 'f_point', 'status', 'avatar', 'video_url'];
+    protected $fillable = ['name', 'slug', 'meta_title', 'meta_description', 'description', 'category', 'icon', 'price', 'points', 'f_price', 'f_point', 'status', 'avatar', 'video_url', 'trending', 'featured'];
 
     public function heads()
     {

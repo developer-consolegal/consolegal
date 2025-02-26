@@ -40,14 +40,17 @@
                <h4 class="text-success text-center">{{Session::get("success")}}</h4>
                <h4 class="text-danger text-center">{{Session::get("error")}}</h4>
             </div>
+            <div style="overflow:scroll;">
          <table class="table table-striped custab">
             <thead>
                <tr>
                   <th>ID</th>
-                  <th>Fran Name</th>
-                  <th>Email Address</th>
-                  <th>Phone No.</th>
+                  <th class="text-nowrap">Fran Name</th>
+                  <th class="text-nowrap">Email Address</th>
+                  <th class="text-nowrap">Phone No.</th>
                   <th>Company</th>
+                  <th>Onboard</th>
+                  <th class="text-nowrap">Last Login</th>
                   <th>Disabled</th>
                    <th class="text-center">Action</th> 
                </tr>
@@ -57,11 +60,13 @@
                @foreach ($data as $list)
                @php($nos++)
                <tr>
-                  <td>{{$list->user_id}}</td>
-                  <td>{{$list->name}}</td>
-                  <td>{{$list->email}}</td>
-                  <td>{{$list->phone}}</td>
-                  <td>{{$list->company}}</td>
+                  <td class="text-nowrap">{{$list->user_id}}</td>
+                  <td class="text-nowrap">{{$list->name}}</td>
+                  <td class="text-nowrap">{{$list->email}}</td>
+                  <td class="text-nowrap">{{$list->phone}}</td>
+                  <td class="text-nowrap">{{$list->company}}</td>
+                  <td class="text-nowrap">{{$list->created_at->format('d M Y')}}</td>
+                  <td class="text-nowrap">{{$list->last_login_at ? $list->last_login_at->diffForHumans() : 'NA'}}</td>
                   <td>
                      <form action="{{route('admin.agents.toggle-disable', $list->id)}}" method="post">
                              <button class="btn text-center" type="submit">
@@ -73,7 +78,7 @@
                              </button>
                      </form>
                  </td>
-                   <td class="text-center"><a href="/admin/agents/edit/{{$list->id}}">
+                   <td class="text-center text-nowrap"><a href="/admin/agents/edit/{{$list->id}}">
                         <i class="fa fa-pencil" aria-hidden="true"></i> </a>
                      <a href="#" onclick="deleteUser({{$list->id}})"> <i class="fa fa-trash" aria-hidden="true"></i> </a>
                   </td> 
@@ -83,6 +88,7 @@
 
             </tbody>
          </table>
+            </div>
          {{$data->links()}}
 
       </div>

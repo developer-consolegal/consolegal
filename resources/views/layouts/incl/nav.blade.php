@@ -4,11 +4,11 @@
    <div class="container-fluid px-3 border-bottom-md">
       <a class="navbar-brand" href="/"><img src="{{ asset('web/image/logo.jpeg')}}" alt="" width="auto"
             height="65px"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContentMobile"
+         aria-controls="navbarSupportedContentMobile" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="navbarSupportedContentMobile">
          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-start align-items-md-center">
             <ul class="navbar-nav d-md-none">
                <li class="nav-item dropdown ">
@@ -303,3 +303,19 @@
    <a href="https://www.msmeignite.consolegal.com/" target="_blank" class="sticky-wp"><i
          class="fas fa-ribbon"></i><span>MSME Ignite</span></a>
 </div>
+
+@push('script')
+<script>
+   $(document).ready(function () {
+       $('#navbarSupportedContentMobile .nav-item.dropdown .nav-link').click(function (e) {
+           e.preventDefault();
+           console.log($(this));
+
+           $('.nav-item.dropdown .dropdown-menu').removeClass('show');
+           
+           $(this).next().toggleClass('show');
+       });
+
+   });
+</script>
+@endpush

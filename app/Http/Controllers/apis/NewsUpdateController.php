@@ -26,7 +26,7 @@ class NewsUpdateController extends Controller
     
     public function sliderHome()
     {
-        $sliders = Slider::where('label', 'top')->latest()->simplePaginate(10);
+        $sliders = Slider::where('label', 'top')->latest()->get();
         return responseJson($sliders, 200);
     }
     

@@ -38,18 +38,23 @@
                    </div>
                 </a>
                 <ul class="collapse submenu list-unstyled" id="leads" data-parent="#accordionExample">
-                   <li>
+                  @if(auth('admin')->user()->can('view_lead')) 
+                  <li>
                       <a href="/admin/dashboard">All Leads</a>
-                   </li>
+                   </li>                   
                    <li>
                       <a href="{{route('admin.pendingLeads.index')}}">Pending Leads</a>
                    </li>
                    <li>
                       <a href="{{route('admin.completeLeads.index')}}">Completed Leads</a>
                    </li>
+                   @endif
+
+                   @if(auth('admin')->user()->can('add_lead'))
                    <li>
                       <a href="/leads">Add Leads </a>
                    </li>
+                   @endif
                 </ul>
              </li>
              @endif
@@ -75,15 +80,22 @@
                    </div>
                 </a>
                 <ul class="collapse submenu list-unstyled" id="users" data-parent="#accordionExample">
-                   <li>
+                   
+                  @if(auth('admin')->user()->can('view_forms'))
+                  <li>
                       <a href="/admin/services/forms/all"> View All Forms </a>
                    </li>
+                   @endif
+                   @if(auth('admin')->user()->can('add_forms'))
                    <li>
                       <a href="/admin/services/forms/add">Add Forms </a>
                    </li>
+                   @endif
+                   @if(auth('admin')->user()->can('assigned_forms') && auth('admin')->user()->can('view_assigned_forms'))
                    <li>
                       <a href="/admin/assigned">Assigned Forms </a>
                    </li>
+                   @endif
                 </ul>
              </li>
              @endif
@@ -107,14 +119,16 @@
                    </div>
                 </a>
                 <ul class="collapse submenu list-unstyled" id="elements" data-parent="#accordionExample">
-
+                  @if(auth('admin')->user()->can('view_order'))
                    <li>
                       <a href="/admin/orders">All Orders </a>
                    </li>
-
+                   @endif
+                   @if(auth('admin')->user()->can('add_order'))
                    <li>
                       <a href="/admin/orders/add">Add order </a>
                    </li>
+                   @endif
                 </ul>
              </li>
              @endif
@@ -137,9 +151,11 @@
                    </div>
                 </a>
                 <ul class="collapse submenu list-unstyled" id="coupon" data-parent="#accordionExample">
-                   <li>
+                  @if(auth('admin')->user()->can('view_coupon')) 
+                  <li>
                       <a href="/admin/coupons">Manage Coupons</a>
                    </li>
+                   @endif
                 </ul>
              </li>
              @endif
@@ -165,12 +181,16 @@
                    </div>
                 </a>
                 <ul class="collapse submenu list-unstyled" id="services" data-parent="#accordionExample">
-                   <li>
+                  @if(auth('admin')->user()->can('add_services')) 
+                  <li>
                       <a href="/admin/services">Add Service/list </a>
                    </li>
+                   @endif
+                   @if(auth('admin')->user()->can('view_services')) 
                    <li>
                       <a href="/admin/service/manage">Manage service</a>
                    </li>
+                   @endif
                 </ul>
              </li>
              @endif
@@ -195,15 +215,21 @@
                    </div>
                 </a>
                 <ul class="collapse submenu list-unstyled" id="career" data-parent="#accordionExample">
-                   <li>
+                  @if(auth('admin')->user()->can('category_career'))  
+                  <li>
                       <a href="{{route('career.category')}}">Career Categories</a>
                    </li>
+                   @endif
+                   @if(auth('admin')->user()->can('add_career'))  
                    <li>
                       <a href="{{route('career.category.create')}}">Add Career Category</a>
                    </li>
+                   @endif
+                   @if(auth('admin')->user()->can('view_career'))  
                    <li>
                       <a href="{{route('career.index')}}">Careers</a>
                    </li>
+                   @endif
                 </ul>
              </li>
              @endif
@@ -255,24 +281,36 @@
                    </div>
                 </a>
                 <ul class="collapse submenu list-unstyled" id="authentication" data-parent="#accordionExample">
-                   <li>
+                  @if(auth('admin')->user()->can('view_users'))   
+                  <li>
                       <a href="/admin/users/all"> All User </a>
                    </li>
+                   @endif
+                   @if(auth('admin')->user()->can('add_users'))  
                    <li>
                       <a href="/admin/user/create"> Add User </a>
                    </li>
+                   @endif
+                   @if(auth('admin')->user()->can('view_franchise'))  
                    <li>
                       <a href="/admin/franchise/all"> All Franchise </a>
                    </li>
+                   @endif
+                   @if(auth('admin')->user()->can('add_franchise'))  
                    <li>
                       <a href="/admin/franchise/create"> Add Franchise </a>
                    </li>
+                   @endif
+                   @if(auth('admin')->user()->can('view_agent'))  
                    <li>
                       <a href="/admin/agents/all"> All Agent </a>
                    </li>
+                   @endif
+                   @if(auth('admin')->user()->can('add_agent'))  
                    <li>
                       <a href="/admin/agents/create"> Add Agent </a>
                    </li>
+                   @endif
                 </ul>
              </li>
              @endif
@@ -320,12 +358,16 @@
                    </div>
                 </a>
                 <ul class="submenu list-unstyled collapse" id="pages" data-parent="#accordionExample" style="">
-                   <li>
+                  @if(auth('admin')->user()->can('add_blog')) 
+                  <li>
                       <a href="/blogs/add">Add Blog</a>
                    </li>
+                   @endif
+                   @if(auth('admin')->user()->can('view_blog'))
                    <li>
                       <a href="/blogs">View Blog</a>
                    </li>
+                   @endif
                 </ul>
              </li>
              @endif
@@ -348,9 +390,11 @@
                    </div>
                 </a>
                 <ul class="submenu list-unstyled collapse" id="team" data-parent="#accordionExample" style="">
-                   <li>
+                  @if(auth('admin')->user()->can('view_team')) 
+                  <li>
                       <a href="{{route('team.index')}}">Manage Team</a>
                    </li>
+                   @endif
                 </ul>
              </li>
              @endif
@@ -373,12 +417,16 @@
                    </div>
                 </a>
                 <ul class="submenu list-unstyled collapse" id="gallery" data-parent="#accordionExample" style="">
-                   <li>
+                  @if(auth('admin')->user()->can('view_gallery')) 
+                  <li>
                       <a href="{{route('gallery.index')}}">Gallery</a>
                    </li>
+                   @endif
+                   @if(auth('admin')->user()->can('view_event'))
                    <li>
                       <a href="{{route('events.index')}}">Events</a>
                    </li>
+                   @endif
                 </ul>
              </li>
              @endif
@@ -401,12 +449,16 @@
                    </div>
                 </a>
                 <ul class="submenu list-unstyled collapse" id="news-updates" data-parent="#accordionExample" style="">
-                   <li>
+                  @if(auth('admin')->user()->can('view_news')) 
+                  <li>
                       <a href="{{route('news.index')}}">News</a>
                    </li>
+                   @endif
+                   @if(auth('admin')->user()->can('view_updates'))
                    <li>
                       <a href="{{route('updates.index')}}">Updates</a>
                    </li>
+                   @endif
                 </ul>
              </li>
              @endif
@@ -429,29 +481,41 @@
                    </div>
                 </a>
                 <ul class="submenu list-unstyled collapse" id="support" data-parent="#accordionExample" style="">
-                   <li>
+                  @if(auth('admin')->user()->can('view_tickets')) 
+                  <li>
                       <a href="{{route('admin.tickets.index')}}">Tickets</a>
                    </li>
+                   @endif
+                   @if(auth('admin')->user()->can('contact')) 
                    <li>
                       <a href="{{route('admin.contacts.index')}}">Contact Forms</a>
                    </li>
+                   @endif
+                   @if(auth('admin')->user()->can('view_campaign_inquiry')) 
                    <li>
                       <a href="{{route('admin.campaign_inquiry.index')}}">Campaign Inquiry</a>
                    </li>
+                   @endif
+                   @if(auth('admin')->user()->can('view_partner_inquiry')) 
                    <li>
                       <a href="{{route('admin.partner_inquiry.index')}}">Partner Inquiry</a>
                    </li>
+                   @endif
+                   @if(auth('admin')->user()->can('view_app_joinlist')) 
                    <li>
                       <a href="{{route('join')}}">App Waiting List</a>
                    </li>
+                   @endif
+                   @if(auth('admin')->user()->can('view_emails_subscribed')) 
                    <li>
                       <a href="{{route('admin.emails.index')}}">Subscribed Emails</a>
                    </li>
+                   @endif
                 </ul>
              </li>
              @endif
              {{-- Support --}}
-             {{-- @if(auth('admin')->user()->can('support')) --}}
+             @if(auth('admin')->user()->can('campaign'))
              <li class="menu">
                 <a href="#Campaigns" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
                    <div class="">
@@ -468,12 +532,14 @@
                    </div>
                 </a>
                 <ul class="submenu list-unstyled collapse" id="Campaigns" data-parent="#accordionExample" style="">
-                   <li>
+                  @if(auth('admin')->user()->can('view_campaign'))  
+                  <li>
                       <a href="{{route('admin.campaigns.index')}}">Manage Campaigns</a>
                    </li>
+                   @endif
                 </ul>
              </li>
-             {{-- @endif --}}
+             @endif
 
              {{-- Staff --}}
              @if(auth('admin')->user()->can('staff'))
@@ -493,15 +559,21 @@
                    </div>
                 </a>
                 <ul class="submenu list-unstyled collapse" id="permission" data-parent="#accordionExample" style="">
-                   <li>
+                  @if(auth('admin')->user()->can('view_staff'))  
+                  <li>
                       <a href="{{route('admin.staffs.index')}}">Staff</a>
                    </li>
+                   @endif
+                   @if(auth('admin')->user()->can('view_roles'))
                    <li>
                       <a href="{{route('admin.roles-permissions.index')}}">Roles & Permissions</a>
                    </li>
+                   @endif
+                   @if(auth('admin')->user()->can('assign_roles'))
                    <li>
                       <a href="{{route('admin.assign-role.index')}}">Assign Roles</a>
                    </li>
+                   @endif
                 </ul>
              </li>
              @endif
@@ -524,20 +596,28 @@
                    </div>
                 </a>
                 <ul class="submenu list-unstyled collapse" id="setting" data-parent="#accordionExample" style="">
-                   <li>
+                  @if(auth('admin')->user()->can('setting_mail')) 
+                  <li>
                       <a href="{{route('admin.setting.index')}}">Mail</a>
                    </li>
+                   @endif
+                   @if(auth('admin')->user()->can('setting_seo'))
                    <li>
                       <a href="{{route('seo.index')}}">Seo</a>
                    </li>
+                   @endif
+                   @if(auth('admin')->user()->can('setting_marquee'))
                    <li>
                       <a href="{{route('admin.marquee.index')}}">Marquee</a>
                    </li>
+                   @endif
+                   @if(auth('admin')->user()->can('setting_welcome_banner'))
                    <li>
                       <a href="{{route('welcome_banner.index')}}">Welcome Banner</a>
                    </li>
+                   @endif
 
-                   @if(auth('admin')->user()->can('setting'))
+                   @if(auth('admin')->user()->can('setting_password'))
                    <li>
                      <a href="{{route('admin.staffs.index')}}">Change Password</a>
                   </li>
@@ -588,12 +668,21 @@
                    </div>
                 </a>
                 <ul class="submenu list-unstyled collapse" id="appcontrol" data-parent="#accordionExample" style="">
-                   <li>
+                  @if(auth('admin')->user()->can('view_app_slider')) 
+                  <li>
                       <a href="{{route('admin.sliders.index')}}">Slider</a>
                    </li>
+                   @endif
+                   @if(auth('admin')->user()->can('view_app_banner'))
                    <li>
                       <a href="{{route('admin.banners.index')}}">Banners</a>
                    </li>
+                   @endif
+                   @if(auth('admin')->user()->can('view_app_services'))
+                   <li>
+                      <a href="{{route('services.manage')}}">App Services</a>
+                   </li>
+                   @endif
                 </ul>
              </li>
              @endif

@@ -1,4 +1,5 @@
 node_modules/
+app-deploy.zip
 vendor/
 public/**/*.zip
 public/**/*.pdf

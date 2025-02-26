@@ -43,7 +43,7 @@
          <h2 class="mb-4">Roles Management</h2>
 
          <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <h4>Roles</h4>
                 <form action="{{ route('admin.roles.store') }}" method="POST">
                     @csrf
@@ -76,7 +76,7 @@
                 </table>
             </div>
     
-            <div class="col-md-6">
+            {{-- <div class="col-md-6">
                 <h4>Permissions</h4>
                 <form action="{{ route('admin.permissions.store') }}" method="POST">
                     @csrf
@@ -107,7 +107,7 @@
                         @endforeach
                     </tbody>
                 </table>
-            </div>
+            </div> --}}
         </div>
     
         <hr>

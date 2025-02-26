@@ -14,7 +14,11 @@ class MessageController extends Controller
             'attachment' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $user = $request->session()->get("user");
+        if ($request->expectsJson()) {
+            $user = getAuthUser($request);
+        }else{
+            $user = $request->session()->get("user");
+        }
 
         $attachmentPath = null;
         if ($request->hasFile('attachment')) {
@@ -33,6 +37,10 @@ class MessageController extends Controller
             'message' => $request->message,
             'attachment' => $attachmentPath,
         ]);
+
+        if ($request->expectsJson()) {
+            return responseJson(null, 200);
+        }
 
         return back();
     }

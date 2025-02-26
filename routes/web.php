@@ -44,6 +44,7 @@ use App\Http\Controllers\PartnerInquiryController;
 
 use App\Http\Controllers\PayController;
 use App\Http\Controllers\CareerController;
+use App\Http\Controllers\ServiceStatusController;
 use App\Http\Controllers\JoinAppController;
 use App\Http\Controllers\KycController;
 use Barryvdh\DomPDF\Facade;
@@ -226,6 +227,7 @@ Route::middleware('admin_auth')->prefix('admin')->name('admin.')->group(function
    Route::resource('campaigns', AdminCampaignController::class);
    Route::resource('sliders', SliderController::class);
    Route::resource('banners', BannerController::class);
+   Route::resource('trending-service', BannerController::class);
 });
 
 
@@ -334,6 +336,9 @@ Route::group(['middleware' => 'admin_auth'], function () {
    Route::post("/admin/services/remove", [admin::class, 'services_delete'])->name('admin.service.delete');
 
    Route::get("/admin/service/manage", [admin::class, "services_manage"])->name('admin.service.manage');
+
+   Route::get('/admin/services-status/manage', [ServiceStatusController::class, 'index'])->name('services.manage');
+   Route::post('/admin/services-status/update-status', [ServiceStatusController::class, 'updateStatus'])->name('services.updateStatus');
 
    // sub head service 
    Route::get("/admin/services/sub", [admin::class, 'sub_services']);
@@ -503,7 +508,6 @@ Route::middleware(['users_m'])->prefix('users')->name('user.')->group(function (
 });
 
 Route::group(['middleware' => 'users_m'], function () {
-
 
    Route::get(("/users/dashboard"), [users::class, 'dashboard'])->name("user.dashboard");
    Route::get(("/users/account"), [users::class, 'account'])->name("user.account");

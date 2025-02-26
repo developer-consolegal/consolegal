@@ -1035,7 +1035,7 @@
       <div class="col-12 col-md-12 d-flex justify-content-center align-items-center">
          <h2 class="main-title fw-bold">Important Links</h2>
       </div>
-      <div class="col-12 mt-2 col-md-12 clients-slider-container ">
+      <div class="col-12 mt-2 col-md-12 clients-slider-container">
          <div class="d-flex justify-content-around align-items-center">
             <div class="img-container"><a href="https://www.startupindia.gov.in/" target="_blank"><img src="{{ asset('web/important-links')}}/image-1.png" alt="" loading="lazy"></a></div>
             <div class="img-container"><a href="https://up.gov.in/en" target="_blank"><img src="{{ asset('web/important-links')}}/image-2.png" alt="" loading="lazy"></a></div>

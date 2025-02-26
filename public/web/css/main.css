@@ -398,7 +398,7 @@ section.tqpage .thanku i.fa.fa-check {
     color: #efa434;
 }
 
-.navbar .dropdown:hover .dropdown-menu {
+.navbar #navbarSupportedContent .dropdown:hover .dropdown-menu {
     display: block;
     padding: 0;
 }
@@ -419,7 +419,7 @@ section.tqpage .thanku i.fa.fa-check {
 /*    right: 10px;*/
 /*}*/
 
-.navbar .dropdown-menu .dropdown-item:hover {
+.navbar #navbarSupportedContent .dropdown-menu .dropdown-item:hover {
     border-left: 2px solid #15426d;
     color: #efa434;
 }
@@ -3733,6 +3733,14 @@ h3.title {
     .mid-sec .content .title {
         font-size: 26px;
         text-align: center;
+    }
+
+    .clients-slider-container .img-container{
+        text-align: center;
+    }
+    
+    .clients-slider-container .img-container img{
+        max-width: 80%;
     }
 
     .mid-sec .content .title span {

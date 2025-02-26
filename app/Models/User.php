@@ -32,6 +32,7 @@ class User extends Authenticatable
         'disabled_at',
         'created_at',
         'updated_at',
+        'last_login_at'
     ];
 
     public $appends = ["user_id", "url"];
@@ -53,6 +54,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'last_login_at' => 'datetime',
     ];
 
 

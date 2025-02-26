@@ -13,6 +13,10 @@ class agents_model extends Model
 
     public $appends = ["user_id"];
 
+    protected $casts = [
+        'last_login_at' => 'datetime',
+    ];
+
     public function isDisabled()
     {
         return !is_null($this->disabled_at);

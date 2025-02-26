@@ -8,6 +8,9 @@ use App\Http\Controllers\apis\WalletController;
 use App\Http\Controllers\apis\BlogController;
 use App\Http\Controllers\apis\NewsUpdateController;
 use App\Http\Controllers\webController;
+use App\Http\Controllers\TicketController;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\ServiceStatusController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +43,8 @@ Route::name('apis')->middleware("error_handle")->group(function () {
     Route::get("slider-home", [NewsUpdateController::class, 'sliderHome'])->name("sliderHome.index");
     Route::get("banner-trending", [NewsUpdateController::class, 'bannerTrending'])->name("bannerTrending.index");
     Route::get("banner-home", [NewsUpdateController::class, 'bannerHome'])->name("bannerHome.index");
+    Route::get("appListTrending", [ServiceStatusController::class, 'appListTrending'])->name("appListTrending.index");
+    Route::get("appListFeatured", [ServiceStatusController::class, 'appListFeatured'])->name("appListFeatured.index");
     Route::get("blogs/{category}", [BlogController::class, "blogs_category"])->name("blog.category");
     Route::get("/blog/{id}/show", [BlogController::class, 'blog_view'])->name('blog.show');
     Route::post("/contact", [webController::class, "contact"])->name("contact.post");
@@ -51,6 +56,13 @@ Route::name('apis')->middleware("error_handle")->group(function () {
     Route::get("/service/{category}/category", [ServiceController::class, 'serviceByCategory'])->name('service.category.index');
     Route::get("/service/{id}/show", [ServiceController::class, 'show'])->name('service.show');
 
+
+
+    Route::middleware(['user'])->prefix('users')->name('user.')->group(function () {
+        Route::resource('tickets', TicketController::class);
+        Route::post('tickets/{ticket}/messages', [MessageController::class, 'store'])->name('messages.store');
+        Route::post('tickets/{ticket}/close', [TicketController::class, 'close'])->name('tickets.close');
+     });
 
     // Account Routes Group
     Route::middleware("user")->group(function () {

@@ -27,6 +27,7 @@ use App\Models\payment;
 use App\Models\Refer;
 use App\Models\service_done;
 use PDO;
+use Carbon\Carbon;
 
 class users extends Controller
 {
@@ -96,6 +97,8 @@ class users extends Controller
                $req->session()->forget('frans');
                $req->session()->forget('agents');
                $req->session()->forget('admin');
+
+               $users->update(['last_login_at' => Carbon::now()]);
 
                return ["status" => "success"];
             } else {

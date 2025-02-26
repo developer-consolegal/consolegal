@@ -38,60 +38,67 @@
                 <h4 class="text-success text-center">{{Session::get("success")}}</h4>
                 <h4 class="text-danger text-center">{{Session::get("error")}}</h4>
             </div>
+            <div style="overflow:scroll;">
             <table class="table table-striped custab">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>User Name</th>
-                        <th>Email Address</th>
-                        <th>Phone No.</th>
-                        <th>Refer By</th>
-                        <th>Disabled</th>
-                        <th class="text-center">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @php($nos = 0)
-                    @foreach ($user as $list)
-                    @php($nos++)
-                    <tr>
-                        <td>{{$list->user_id}}</td>
-                        <td><a href="/admin/users/profile?id={{$list->id}}">{{$list->name}}</a></td>
-                        <td>{{$list->email}}</td>
-                        <td>{{$list->phone}}</td>
-                        <td>{{$list->ref_id}}</td>
-                        <td>
-                            <form action="{{route('admin.user.toggle-disable', $list->id)}}" method="post">
-                                    <button class="btn text-center" type="submit">
-                                        @if($list->disabled_at)
-                                        <i class="fas fa-check-circle text-white bg-success rounded-circle p-1" title="activate user account"></i>
-                                        @else
-                                        <i class="fas fa-times-circle text-white border border-2 border-danger bg-danger rounded-circle p-1" title="disable user account temprory"></i>
-                                        @endif
-                                    </button>
-                            </form>
-                        </td>
-                        <td class="text-center">
-                            <a href="/admin/users/profile?id={{$list->id}}">
-                                <i class="fa fa-pencil" aria-hidden="true"></i> </a>
-                            <a href="#" onclick="deleteUser({{$list->id}})">
-                                <i class="fa fa-trash" aria-hidden="true"></i>
-                            </a>
-                            <a href="/leads/{{$list->id}}">
-                                <i class="fa fa-plus" aria-hidden="true"></i>
-                            </a>
-                            <a href="{{route('admin.documents.index')}}?id={{$list->id}}">
-                                <i class="fa fa-upload" aria-hidden="true"></i>
-                            </a>
-                            <a href="#" onclick="allocateMoneyModal({{$list->id}})">
-                                <i class="fa fa-rupee" aria-hidden="true"></i> 
-                            </a>
-                        </td>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th class="text-nowrap">User Name</th>
+                            <th class="text-nowrap">Email Address</th>
+                            <th class="text-nowrap">Phone No.</th>
+                            <th class="text-nowrap">Refer By</th>
+                            <th>Onboard</th>
+                            <th class="text-nowrap">Last Login</th>
+                            <th>Disabled</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @php($nos = 0)
+                        @foreach ($user as $list)
+                        @php($nos++)
+                        <tr>
+                            <td class="text-nowrap">{{$list->user_id}}</td>
+                            <td><a href="/admin/users/profile?id={{$list->id}}">{{$list->name}}</a></td>
+                            <td>{{$list->email}}</td>
+                            <td>{{$list->phone}}</td>
+                            <td>{{$list->ref_id}}</td>
+                            <td class="text-nowrap">{{$list->created_at->format('d M Y')}}</td>
+                            <td class="text-nowrap">{{$list->last_login_at ? $list->last_login_at->diffForHumans() : 'NA'}}</td>
+                            <td>
+                                <form action="{{route('admin.user.toggle-disable', $list->id)}}" method="post">
+                                        <button class="btn text-center" type="submit">
+                                            @if($list->disabled_at)
+                                            <i class="fas fa-check-circle text-white bg-success rounded-circle p-1" title="activate user account"></i>
+                                            @else
+                                            <i class="fas fa-times-circle text-white border border-2 border-danger bg-danger rounded-circle p-1" title="disable user account temprory"></i>
+                                            @endif
+                                        </button>
+                                </form>
+                            </td>
+                            <td class="text-center text-nowrap">
+                                <a href="/admin/users/profile?id={{$list->id}}">
+                                    <i class="fa fa-pencil" aria-hidden="true"></i> </a>
+                                <a href="#" onclick="deleteUser({{$list->id}})">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </a>
+                                <a href="/leads/{{$list->id}}">
+                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                </a>
+                                <a href="{{route('admin.documents.index')}}?id={{$list->id}}">
+                                    <i class="fa fa-upload" aria-hidden="true"></i>
+                                </a>
+                                <a href="#" onclick="allocateMoneyModal({{$list->id}})">
+                                    <i class="fa fa-rupee" aria-hidden="true"></i> 
+                                </a>
+                            </td>
 
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            
             {{$user->links()}}
         </div>
     </div>

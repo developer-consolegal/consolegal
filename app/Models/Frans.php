@@ -23,9 +23,14 @@ class Frans extends Model
         'disabled_at',
         'created_at',
         'updated_at',
+        'last_login_at'
     ];
 
     public $appends = ["user_id"];
+
+    protected $casts = [
+        'last_login_at' => 'datetime',
+    ];
 
     public function isDisabled()
     {
