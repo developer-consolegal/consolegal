@@ -12,7 +12,7 @@ class ServiceController extends Controller
     public function index(Request $req)
     {
 
-        $data = services::orderBy("id", "ASC")->simplePaginate(20);
+        $data = services::where("category", "!=", "private")->orderBy("id", "ASC")->simplePaginate(20);
 
         return responseJson($data, 200);
     }
@@ -25,7 +25,7 @@ class ServiceController extends Controller
             $query->where('name','LIKE','%'. $req->search . '%');
         }
         
-        $data = $query->limit(8)->get();
+        $data = $query->where("category", "!=", "private")->limit(8)->get();
         return responseJson($data, 200);
     }
 
@@ -49,7 +49,7 @@ class ServiceController extends Controller
 
     public function serviceByCategory(Request $req, $category)
     {
-        $data = services::where("category", $category)->orderBy("id", "ASC")->simplePaginate(20);
+        $data = services::where("category", "!=", "private")->where("category", $category)->orderBy("id", "ASC")->simplePaginate(20);
 
         return responseJson($data, 200);
     }
