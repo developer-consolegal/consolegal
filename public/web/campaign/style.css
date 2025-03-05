@@ -325,4 +325,8 @@ img#list {
   .rightSection {
     margin-top: 1rem;
   }
+
+  .main-section {
+    height: auto;
+  }
 }

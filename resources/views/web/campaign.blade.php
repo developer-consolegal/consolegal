@@ -37,12 +37,12 @@
             <img src="{{asset('web/image')}}/logo.jpeg" alt="logo" style="max-width: 100px;" />
         </div>
         <ul class="nav-links">
-            <li><a href="#about">About us</a></li>
-            <li><a href="#program">Programs Highlight</a></li>
-            <li><a href="#memberships">Memberships</a></li>
-            <li><a href="#schemes">Schemes & Policies</a></li>
-            <li><a href="#network">Network</a></li>
-            <li><a href="#faq">FAQs</a></li>
+            <a href="#about">About us</a>
+            <a href="#program">Services</a>
+            <a href="#memberships">Chat</a>
+            <a href="#schemes">Process</a>
+            {{-- <a href="#network">Network</a> --}}
+            <a href="#faq">FAQs</a>
         </ul>
         <button class="connect-btn">Connect with us</button>
 
@@ -51,14 +51,13 @@
             <i class="fa-solid fa-bars"></i>
         </div>
 
-
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
             <a href="#about">About us</a>
-            <a href="#program">Programs Highlight</a>
-            <a href="#memberships">Memberships</a>
-            <a href="#schemes">Schemes & Policies</a>
-            <a href="#network">Network</a>
+            <a href="#program">Services</a>
+            <a href="#memberships">Chat</a>
+            <a href="#schemes">Process</a>
+            {{-- <a href="#network">Network</a> --}}
             <a href="#faq">FAQs</a>
             <button class="connect-btn">Connect with us</button>
         </div>
@@ -81,27 +80,90 @@
                     <div class="btnSection">
                         {{-- <button>Learn More</button> --}}
                         @if($campaign->learn_more_link)
-                         <button><a href="{{ $campaign->learn_more_link }}" class="text-decoration-none text-white mb-4" target="_blank">Learn More</a></button>
+                        <button><a href="{{ $campaign->learn_more_link }}" class="text-decoration-none text-white mb-4"
+                                target="_blank">Learn More</a></button>
                         @endif
-                        <button class="bg-primary">Book a Call</button>
+                        <a href="https://calendly.com/consolegal-desk/schedule" target="_blank"><button class="bg-primary">Book a Call</button></a>
                     </div>
-                    <img src="{{asset('web/campaign')}}/images/star.png" alt="star" />
+                    <div>
+                        <img src="{{asset('web/campaign')}}/images/star.png" alt="star" />
+                        <p class="mb-0"><small class="text-secondary fs-6">4.9/5 From 502 Customers</small></p>
+                    </div>
                 </div>
-                <img id="list" src="{{asset('web/campaign')}}/images/List.png" alt="" />
+                <style>
+                    .slider {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-top: 10px;
+                        height: 50px;
+                        /* width: 80%; */
+                        overflow: hidden;
+                        /* background: rgb(255, 255, 255); */
+                        border-radius: 16px;
+                        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                        backdrop-filter: blur(7.4px);
+                        -webkit-backdrop-filter: blur(7.4px);
+                        /* border: 1px solid rgba(255, 255, 255, 0.4); */
+                    }
+
+                    .slider-items {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 20px;
+                        animation: scrolling 20s linear infinite;
+                    }
+
+                    @keyframes scrolling {
+
+                        0% {
+                            transform: translateX(80%);
+                        }
+
+                        100% {
+                            transform: translateX(-20%);
+                        }
+                    }
+
+                    .slider-items img {
+                        width: 20%;
+                        margin: 20px;
+                        max-height: 50px;
+                        filter: invert(77%) brightness(91%) contrast(-10%);
+                    }
+                </style>
+                
+                <div class="slider">
+                    <div class="slider-items">
+                        <img src="{{asset('web/campaign')}}/images/adani.jpg" alt="">
+                        <img src="{{asset('web/campaign')}}/images/utkarsh-alt.jpg" alt="">
+                        <img src="{{asset('web/campaign')}}/images/shri.jpg" alt="">
+                        <img src="{{asset('web/campaign')}}/images/remairo.jpg" alt="">
+                        <img src="{{asset('web/campaign')}}/images/adani.jpg" alt="">
+                        <img src="{{asset('web/campaign')}}/images/utkarsh-alt.jpg" alt="">
+                        <img src="{{asset('web/campaign')}}/images/shri.jpg" alt="">
+                        <img src="{{asset('web/campaign')}}/images/remairo.jpg" alt="">
+                        <img src="{{asset('web/campaign')}}/images/adani.jpg" alt="">
+                        <img src="{{asset('web/campaign')}}/images/utkarsh-alt.jpg" alt="">
+                        <img src="{{asset('web/campaign')}}/images/shri.jpg" alt="">
+                        <img src="{{asset('web/campaign')}}/images/remairo.jpg" alt="">
+                    </div>
+                </div>
+                <!-- <img id="list" src="{{asset('web/campaign')}}/images/List.png" alt="" /> -->
             </div>
             <div class="col-md-4 col-sm-12">
                 <div class="rightSection">
                     <h2>Secure your spot now</h2>
                     <p>
-                        Be the first to know when the product launches and other
-                        not-to-miss updates.
+                        Fill the box to get a call for 1-2-1 assistance with our experts.
                     </p>
                     <div class="spots">
                         {{-- <img src="{{asset('web/campaign')}}/images/dot.svg" alt="dot" /> --}}
                         {{-- <h5>2 Spots Available</h5> --}}
                         @if (session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
-    @endif
+                        <div class="alert alert-success">{{ session('success') }}</div>
+                        @endif
                     </div>
                     <form action="{{ route('campaign.store', $campaign->slug) }}" method="POST">
                         @csrf
@@ -110,13 +172,14 @@
                         @error('name') <small class="text-danger">{{ $message }}</small> @enderror
 
                         <label>Your Email <span class="text-danger">*</span></label>
-                        <input type="email" name="email" value="{{ old('email') }}" inputmode="email" placeholder="username@mail" />
+                        <input type="email" name="email" value="{{ old('email') }}" inputmode="email"
+                            placeholder="username@mail" />
                         @error('email') <small class="text-danger">{{ $message }}</small> @enderror
 
                         <label>Your Number <span class="text-danger">*</span></label>
                         <input type="text" name="phone" value="{{ old('phone') }}" placeholder="+91" />
                         @error('phone') <small class="text-danger">{{ $message }}</small> @enderror
-                        
+
                         <label>Message <span class="text-danger">*</span></label>
                         <textarea name="message" rows="4">{{ old('message') }}</textarea>
                         @error('message') <small class="text-danger" required>{{ $message }}</small> @enderror
@@ -144,8 +207,8 @@
                     business.
                 </p>
                 <div class="btnSectionOther">
-                    <button>Contact Us &#8599;</button>
-                    <button class="bg-primary">View Project &#8599;</button>
+                    <a href="{{route('contact')}}" class=""><button>Contact Us &#8599;</button></a>
+                    <a href="{{route('about')}}" class=""><button class="bg-primary">View More &#8599;</button></a>
                 </div>
                 <img src="{{asset('web/campaign')}}/images/Background.png" alt="founder" />
             </div>
@@ -216,7 +279,7 @@
                 </div>
             </div>
             <div class="other">
-                <img src="{{asset('web/campaign')}}/images/other.png" alt="other_service" />
+                <img src="{{asset('web/campaign')}}/images/other.png" alt="other_service" class="img-fluid" />
                 <div class="mainSec">
                     <div class="iconSection">
                         <img src="{{asset('web/campaign')}}/images/icon/icon_1.png" alt="icon" />
@@ -248,8 +311,10 @@
                 real-time support via chat for your queries. d
             </p>
             <div class="btnSection other_btn_sec">
-                <button class="bg-primary">Call Now &#8599;</button>
-                <button>Start Chat &#8599;</button>
+                <a href="tel:+918810878185" class="text-nowrap btn"><button class="bg-primary">Call Now
+                        &#8599;</button></a>
+                <a href="https://wa.me/+918810878185?text=Hello, I'm interested in your services!" target="_blank"
+                    class="text-nowrap btn"><button class="bg-dark">Start Chat &#8599;</button></a>
             </div>
         </div>
     </section>
@@ -401,13 +466,15 @@
                     @foreach (json_decode($campaign->faqs, true) ?? [] as $index => $faq)
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="heading{{ $index }}">
-                            <button class="accordion-button {{ $index != 0 ? 'collapsed' : '' }}" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapse{{ $index }}" aria-expanded="true" aria-controls="collapseOne">
+                            <button class="accordion-button {{ $index != 0 ? 'collapsed' : '' }}" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapse{{ $index }}" aria-expanded="true"
+                                aria-controls="collapseOne">
                                 {{ $faq['question'] }}
                             </button>
                         </h2>
-                        <div id="collapse{{ $index }}" class="accordion-collapse collapse {{ $index == 0 ? 'show' : '' }}" aria-labelledby="headingOne"
-                            data-bs-parent="#accordionExample">
+                        <div id="collapse{{ $index }}"
+                            class="accordion-collapse collapse {{ $index == 0 ? 'show' : '' }}"
+                            aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 {{ $faq['answer'] }}
                             </div>
