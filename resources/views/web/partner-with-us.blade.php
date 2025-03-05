@@ -37,8 +37,8 @@
             ConsoLegal's Partner Program is designed to collaborate with like-minded organizations, experts, and service providers to deliver exceptional value to our clients. By joining forces, we aim to create a robust ecosystem that supports businesses, entrepreneurs, and MSMEs in achieving their goals.
          </p>
          <div class="d-flex justify-content-start align-items-center gap-3">
-               <a href="/about" class="btn an-btn secondary">Learn More</a>
-               <a href="/about" class="btn an-btn">Book a call</a>
+               <a href="{{route('about')}}" class="btn an-btn secondary">Learn More</a>
+               <a href="https://calendly.com/consolegal-desk/schedule" target="_blank" class="btn an-btn">Book a call</a>
          </div>
       </div>
 
@@ -46,7 +46,7 @@
          <form id="partner-inquiry-form">
             @csrf
             <h3 class="title mb-1">Secure your spot now</h3>
-            <p class="mb-4">Be the first to know when the product launches and other not-to-miss updates.</p>
+            <p class="mb-4">Fill out the form below and our team will reach  out within 24 hours.</p>
             <div class="row g-3">
                <div class="col-12 col-md-6">
                   <input type="text" name="name" placeholder="Name" class="form-control" required value="{{ old('name') }}">
@@ -122,12 +122,12 @@
       <div class="col-12 col-md-6">
          <img src="{{ asset('web/image')}}/partner-with-us-dummy-4.png" class="img-fluid">
          <h5 class="fw-bold">Ready to Partner with Us?</h5>
-         <p>Let’s work together to create success stories. Fill out the form below, and our team will reach out within 24 hours.</p>
+         <p>Let’s work together to create success stories.</p>
       </div>
       <div class="col-12 col-md-6">
          <form id="partner-inquiry-form-bottom" class="rounded-3 p-3 shadow">
             <h3 class="title mb-1">Secure your spot now</h3>
-            <p class="mb-4">Be the first to know when the product launches and other not-to-miss updates.</p>
+            <p class="mb-4">Fill out the form below and our team will reach  out within 24 hours.</p>
             <div class="row g-3">
                <div class="col-12 col-md-6">
                   <input type="text" name="name" placeholder="Name" class="form-control" required value="{{ old('name') }}">
