@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ticket;
+use App\Models\Message;
 use Illuminate\Http\Request;
 
 class TicketController extends Controller
@@ -44,6 +45,7 @@ class TicketController extends Controller
     public function store(Request $request) {
         $request->validate([
             'subject' => 'required|string|max:255',
+            'message' => 'required|string|max:255',
         ]);
 
         if ($request->expectsJson()) {
@@ -56,6 +58,24 @@ class TicketController extends Controller
             'user_id' => $user->id,
             'user_type' => get_class($user),
             'subject' => $request->subject,
+        ]);
+
+        $attachmentPath = null;
+        if ($request->hasFile('attachment')) {
+            // $attachmentPath = $request->file('attachment')->store('attachments', 'public');
+            if ($request->hasFile('attachment')) {
+                $attachment = $request->file('attachment');
+                $attachmentPath = time() . "_attachment" . $attachment->extension();
+                $attachment->move(public_path('storage'), $attachmentPath);
+            }
+        }
+
+        Message::create([
+            'ticket_id' => $ticket->id,
+            'sender_id' => $user->id,
+            'sender_type' => get_class($user),
+            'message' => $request->message,
+            'attachment' => $attachmentPath,
         ]);
 
         if ($request->expectsJson()) {

@@ -270,7 +270,7 @@ class webController extends Controller
             $sub_heads  = services_sub_head::where("service_id", $service->id)->get();
             $tabs = tabs_content::where("service_id", $service->id)->get();
 
-            // return ['services' => $service_id, 'sub_head' => $sub_heads, 'tabs' => $tabs];
+            // return ['services' => $service];
             return view("web.index2", ['service' => $service, 'services_all' => $service_all, 'sub_head' => $sub_heads, 'tabs' => $tabs, 'user' =>  $user]);
         }
     }

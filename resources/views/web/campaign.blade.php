@@ -48,17 +48,17 @@
 
         <!-- Mobile Menu Icon -->
         <div class="hamburger" onclick="toggleMenu()">
-            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-bars text-dark"></i>
         </div>
 
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
-            <a href="#about">About us</a>
-            <a href="#program">Services</a>
-            <a href="#memberships">Chat</a>
-            <a href="#schemes">Process</a>
-            {{-- <a href="#network">Network</a> --}}
-            <a href="#faq">FAQs</a>
+            <a href="#about" onclick="toggleMenu()">About us</a>
+            <a href="#program" onclick="toggleMenu()">Services</a>
+            <a href="#memberships" onclick="toggleMenu()">Chat</a>
+            <a href="#schemes" onclick="toggleMenu()">Process</a>
+            {{-- <a href="#network" onclick="toggleMenu()">Network</a> --}}
+            <a href="#faq" onclick="toggleMenu()">FAQs</a>
             <button class="connect-btn">Connect with us</button>
         </div>
     </nav>
@@ -152,7 +152,7 @@
                 </div>
                 <!-- <img id="list" src="{{asset('web/campaign')}}/images/List.png" alt="" /> -->
             </div>
-            <div class="col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12" id="form-contact">
                 <div class="rightSection">
                     <h2>Secure your spot now</h2>
                     <p>
@@ -207,7 +207,7 @@
                     business.
                 </p>
                 <div class="btnSectionOther">
-                    <a href="{{route('contact')}}" class=""><button>Contact Us &#8599;</button></a>
+                    <a href="#form-contact" class=""><button>Contact Us &#8599;</button></a>
                     <a href="{{route('about')}}" class=""><button class="bg-primary">View More &#8599;</button></a>
                 </div>
                 <img src="{{asset('web/campaign')}}/images/Background.png" alt="founder" />
@@ -236,7 +236,7 @@
                                 guidance. We handle legal formalities, documentation, and
                                 compliance efficiently.
                             </p>
-                            <button>Contact Us &#8599;</button>
+                            <a href="#form-contact" class=""><button>Contact Us &#8599;</button></a>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-12">
@@ -247,7 +247,7 @@
                                 returns, and financial reporting services. We ensure accuracy
                                 and timely submissions.
                             </p>
-                            <button>Contact Us &#8599;</button>
+                            <a href="#form-contact" class=""><button>Contact Us &#8599;</button></a>
                         </div>
                     </div>
                 </div>
@@ -262,7 +262,7 @@
                                 regulatory compliance documents. Our experts help protect your
                                 business from legal risks.
                             </p>
-                            <button>Contact Us &#8599;</button>
+                            <a href="#form-contact" class=""><button>Contact Us &#8599;</button></a>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-12">
@@ -273,7 +273,7 @@
                                 expert-managed payroll system. Ensure compliance and accurate
                                 financial tracking.
                             </p>
-                            <button>Contact Us &#8599;</button>
+                            <a href="#form-contact" class=""><button>Contact Us &#8599;</button></a>
                         </div>
                     </div>
                 </div>
@@ -445,7 +445,7 @@
         <div class="arrow_sec">
             <img src="{{asset('web/campaign')}}/images/icon/mark.png" alt="mark" />
             <h6>Join Consolegal Today</h6>
-            <button>Contact Us</button>
+            <a href="#form-contact" class=""><button>Contact Us</button></a>
         </div>
     </section>
     <!-- --------consolegal-section-end------------->
@@ -601,7 +601,8 @@
         <div class="arrow_sec">
             <img src="{{asset('web/campaign')}}/images/icon/mark.png" alt="mark" />
             <h6>Still Have a Question</h6>
-            <button>Ask Question</button>
+            {{-- <button>Ask Question</button> --}}
+            <a href="https://calendly.com/consolegal-desk/schedule" target="_blank" class=""><button>Ask Question</button></a>
         </div>
     </section>
     <!-- --------Faq-section-end------------>
@@ -641,7 +642,7 @@
     <!-- ---------footer-section-start------------>
     <footer>
         <div class="footerSection">
-            <img src="{{asset('web/campaign')}}/images/logo.png" alt="logo">
+            <img src="{{asset('web')}}/image/logo.jpeg" style="max-width: 120px;" alt="logo">
             <div>
                 <ul class="m-0">
                     <li><a href="/about" class="text-white text-decoration-none">About Us</a></li>

@@ -37,11 +37,13 @@ class ServiceController extends Controller
             $query->select(["id","name", "service_id", "description"]);
         }])->find($id);
 
-        $tabArr = array("Overview", "Benefits", "Request", "Listicles", "Process", "Others", "Guide", "Faq");
+        $tabArr = array("Overview", "Benefits", "Requirement", "Listicles", "Process", "Others", "Guide", "Faq");
 
         $var = [];
         foreach ($data->tabs as $key => $value) {
-            $data->tabs[$key]->name = $tabArr[$key];
+            if ($key < count($tabArr)) {
+                $value->name = $tabArr[$key]; // Update the 'name' key
+            }
         }
 
         return responseJson($data, 200);

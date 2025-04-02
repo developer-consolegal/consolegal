@@ -1,1 +1,0 @@
-[28-Mar-2023 01:28:41 Asia/Kolkata] PHP Fatal error:  Could not check compatibility between App\Exports\lead_export::view(): App\Exports\View and Maatwebsite\Excel\Concerns\FromView::view(): Illuminate\Contracts\View\View, because class App\Exports\View is not available in /home/nd4lx1xs6lns/public_html/app/Exports/lead_export.php on line 16

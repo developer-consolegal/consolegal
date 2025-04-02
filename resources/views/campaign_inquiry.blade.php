@@ -34,6 +34,7 @@
                 <thead>
                     <tr>
                         <th class="text-left">ID</th>
+                        <th class="text-left">Campaign</th>
                         <th class="text-left">Name</th>
                         <th class="text-left">Phone</th>
                         <th class="text-left">Email</th>
@@ -47,6 +48,7 @@
                     @php($nos++)
                     <tr>
                         <td class="text-left">{{$list->id}}</td>
+                        <td class="text-left">{{$list->page}}</td>
                         <td class="text-left">{{$list->name}}</td>
                         <td class="text-left">{{$list->phone}}</td>
                         <td class="text-left">{{$list->email}}</td>

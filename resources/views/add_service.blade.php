@@ -101,7 +101,7 @@
                @php($video_url = '')
                @endif
                <label for="video_url">Video Url</label><br>
-               <input type="text" class="form-control" name="video_urls" placeholder="Youtube Url" value="{{$video_url}}">
+               <input type="text" class="form-control" name="video_url" placeholder="Youtube Url" value="{{$video_url}}">
                <br>
                <h2 class="">Sub Heads</h2>
 

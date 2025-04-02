@@ -161,8 +161,8 @@
 
          <!-- overview section  -->
          <div class="scroll-section" id="overview">
-            @if(isset($service_id))
-            @php($video_url = $service_id->video_url)
+            @if(isset($service))
+            @php($video_url = $service->video_url)
             @else
             @php($video_url = '')
             @endif

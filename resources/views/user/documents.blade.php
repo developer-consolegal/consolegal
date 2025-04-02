@@ -21,7 +21,8 @@
             <option value="">Select Category</option>
             <option value="incorporation">Incorporation</option>
             <option value="registration">Registration</option>
-            <option value="tax-gst">Tax-Gst</option>
+            <option value="income tax">Income Tax</option>
+            <option value="gst">GST</option>
             <option value="compliance">Compliance</option>
             <option value="others">Others</option>
             <option value="loans">Loans</option>
@@ -30,6 +31,8 @@
             <option value="order">Order</option>
             <option value="invoice">Invoice</option>
             <option value="acknowledgment">Acknowledgment</option>
+            <option value="startup">Startup</option>
+            <option value="msme">MSME</option>
           </select>
         </div>
 

@@ -68,7 +68,7 @@
             </div>
     
             <div class="form-group">
-                <label for="is_expert">Is Expert<span class="text-danger">*</span></label>
+                <label for="is_expert">Is Expert</label>
                 <input type="checkbox" name="is_expert" id="is_expert" value="1" {{ $member->is_expert ? 'checked' : '' }}>
             </div>
     
