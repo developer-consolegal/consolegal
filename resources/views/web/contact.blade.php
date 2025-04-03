@@ -48,6 +48,7 @@
       <div class="col-md-7 rt">
          <form class="row g-3" id="contact-form">
             @csrf
+            <input type="hidden" name="empty" value="">
             <div class="col-md-12">
                <label for="inputEmail4" class="form-label">Full Name</label>
                <input type="text" name="name" class="form-control" id="inputEmail4" required>
@@ -72,9 +73,6 @@
                   Captcha
                </div> -->
                <div class="g-recaptcha" data-sitekey="6LfQ4B8qAAAAAEbOCn71lwSwarsWil2_6kQlDEAj"></div>
-               <!-- <div class="col-8 captcha-inp">
-                  <input class="form-control" name="captcha" id="cpatchaTextBox" type="text" required>
-               </div> -->
 
             </div>
             <div class="col-12 p-4 ps-0">
@@ -95,7 +93,23 @@
 
    $(document).on("submit", "#contact-form", function(e) {
       e.preventDefault();
+
+      alert("Form Submit");
       let formData = $(this).serialize();
+
+      let formDataArray = new URLSearchParams(formData);
+      let recaptchaResponse = formDataArray.get('g-recaptcha-response');
+      let emptyToken = formDataArray.get('empty');
+
+      // if (!recaptchaResponse) {
+      //    $("#notify").html('reCAPTCHA verification is required').css("color", "red");
+      //    return
+      // }
+
+      if(emptyToken.length){
+         $("#notify").html('No autofiller bot allowed').css("color", "red");
+         return
+      }
 
       $.ajax({
          url: "{{route('contact.post')}}",

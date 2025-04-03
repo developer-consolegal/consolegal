@@ -105,7 +105,6 @@ class leads extends Controller
     function leads_post(Request $req)
     {
         try {
-
             $isExist = User::where(["email" => $req->email])
             ->orWhere(["phone" => $req->phone])->first();
 

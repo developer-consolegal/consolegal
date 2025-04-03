@@ -49,8 +49,10 @@
 
       <div class="col-12 col-md-6 rt">
          <form id="lead-form">
+            @csrf
             <h3 class="title mb-4">Get Started</h3>
             <div class="row g-3">
+               <input type="hidden" name="empty" />
                <div class="col-12 col-md-6">
                   <input type="text" required value="{{$user?$user->name:''}}" name="name" class="form-control" placeholder="Name">
                </div>
@@ -341,9 +343,15 @@
 
       let formDataArray = new URLSearchParams(formData);
       let recaptchaResponse = formDataArray.get('g-recaptcha-response');
+      let emptyToken = formDataArray.get('empty');
 
       if (!recaptchaResponse) {
          $("#notify").html('reCAPTCHA verification is required').css("color", "red");
+         return
+      }
+
+      if(emptyToken.length){
+         $("#notify").html('No autofiller bot allowed').css("color", "red");
          return
       }
 

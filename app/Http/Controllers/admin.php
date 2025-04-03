@@ -479,7 +479,7 @@ class admin extends Controller
    {
       try {
 
-         $leads = Lead::where('status', $req->query('status'))->where('name', 'like', '%' . $req->query('search') . '%')->orderBy("id", "desc")
+         $leads = Lead::where('name', 'like', '%' . $req->query('search') . '%')->orderBy("id", "desc")
             ->simplePaginate(30);
 
          $services = services::all();
