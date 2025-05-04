@@ -4653,10 +4653,9 @@ h3.title {
 
 @media only screen and (max-width: 500px) {
     .g-recaptcha {
-        transform: scale(0.70);
+        transform: scale(0.50);
         transform-origin: 0 0;
     }
-
 
     #footer .subscribe-div {
         height: 170px;

@@ -206,28 +206,24 @@ class webController extends Controller
     {
         try {
 
-            // $req->validate([
-            //     'g-recaptcha-response' => 'required'
-            // ]);
+            $req->validate([
+                'g-recaptcha-response' => 'required'
+            ]);
 
             if (!$req->input('g-recaptcha-response')) {
-                return json_encode(['msg' => "reCAPTCHA verification is required"]);
+                return json_encode(['msg' => "reCAPTCHA verification failed"]);
             }
 
-            // $recaptchaSecret = env('RECAPTCHA_SECRET_KEY');
-            // $response = $req->input('g-recaptcha-response');
+            $response = Http::get('https://www.google.com/recaptcha/api/siteverify', [
+                'secret' => env("RECAPTCHA_SECRET_KEY"),
+                'response' => $request->input('g-recaptcha-response'),
+            ]);
 
-            // $responsed = Http::post('https://www.google.com/recaptcha/api/siteverify', [
-            //     'secret' => $recaptchaSecret,
-            //     'response' => $response
-            // ]);
+            $result = $response->json();
 
-            // $responseBody = $responsed->json();
-
-            // if (!$responseBody['success']) {
-            //     // return redirect()->back()->withErrors(['captcha' => 'reCAPTCHA verification failed']);
-            //     return json_encode(['msg' => "reCAPTCHA verification failed", 'response' => $responseBody]);
-            // }
+            if (!$result['success']) {
+                return json_encode(['msg' => "reCAPTCHA verification failed", 'response' => $result]);
+            }
 
             $save = DB::table('contact')->insert($req->only(['name', 'email', 'phone', 'message']));
 

@@ -72,11 +72,12 @@
                <!-- <div class="col-4 captcha-ct" onclick="genCaptcha()" id="captcha">
                   Captcha
                </div> -->
-               <div class="g-recaptcha" data-sitekey="6LfQ4B8qAAAAAEbOCn71lwSwarsWil2_6kQlDEAj"></div>
+               <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
 
             </div>
             <div class="col-12 p-4 ps-0">
-               <button type="submit" class="btn an-btn">Send Message</button>
+               <button 
+               class="btn an-btn" type="submit">Send Message</button>
                <p id="notify" class="mt-2"></p>
             </div>
 
@@ -89,22 +90,21 @@
 
 </section>
 
+@push('style')
+<script src="https://www.google.com/recaptcha/api.js"></script>
+@endpush
+
+@push('script')
+
 <script>
 
    $(document).on("submit", "#contact-form", function(e) {
       e.preventDefault();
 
-      alert("Form Submit");
       let formData = $(this).serialize();
 
       let formDataArray = new URLSearchParams(formData);
-      let recaptchaResponse = formDataArray.get('g-recaptcha-response');
       let emptyToken = formDataArray.get('empty');
-
-      // if (!recaptchaResponse) {
-      //    $("#notify").html('reCAPTCHA verification is required').css("color", "red");
-      //    return
-      // }
 
       if(emptyToken.length){
          $("#notify").html('No autofiller bot allowed').css("color", "red");
@@ -133,5 +133,8 @@
    });
 
 </script>
+@endpush
+
+
 
 @endsection

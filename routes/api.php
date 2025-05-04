@@ -69,10 +69,11 @@ Route::name('apis')->middleware("error_handle")->group(function () {
         Route::get("/profile", [AuthController::class, "profile"])->name('profile');
         Route::post("/profile/update", [AuthController::class, "update"])->name('profile.update');
 
+        Route::delete("/delete-account", [AuthController::class, "deleteAccount"])->name("profile.delete");
+
         Route::get(("/profile/kyc/get"), [AuthController::class, 'kycget']);
         Route::post(("/profile/kyc/create"), [AuthController::class, 'kyccreate']);
         Route::post(("/profile/kyc/update"), [AuthController::class, 'kycupdate']);
-        
 
         // Orders Route Group 
         Route::prefix("orders")->name('orders')->group(function () {

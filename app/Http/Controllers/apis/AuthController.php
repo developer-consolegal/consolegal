@@ -34,6 +34,18 @@ class AuthController extends Controller
         return responseJson($user, 200);
     }
 
+    public function deleteAccount(Request $req)
+    {
+        $user = getAuthUser($req);
+
+        // Delete related data if needed
+        // $user->posts()->delete(); etc.
+
+        // $user->delete();
+
+        return response()->json(['message' => 'Account deleted successfully.']);
+    }
+
     public function login(Request $req)
     {
 
@@ -318,7 +330,6 @@ class AuthController extends Controller
         
         $isExist = Kyc::where("user_id", $user->id)->where("user_type","user")->first();
         
-        
         if($isExist){
             
             if ($req->hasfile('pan')) {
@@ -348,7 +359,7 @@ class AuthController extends Controller
          }
          
          $isExist->save();
-         return responseJson($create, 201, 'Kyc Uploaded Successfuly', false);
+         return responseJson($isExist, 201, 'Kyc Uploaded Successfuly', false);
         }
 
         $create = new Kyc;

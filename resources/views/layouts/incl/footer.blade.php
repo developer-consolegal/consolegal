@@ -17,7 +17,7 @@
                <button class="btn subscribe-btn mt-md-0 mt-2" type="submit" form="subscribe">Subscribe</button>
             </div>
             <div class="d-flex mb-2">
-               <div class="ms-2 g-recaptcha" data-sitekey="6LfQ4B8qAAAAAEbOCn71lwSwarsWil2_6kQlDEAj"></div>
+               <div class="ms-2 g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
                <div class="text-white">
                   <p id="notify-sub"></p>
                </div>
@@ -117,6 +117,7 @@
 <!------------------------------------------- scripts  -------------------------------------------->
 <!----------- jquery  --------->
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"></script>
