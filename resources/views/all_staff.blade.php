@@ -48,6 +48,7 @@
                         <th>Role</th>
                         <th>Email Address</th>
                         <th>Phone No.</th>
+                        <th>Created Date</th>
                         {{-- <th>Disabled</th> --}}
                         <th class="text-center">Action</th>
                     </tr>
@@ -62,6 +63,7 @@
                         <td>{{count($list->roles) && count($list->roles) > 0 ? $list->roles[0]->name : 'null' }}</td>
                         <td>{{$list->email}}</td>
                         <td>{{$list->phone}}</td>
+                        <td>{{$list->created_at}}</td>
                         <td class="text-center">
                             <a href="/admin/staff/profile/{{$list->id}}">
                                 <i class="fa fa-pencil" aria-hidden="true"></i> </a>

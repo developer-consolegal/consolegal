@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section("title","Updates")
+@section("title","News")
 
 
 
@@ -40,41 +40,41 @@
    @include("adminsidebar")
    <div id="content" class="main-content">
       <div class="addform-page addorder">
-         <h2>Updates Edit</h2>
-         <form action="{{ route('updates.update', $updates->id) }}" method="post">
+         <h2>Create Ticket</h2>
+         <div class="form-group">
+            <h4 class="text-success text-center">{{Session::get("success")}}</h4>
+            <h4 class="text-danger text-center">{{Session::get("error")}}</h4>
+            @if (isset($message))
+             <h4 class="text-danger text-center">{{$message}}</h4>
+            @endif
+         </div>
+         <form action="{{ route('admin.tickets.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            @method("PUT")
-            <div class="form-group">
-               <h4 class="text-success text-center">{{Session::get("success")}}</h4>
-               <h4 class="text-danger text-center">{{Session::get("error")}}</h4>
-               @if(isset($message))
-                <h4 class="text-danger text-center">{{$message}}</h4>
-               @endif
-            </div>
-            
-            <div class="form-group">
-               <label>Label<span class="text-danger">*</span></label>
-               <input type="text" class="form-control" name="title" value="{{$updates->title}}" required="">
-            </div>
-            
-            <div class="form-group">
-               <label>Document</label>
-               <input type="file" class="form-control" name="link" />
+            <div class="mb-3">
+                <label for="subject" class="form-label">User ID <small class="text-secondary">(UM-CL-***)</small></label>
+                <input type="text" name="user_id" class="form-control" required>
             </div>
 
-            <div class="form-group"><input type="submit" value="Update"></div>
-         </form>
+            <div class="mb-3">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" name="subject" class="form-control" required>
+            </div>
 
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea name="message" class="form-control" rows="4" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="attachment" class="form-label">Attachment (optional)</label>
+                <input type="file" name="attachment" class="form-control" accept="image/*">
+                <small class="text-muted">Max size: 2MB | JPEG, PNG, GIF</small>
+            </div>
+
+            <button type="submit" class="btn btn-warning ms-auto">📤 Submit Ticket</button>
+        </form>
       </div>
-
-
-
-
    </div>
-
-
-
-
 </div>
 <!--  END CONTENT AREA  -->
 

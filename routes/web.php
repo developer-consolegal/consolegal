@@ -192,6 +192,8 @@ Route::get("/join-app/export", [ExportController::class, 'join'])->name("join.ex
 Route::middleware(['admin_auth'])->prefix('admin')->name('admin.')->group(function () {
    Route::get('tickets', [AdminTicketController::class, 'index'])->name('tickets.index');
    Route::get('tickets/{ticket}', [AdminTicketController::class, 'show'])->name('tickets.show');
+   Route::get('tickets/create/user', [AdminTicketController::class, 'create'])->name('tickets.create');
+   Route::post('tickets/create', [AdminTicketController::class, 'store'])->name('tickets.store');
    Route::post('tickets/{ticket}/reply', [AdminTicketController::class, 'reply'])->name('tickets.reply');
    Route::post('tickets/{ticket}/close', [AdminTicketController::class, 'close'])->name('tickets.close');
 });

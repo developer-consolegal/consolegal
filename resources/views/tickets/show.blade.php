@@ -46,7 +46,11 @@
          <div class="container py-4">
             <div class="card shadow-sm border-0">
                 <div class="card-header text-dark d-flex justify-content-between align-items-center">
-                    <h5 class="mb-0 text-dark">🎫 Ticket ID: #{{$ticket->id}}</h5>
+                    <div>
+                        <h5 class="mb-0 text-dark">🎫 Ticket ID: #{{$ticket->id}}</h5>
+                        <h6 class="mb-0 text-dark text-capitalize mt-2">Name : {{$ticket->user->name}}</h6>
+                        <h6 class="mb-0 text-dark">User ID : {{$ticket->user->user_id}}</h6>
+                    </div>
                     <span class="badge p-2 bg-{{ $ticket->status == 'closed' ? 'danger text-white' : ($ticket->status == 'pending' ? 'warning' : 'success') }}">
                         {{ ucfirst($ticket->status) }}
                     </span>

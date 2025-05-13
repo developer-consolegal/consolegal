@@ -10,6 +10,7 @@ class UpdateController extends Controller
     public function index()
     {
         $updates = Update::latest()->simplePaginate(10);
+
         return view('updates.index', compact('updates'));
     }
 
@@ -18,10 +19,18 @@ class UpdateController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'link' => 'required|url'
+            'link' => 'required|file'
         ]);
 
-        Update::create($request->all());
+        $image = $request->file('link');
+        $imagePath = time() . "_update_doc" . $image->extension();
+        $image->move(public_path('storage'), $imagePath);
+
+        Update::create([
+            'title' => $request->title,
+            'link' => $imagePath,
+            'date' => now()->toDateString(),
+        ]);
 
         return redirect()->route('updates.index')->with('success', 'Update created successfully!');
     }
@@ -36,13 +45,28 @@ class UpdateController extends Controller
     // Update update in the database
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'link' => 'required|url',
-        ]);
 
         $update = Update::findOrFail($id);
-        $update->update($request->all());
+
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'link' => 'nullable|file',
+        ]);
+
+        // If a new image is uploaded, replace the old one
+        if ($request->hasFile('link')) {
+            // Delete old image from storage
+            Storage::disk('public')->delete($update->link);
+
+            // Store new image
+            $file = $request->file('link');
+            $filePath = time() . "_update_doc" . $file->extension();
+            $file->move(public_path("storage"), $filePath);
+            $update->link = $filePath;
+        }
+
+        $update->title = $request->title;
+        $update->save();
 
         return redirect()->route('updates.index')->with('success', 'Update updated successfully!');
     }

@@ -41,7 +41,7 @@
    <div id="content" class="main-content">
       <div class="addform-page addorder">
          <h2>Updates Control</h2>
-         <form action="{{route('updates.store')}}" method="post">
+         <form action="{{route('updates.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                <h4 class="text-success text-center">{{Session::get("success")}}</h4>
@@ -57,8 +57,8 @@
             </div>
             
             <div class="form-group">
-               <label>Link<span class="text-danger">*</span></label>
-               <input type="text" class="form-control" name="link" required="">
+               <label>Document<span class="text-danger">*</span></label>
+               <input type="file" class="form-control" name="link" required="">
             </div>
 
             <div class="form-group"><input type="submit" value="Save"></div>
@@ -69,7 +69,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Label</th>
-                    <th>Link</th>
+                    <th>Document</th>
                     <th>Timestamp</th>
                     <th class="text-center">Action</th>
                 </tr>
@@ -81,7 +81,7 @@
                 <tr>
                     <td>{{$list->id}}</td>
                     <td><a href="{{route('updates.edit', $list->id)}}">{{$list->title}}</a></td>
-                    <td>{{$list->link}}</td>
+                    <td><a href="{{$list->url}}" target="_blank"><i class="fa fa-download" aria-hidden="true"></i> </a></td>
                     <td>{{$list->created_at}}</td>
                     <td class="text-center d-flex align-items-center">
                         <a href="{{route('updates.edit', $list->id)}}">

@@ -73,6 +73,16 @@
             <input type="text" name="slug" class="form-control" value="{{ old('slug', $campaign->slug) }}" required>
         </div>
 
+        <div class="mb-3">
+            <label for="state">State</label>
+            <input type="text" id="state" name="state" value="{{ old('state', $campaign->state) }}" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" value="{{ old('city', $campaign->city) }}" class="form-control" required>
+        </div>
+
         <!-- Meta Title & Description -->
         <div class="mb-3">
             <label>Meta Title</label>

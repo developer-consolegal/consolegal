@@ -16,6 +16,21 @@ class Update extends Model
         'date' => null,
     ];
 
+    public $appends = ["url"];
+
+    public function getUrlAttribute()
+    {
+        if ($this->link && !str_contains($this->link, "https://")) {
+            return asset("storage/$this->link");
+        }
+
+        if($this->link){
+            return $this->link;
+        }
+        
+        return null;
+    }
+
     protected static function booted()
     {
         static::creating(function ($model) {

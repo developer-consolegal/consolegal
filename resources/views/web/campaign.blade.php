@@ -609,8 +609,8 @@
     <!-- ---------section-start------------>
     <section class="bottom_footer">
         <div class="container">
-            <div class="Childcontainer">
-                <div class="stats-grid">
+            <div class="Childcontainer row mx-0">
+                <div class="stats-grid col-md-5 col-sm-12">
                     <div class="stat-card">
                         <h2>{{ $campaign->happy_customers }}+</h2>
                         <p>Happy Customers</p>
@@ -629,11 +629,27 @@
                     </div>
                 </div>
 
-                <div class="content">
+                <div class="content col-md-5 col-sm-12">
                     <div id="step">Results & Analytics</div>
                     <h2>Performance Insights and Analytics Overview</h2>
                     <p>Trusted by Leading Brands</p>
-                    <img src="{{asset('web/campaign')}}/images/icon/flist.png" alt="list">
+                    <div class="slider overflow-hidden">
+                        <div class="slider-items">
+                            <img src="{{asset('web/campaign')}}/images/adani.jpg" alt="">
+                            <img src="{{asset('web/campaign')}}/images/utkarsh-alt.jpg" alt="">
+                            <img src="{{asset('web/campaign')}}/images/shri.jpg" alt="">
+                            <img src="{{asset('web/campaign')}}/images/remairo.jpg" alt="">
+                            <img src="{{asset('web/campaign')}}/images/adani.jpg" alt="">
+                            <img src="{{asset('web/campaign')}}/images/utkarsh-alt.jpg" alt="">
+                            <img src="{{asset('web/campaign')}}/images/shri.jpg" alt="">
+                            <img src="{{asset('web/campaign')}}/images/remairo.jpg" alt="">
+                            <img src="{{asset('web/campaign')}}/images/adani.jpg" alt="">
+                            <img src="{{asset('web/campaign')}}/images/utkarsh-alt.jpg" alt="">
+                            <img src="{{asset('web/campaign')}}/images/shri.jpg" alt="">
+                            <img src="{{asset('web/campaign')}}/images/remairo.jpg" alt="">
+                        </div>
+                    </div>
+                    {{-- <img src="{{asset('web/campaign')}}/images/icon/flist.png" alt="list"> --}}
                 </div>
             </div>
 
@@ -642,7 +658,7 @@
     <!-- ---------footer-section-start------------>
     <footer>
         <div class="footerSection">
-            <img src="{{asset('web')}}/image/logo.jpeg" style="max-width: 120px;" alt="logo">
+            <img src="{{asset('web')}}/campaign/images/logo-white.png" style="max-width: 120px;" alt="logo">
             <div>
                 <ul class="m-0">
                     <li><a href="/about" class="text-white text-decoration-none">About Us</a></li>

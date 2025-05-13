@@ -66,6 +66,14 @@
             <label for="slug">Campaign Slug</label>
             <input type="text" name="slug" class="form-control" required>
         </div>
+        <div class="mb-3">
+            <label for="state">State</label>
+            <input type="text" id="state" name="state" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" class="form-control" required>
+        </div>
 
         <div class="mb-3">
             <label for="meta_title">Meta Title</label>

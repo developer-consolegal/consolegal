@@ -42,8 +42,16 @@
       <div class="addform-page addorder">
          <h2>Support Tickets</h2>
 
+         <div class="form-group">
+            <h4 class="text-success text-center">{{Session::get("success")}}</h4>
+            <h4 class="text-danger text-center">{{Session::get("error")}}</h4>
+            @if (isset($message))
+             <h4 class="text-danger text-center">{{$message}}</h4>
+            @endif
+         </div>
+         
    <form method="GET" class="row g-3 mt-4">
-      <div class="col-8">
+      <div class="col-7">
          <input type="text" class="form-control" placeholder="Search By Ticket ID" name="ticketId">
       </div>
       <div class="col-2">
@@ -54,8 +62,9 @@
             <option value="closed">Closed</option> 
          </select>
       </div>
-      <div class="col-auto">
+      <div class="col-3 text-right">
          <button class="btn btn-warning" type="submit">Filter</button>
+         <a href="{{route('admin.tickets.create')}}" class="btn btn-dark">Create</a>
       </div>
    </form>
 
