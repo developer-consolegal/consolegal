@@ -62,6 +62,7 @@
                <select name="job_type" class="form-control" id="job_type" required>
                   <option value="full time">Full Time</option>
                   <option value="part time">Part Time</option>
+                  <option value="internship">Internship</option>
                </select>
             </div>
             <div class="form-group">

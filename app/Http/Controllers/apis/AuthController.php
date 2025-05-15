@@ -93,18 +93,19 @@ class AuthController extends Controller
         }
         
         $createUser = $req->only(['name', 'email', 'phone', 'password']);
-        
+    
+        $createUser['referral_id'] = User::generateReferralId();
+
         if(isset($req->password)){
             $createUser['password'] = Hash::make($req->password);
         }
         
         if (isset($req->ref_id)) {
            $createUser['ref_id'] = $req->ref_id;
-           $refer_code = str_replace('UM-CL-00', '', $req->ref_id);
-           
-           $isReferIDValid = User::find($refer_code);
-           
-           if(!$isReferIDValid){
+
+           $isRefValid = User::where("referral_id", $req->ref_id)->first();
+                      
+           if(!$isRefValid){
                 return responseJson(null, 500, "Refer Code is not valid", true);           
            }
          }
@@ -188,8 +189,8 @@ class AuthController extends Controller
             'email' => $req->email,
             'phone' => $req->phone,
             'password' => Hash::make($req->password),
+            'referral_id' => User::generateReferralId(),
         ]);
-
 
         $wallets = new Wallet;
 

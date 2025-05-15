@@ -62,6 +62,7 @@
                <select name="job_type" class="form-control" id="job_type" required>
                   <option value="full time" {{$data->job_type == 'full time'?'active':'';}}>Full Time</option>
                   <option value="part time" {{$data->job_type == 'part time'?'active':'';}}>Part Time</option>
+                  <option value="internship" {{$data->job_type == 'internship'?'active':'';}}>Internship</option>
                </select>
             </div>
             <div class="form-group">

@@ -158,10 +158,11 @@ class users extends Controller
       $users->phone = $req->phone;
       $users->company = $req->company ? $req->company : '';
       $users->gst = $req->gst ? $req->gst : '';
+      $users->referral_id = User::generateReferralId();
 
       if ($req->ref_id) {
-         $refer_code = str_replace('UM-CL-00', '', $req->ref_id);
-         $isRefValid = User::where("id", $refer_code)->first();
+         // $refer_code = str_replace('UM-CL-00', '', $req->ref_id);
+         $isRefValid = User::where("referral_id", $req->ref_id)->first();
          if (!$isRefValid) {
             return redirect()->back()->with(['error' => 'Invalid referral ID.']);
          }
@@ -178,10 +179,10 @@ class users extends Controller
          $referred_amount = Refer::where('name', 'referred')->first()->amount;
 
          //split user id from refer code recieved
-         $refer_code = str_replace('UM-CL-00', '', $req->ref_id);
+         $isRefValid = User::where("referral_id", $req->ref_id)->first();
 
          // credit reffer bonus to reffered by 
-         $update_wallet = WalletTrait::referCredit($referred_amount, "flat", "credit", $refer_code);
+         $update_wallet = WalletTrait::referCredit($referred_amount, "flat", "credit", $isRefValid->id);
       }
 
 
@@ -224,6 +225,7 @@ class users extends Controller
          $users->phone = $req->phone;
          $users->company = $req->company ? $req->company : '';
          $users->gst = $req->gst ? $req->gst : '';
+         $users->referral_id = User::generateReferralId();
 
          if ($req->ref_id) {
             $users->ref_id = $req->ref_id;
@@ -236,8 +238,9 @@ class users extends Controller
 
          if ($req->ref_id && $users) {
             $refer_amount = Refer::first()->amount;
+            $isRefValid = User::where("referral_id", $req->ref_id)->first();
             // credit reffer bonus to reffered by 
-            $update_wallet = WalletTrait::walletUpdate($refer_amount, "flat", "credit", $req->ref_id);
+            $update_wallet = WalletTrait::walletUpdate($refer_amount, "flat", "credit", $isRefValid->id);
          }
 
 
@@ -509,7 +512,7 @@ class users extends Controller
 
    function refer_earn(Request $req)
    {
-      $user = $req->session()->get("user");
+      $user = User::find($req->session()->get("user")->id);
       return view("user.refer", compact('user'));
    }
 

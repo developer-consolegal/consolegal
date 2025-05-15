@@ -26,7 +26,7 @@
 
                         <div class="col-xl-8 col-lg-8 col-md-8 col-8">
                           <form>
-                            <input type="text" name="copy" id="copy" value="{{Config::get('app.url')}}users/signup/{{$user->user_id}}">
+                            <input type="text" name="copy" id="copy" value="{{Config::get('app.url')}}users/signup/{{$user->referral_id}}">
                         </div>
 
                         <div class="col-xl-4 col-lg-4 col-md-4 col-4">

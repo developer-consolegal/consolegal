@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
@@ -80,4 +81,14 @@ class User extends Authenticatable
         }
         return null;
     }
+
+    public static function generateReferralId()
+    {
+        do {
+            $referralId = strtoupper(Str::random(8));
+        } while (self::where('referral_id', $referralId)->exists());
+
+        return $referralId;
+    }
+
 }
