@@ -99,6 +99,7 @@ Route::get('/cache', function () {
 Route::view("/privacy", "web.privacy")->name("privacy");
 Route::view("/refund", "web.refund")->name("refund");
 Route::view("/tnc", "web.tnc")->name("tnc");
+Route::view("/account-delete", "web.account-delete")->name("account.delete");
 
 Route::get("/pay-now", [PayController::class, 'index'])->name('paynow.index');
 Route::post("/pay-now", [PayController::class, 'store'])->name('paynow');
